@@ -119,10 +119,7 @@ if(count($minifiedFiles)) {
 	$output .= print_r($minifiedFiles,true);
 }
 
-if($_GET['group']) {
-	$filename = $minifiedFiles[$_GET['group']];
-} else {
-	echo nl2br($output);
-}
+echo nl2br($output);
+
 
 ?>
