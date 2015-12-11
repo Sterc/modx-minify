@@ -1,0 +1,13 @@
+.DS_Store
+
+*.log
+*.logs
+
+.sass-cache/
+
+node_modules/
+
+# Ignore various IDE project files and folders
+.idea/
+
+cache
