@@ -14,7 +14,7 @@ require_once(MODX_CORE_PATH . 'model/modx/modx.class.php');
 
 $output = '';
 $root = dirname(dirname(__FILE__));
-$config = dirname(__FILE).'/config.json';
+$config = dirname(__FILE__).'/config.json';
 if(!file_exists($config)) {
 	$output .= $config." file not found.\n\r"; // file does not exist
 }
