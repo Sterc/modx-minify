@@ -66,22 +66,22 @@ class ModxMinify {
 
 	}
 
-	public function validateFile($file = false,$allowedExtensions = array('css','scss','js')) {
+	public function validateFile($filePath = false, $fileExt = false, $allowedExtensions = array('css','scss','js')) {
 
 		$validFile = true;
 
-		$filePath = $this->config['rootPath'].$file;
+		// $filePath = $this->config['rootPath'].$file;
 		if(!file_exists($filePath)) {
 			// file does not exist
 			$this->log .= 'Error: File "'.$filePath.'"" does not exist. Skipping..'."\n\r";
 			$validFile = false;
 		}
-		$ext = pathinfo($filePath, PATHINFO_EXTENSION);
-		if(!in_array($ext, $allowedExtensions)) {
+		// $ext = pathinfo($filePath, PATHINFO_EXTENSION);
+		if(!in_array($fileExt, $allowedExtensions)) {
 			// not allowed extension
 			// skip file
 			// log extension in error message
-			$this->log .= $ext." extension is not allowed\n\r";
+			$this->log .= $fileExt." extension is not allowed\n\r";
 			$validFile = false;
 		}
 
@@ -105,14 +105,40 @@ class ModxMinify {
 				continue;
 			}
 
+			$allFiles = array();
+			$fileDates = array();
+
 			foreach($files as $file) {
 
-				if(!$this->validateFile($file)) {
+				$filePath = $this->config['rootPath'].$file;
+				$fileExt = pathinfo($filePath, PATHINFO_EXTENSION);
+				if(!$this->validateFile($filePath,$fileExt)) {
 					// no valid files found in group (non-existent or not allowed extension)
 					continue;
 				}
 
-			}
+				$fileFilter = array();
+				$minifyFilter = array();
+				if($fileExt == 'js') {
+					$minifyFilter = array(new JSMinFilter());
+					$filePrefix = 'scripts';
+					$fileSuffix = '.min.js';
+				} else {
+					if($fileExt = 'scss') {
+						$fileFilter = array(new ScssphpFilter());
+					}
+					$minifyFilter = array(new CssMinFilter());
+					$filePrefix = 'styles';
+					$fileSuffix = '.min.css';
+				}
+				$fileDates[] = filemtime($filePath);
+				$allFiles[] = new FileAsset($filePath,$fileFilter);
+
+			} // endforeach $files
+
+			sort($fileDates);
+			$lastEdited = end($fileDates);
+			$minifyFilename = $filePrefix.'-'.$groupKey.'-'.$lastEdited.$fileSuffix;
 
 		}
 
@@ -126,7 +152,7 @@ class ModxMinify {
 			$log = nl2br($this->log);
 		}
 
-		return $log;
+		echo $log;
 
 	}
 
