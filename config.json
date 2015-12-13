@@ -1,5 +1,5 @@
 {
-	"minify_path": "/minify/cache",
+	"minify_path": "/modx-minify/cache",
 	"groups":{
 		"css": [
 			"/assets/libs/bootstrap/bootstrap.min.css",

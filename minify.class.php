@@ -66,32 +66,26 @@ class ModxMinify {
 
 	}
 
-	public function validateFiles($files = array(),$allowedExtensions = array('css','scss','js')) {
+	public function validateFile($file = false,$allowedExtensions = array('css','scss','js')) {
 
-		$validFiles = count($files);
+		$validFile = true;
 
-		foreach($files as $file) {
-
-			$filePath = $this->config['rootPath'].$file;
-			if(!file_exists($filePath)) {
-				// file does not exist
-				$this->log .= 'Error: File "'.$filePath.'"" does not exist. Skipping..'."\n\r";
-				$validFiles--;
-				continue;
-			}
-			$ext = pathinfo($filePath, PATHINFO_EXTENSION);
-			if(!in_array($ext, $allowedExtensions)) {
-				// not allowed extension
-				// skip file
-				// log extension in error message
-				$this->log .= $ext." extension is not allowed\n\r";
-				$validFiles--;
-				continue;
-			}
-
+		$filePath = $this->config['rootPath'].$file;
+		if(!file_exists($filePath)) {
+			// file does not exist
+			$this->log .= 'Error: File "'.$filePath.'"" does not exist. Skipping..'."\n\r";
+			$validFile = false;
+		}
+		$ext = pathinfo($filePath, PATHINFO_EXTENSION);
+		if(!in_array($ext, $allowedExtensions)) {
+			// not allowed extension
+			// skip file
+			// log extension in error message
+			$this->log .= $ext." extension is not allowed\n\r";
+			$validFile = false;
 		}
 
-		return ($validFiles < 1) ? 0 : $validFiles;
+		return $validFile;
 
 	}
 
@@ -99,7 +93,7 @@ class ModxMinify {
 
 		if(!$this->parseConfig()) {
 			// invalid config file.. show log for specific errors
-			echo $this->log;
+			echo $this->showLog();
 			return false;
 		}
 
@@ -111,20 +105,29 @@ class ModxMinify {
 				continue;
 			}
 
-			if(!$this->validateFiles($files)) {
-				// no valid files found in group (non-existent or not allowed extension)
-				$this->log .= "Error: No valid files found in group ".$groupKey."\n\r";
-				echo nl2br($this->log);
-				continue;
-			}
-
 			foreach($files as $file) {
+
+				if(!$this->validateFile($file)) {
+					// no valid files found in group (non-existent or not allowed extension)
+					continue;
+				}
 
 			}
 
 		}
 
+	}
 
+	public function showLog() {
+
+		if (php_sapi_name() == "cli") {
+			$log = $this->log;
+		} else {
+			$log = nl2br($this->log);
+		}
+
+		return $log;
 
 	}
+
 }
