@@ -23,9 +23,11 @@ $_lang['modxminify.group.intro_msg'] = 'Manage your groups.';
 $_lang['modxminify.group.name'] = 'Group key';
 $_lang['modxminify.group.description'] = 'Description';
 
+$_lang['modxminify.file'] = 'File';
 $_lang['modxminify.file.files'] = 'Files';
 $_lang['modxminify.file.intro_msg'] = 'Manage your files.';
 $_lang['modxminify.file.name'] = 'Filename';
+$_lang['modxminify.file.name.description'] = 'Enter the full path (relative to your base_path) of your file.';
 $_lang['modxminify.file.position'] = 'Position';
 
 $_lang['modxminify.err.group_name_ae'] = 'A group already exists with that key.';

@@ -28,7 +28,7 @@ modxMinify.grid.Groups = function(config) {
             ,editor: { xtype: 'textfield' }
         }]
         ,tbar: [{
-            text: _('modxminify.group.create')
+            text: _('modxminify.global.create')+' '+_('modxminify.group').toLowerCase()
             ,handler: this.createGroup
             ,scope: this
         },'->',{
@@ -139,12 +139,12 @@ modxMinify.window.Group = function(config) {
             ,hidden: true
         },{
             xtype: 'textfield'
-            ,fieldLabel: _('name')
+            ,fieldLabel: _('modxminify.group.name')
             ,name: 'name'
             ,anchor: '100%'
         },{
             xtype: 'textarea'
-            ,fieldLabel: _('description')
+            ,fieldLabel: _('modxminify.group.description')
             ,name: 'description'
             ,anchor: '100%'
         }]

@@ -9,7 +9,6 @@
 class modxMinifyGroupUpdateProcessor extends modObjectUpdateProcessor {
     public $classKey = 'modxMinifyGroup';
     public $languageTopics = array('modxminify:default');
-    public $objectType = 'modxminify.item';
 
     public function beforeSet() {
         $name = $this->getProperty('name');

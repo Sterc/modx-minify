@@ -28,7 +28,7 @@ modxMinify.grid.Files = function(config) {
             ,editor: { xtype: 'numberfield', allowDecimal: false, allowNegative: false }
         }]
         ,tbar: [{
-            text: _('modxminify.file.create')
+            text: _('modxminify.global.create')+' '+_('modxminify.file').toLowerCase()
             ,handler: this.createFile
             ,scope: this
         },'->',{
@@ -138,14 +138,45 @@ modxMinify.window.File = function(config) {
             ,name: 'id'
             ,hidden: true
         },{
-            xtype: 'textfield'
-            ,fieldLabel: _('name')
-            ,name: 'name'
+            xtype: 'modx-combo'
+            ,fieldLabel: _('modxminify.group')
+            ,name: 'group'
+            ,hiddenName: 'group'
+            ,displayField: 'name'
+            ,valueField: 'id'
+            ,fields: ['id','name']
+             // ,pageSize: 20
+            ,forceSelection: true
             ,anchor: '100%'
+            ,allowBlank: false
+            ,typeAhead: true
+            ,typeAheadDelay: 200
+            ,minChars: 2
+            ,queryMode: 'remote'
+            ,editable : true
+            ,mode: 'remote'
+            ,triggerAction: 'all'
+            ,store: new Ext.data.JsonStore({
+                id:'id'
+                ,root: 'results'
+                ,totalProperty: 'total'
+                ,fields: ['id', 'name']
+                ,url: modxMinify.config.connectorUrl
+                ,baseParams: {
+                    action: 'mgr/group/getlist'
+                }
+            })
+            ,emptyText: _('modxminify.group.select')
+            ,listeners: {
+                beforequery: function(qe){
+                    delete qe.combo.lastQuery;
+                }
+            }
+            ,allowBlank: false
         },{
-            xtype: 'textarea'
-            ,fieldLabel: _('description')
-            ,name: 'description'
+            xtype: 'textfield'
+            ,fieldLabel: _('modxminify.file.name')+' <small>'+_('modxminify.file.name.description')+'</small>'
+            ,name: 'name'
             ,anchor: '100%'
         },{
             xtype: 'textfield'

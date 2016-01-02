@@ -8,9 +8,8 @@
 class modxMinifyGroupGetListProcessor extends modObjectGetListProcessor {
     public $classKey = 'modxMinifyGroup';
     public $languageTopics = array('modxminify:default');
-    public $defaultSortField = 'position';
+    public $defaultSortField = 'name';
     public $defaultSortDirection = 'ASC';
-    public $objectType = 'modxminify.item';
 
     public function prepareQueryBeforeCount(xPDOQuery $c) {
         $query = $this->getProperty('query');
