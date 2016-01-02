@@ -1,0 +1,1 @@
+<div id="modxminify-panel-home-div"></div>
