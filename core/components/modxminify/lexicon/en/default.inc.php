@@ -26,8 +26,9 @@ $_lang['modxminify.group.description'] = 'Description';
 $_lang['modxminify.file'] = 'File';
 $_lang['modxminify.file.files'] = 'Files';
 $_lang['modxminify.file.intro_msg'] = 'Manage your files.';
+$_lang['modxminify.file.description'] = 'First select the group to add the files to. Then specify the filename path(s). File path is relative to your modx base_path.';
 $_lang['modxminify.file.name'] = 'Filename';
-$_lang['modxminify.file.name.description'] = 'Enter the full path (relative to your base_path) of your file.';
+$_lang['modxminify.file.name.description'] = 'Enter the full path of your file (relative to your base_path). For multiple files place every file on a new line.';
 $_lang['modxminify.file.position'] = 'Position';
 
 $_lang['modxminify.err.group_name_ae'] = 'A group already exists with that key.';

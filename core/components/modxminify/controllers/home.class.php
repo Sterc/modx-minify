@@ -14,6 +14,7 @@ class modxMinifyHomeManagerController extends modxMinifyBaseManagerController {
     public function loadCustomCssJs() {
     
     
+        $this->addJavascript($this->modxminify->getOption('jsUrl').'mgr/extras/griddraganddrop.js');
         $this->addJavascript($this->modxminify->getOption('jsUrl').'mgr/widgets/groups.grid.js');
         $this->addJavascript($this->modxminify->getOption('jsUrl').'mgr/widgets/files.grid.js');
         $this->addJavascript($this->modxminify->getOption('jsUrl').'mgr/widgets/home.panel.js');

@@ -8,24 +8,31 @@ modxMinify.grid.Files = function(config) {
         }
         ,save_action: 'mgr/file/updatefromgrid'
         ,autosave: true
-        ,fields: ['id','filename','position']
+        ,fields: ['id','filename','group','group_name','last_modified']
         ,autoHeight: true
         ,paging: true
         ,remoteSort: true
+        ,ddGroup: 'modxminifyItemDDGroup'
+        ,enableDragDrop: true
         ,columns: [{
             header: _('id')
             ,dataIndex: 'id'
-            ,width: 70
+            ,width: 40
         },{
             header: _('modxminify.file.name')
-            ,dataIndex: 'name'
-            ,width: 200
+            ,dataIndex: 'filename'
+            ,width: 240
             ,editor: { xtype: 'textfield' }
         },{
-            header: _('modxminify.file.position')
-            ,dataIndex: 'position'
-            ,width: 250
-            ,editor: { xtype: 'numberfield', allowDecimal: false, allowNegative: false }
+            header: _('last_modified')
+            ,dataIndex: 'last_modified'
+            ,width: 180
+            ,editor: { xtype: 'textfield' }
+        },{
+            header: _('modxminify.group')
+            ,dataIndex: 'group_name'
+            ,width: 80
+            ,editor: { xtype: 'textfield' }
         }]
         ,tbar: [{
             text: _('modxminify.global.create')+' '+_('modxminify.file').toLowerCase()
@@ -49,6 +56,54 @@ modxMinify.grid.Files = function(config) {
                 },scope:this}
             }
         }]
+        ,listeners: {
+            'render': function(g) {
+                var ddrow = new Ext.ux.dd.GridReorderDropTarget(g, {
+                    copy: false
+                    ,listeners: {
+                        'beforerowmove': function(objThis, oldIndex, newIndex, records) {
+
+                            Ext.getCmp('modxminify-grid-files').setDisabled(true);
+
+                        }
+
+                        ,'afterrowmove': function(objThis, oldIndex, newIndex, records) {
+
+                            MODx.Ajax.request({
+                                url: modxMinify.config.connectorUrl
+                                ,params: {
+                                    action: 'mgr/file/reorder'
+                                    ,idItem: records.pop().id
+                                    ,oldIndex: oldIndex
+                                    ,newIndex: newIndex
+                                }
+                                ,listeners: {
+                                    'success': {
+                                        fn: function(r) {
+                                            Ext.getCmp('modxminify-grid-files').setDisabled(false);
+                                            Ext.getCmp('modxminify-grid-files').refresh();
+                                        }
+                                     }
+                                 }
+                            });
+
+                        }
+
+                        ,'beforerowcopy': function(objThis, oldIndex, newIndex, records) {
+                        }
+
+                        ,'afterrowcopy': function(objThis, oldIndex, newIndex, records) {
+                        }
+                    }
+                });
+
+                Ext.dd.ScrollManager.register(g.getView().getEditorParent());
+            }
+            ,beforedestroy: function(g) {
+                Ext.dd.ScrollManager.unregister(g.getView().getEditorParent());
+            }
+
+        }
     });
     modxMinify.grid.Files.superclass.constructor.call(this,config);
 };
@@ -131,12 +186,17 @@ modxMinify.window.File = function(config) {
     Ext.applyIf(config,{
         title: _('modxminify.file.create')
         ,closeAction: 'close'
+        ,width: 600
         ,url: modxMinify.config.connectorUrl
         ,action: 'mgr/file/create'
         ,fields: [{
             xtype: 'textfield'
             ,name: 'id'
             ,hidden: true
+        },{
+            xtype: 'label'
+            ,text: _('modxminify.file.description')
+            ,cls: 'desc-under'
         },{
             xtype: 'modx-combo'
             ,fieldLabel: _('modxminify.group')
@@ -174,14 +234,15 @@ modxMinify.window.File = function(config) {
             }
             ,allowBlank: false
         },{
-            xtype: 'textfield'
-            ,fieldLabel: _('modxminify.file.name')+' <small>'+_('modxminify.file.name.description')+'</small>'
-            ,name: 'name'
+            xtype: 'textarea'
+            ,fieldLabel: _('modxminify.file.name')
+            ,name: 'filename'
             ,anchor: '100%'
+            ,height: 200
         },{
-            xtype: 'textfield'
-            ,name: 'position'
-            ,hidden: true
+            xtype: 'label'
+            ,text: _('modxminify.file.name.description')
+            ,cls: 'desc-under'
         }]
     });
     modxMinify.window.File.superclass.constructor.call(this,config);

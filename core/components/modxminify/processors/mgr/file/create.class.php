@@ -18,12 +18,12 @@ class modxMinifyFileCreateProcessor extends modObjectCreateProcessor {
     }
 
     public function beforeSave() {
-        $name = $this->getProperty('name');
+        $filename = $this->getProperty('filename');
 
-        if (empty($name)) {
-            $this->addFieldError('name',$this->modx->lexicon('modxminify.err.item_name_ns'));
-        } else if ($this->doesAlreadyExist(array('name' => $name))) {
-            $this->addFieldError('name',$this->modx->lexicon('modxminify.err.item_name_ae'));
+        if (empty($filename)) {
+            $this->addFieldError('filename',$this->modx->lexicon('modxminify.err.item_name_ns'));
+        } else if ($this->doesAlreadyExist(array('filename' => $filename))) {
+            $this->addFieldError('filename',$this->modx->lexicon('modxminify.err.item_name_ae'));
         }
         return parent::beforeSave();
     }

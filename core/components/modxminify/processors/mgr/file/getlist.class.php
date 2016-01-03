@@ -15,10 +15,26 @@ class modxMinifyFileGetListProcessor extends modObjectGetListProcessor {
         $query = $this->getProperty('query');
         if (!empty($query)) {
             $c->where(array(
-                    'filename:LIKE' => '%'.$query.'%'
-                ));
+                'filename:LIKE' => '%'.$query.'%'
+            ));
         }
         return $c;
     }
+
+    public function prepareRow(xPDOObject $object) {
+        $groupId = $object->get('group');
+        if($groupId){
+            $getGroup = $this->modx->getObject('modxMinifyGroup',$groupId);
+            if($getGroup) {
+                $groupName = $getGroup->get('name');
+                $object->set('group_name', $groupName);
+            }
+        }
+        $lastmodified = filemtime($this->modx->getOption('base_path').$object->get('filename'));
+        $object->set('last_modified', date('Y-m-d H:i:s',$lastmodified));
+
+        return parent::prepareRow($object);
+    }
+
 }
 return 'modxMinifyFileGetListProcessor';
