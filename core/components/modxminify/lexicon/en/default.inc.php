@@ -12,6 +12,7 @@ $_lang['modxminify.menu.modxminify'] = 'MODX Minify';
 $_lang['modxminify.menu.modxminify_desc'] = 'Minify your CSS, SCSS, LESS and JS files.';
 
 $_lang['modxminify.global.create'] = 'Create';
+$_lang['modxminify.global.add'] = 'Add';
 $_lang['modxminify.global.update'] = 'Update';
 $_lang['modxminify.global.remove'] = 'Remove';
 $_lang['modxminify.global.remove_confirm'] = 'Are you sure you want to remove this';

@@ -28,7 +28,7 @@ modxMinify.grid.Groups = function(config) {
             ,editor: { xtype: 'textfield' }
         }]
         ,tbar: [{
-            text: _('modxminify.global.create')+' '+_('modxminify.group').toLowerCase()
+            text: _('modxminify.global.add')+' '+_('modxminify.group').toLowerCase()
             ,handler: this.createGroup
             ,scope: this
         },'->',{
@@ -58,12 +58,12 @@ Ext.extend(modxMinify.grid.Groups,MODx.grid.Grid,{
     ,getMenu: function() {
         var m = [];
         m.push({
-            text: _('modxminify.group.update')
+            text: _('modxminify.global.update')+' '+_('modxminify.group').toLowerCase()
             ,handler: this.updateGroup
         });
         m.push('-');
         m.push({
-            text: _('modxminify.group.remove')
+            text: _('modxminify.global.remove')+' '+_('modxminify.group').toLowerCase()
             ,handler: this.removeGroup
         });
         this.addContextMenuItem(m);
@@ -86,7 +86,7 @@ Ext.extend(modxMinify.grid.Groups,MODx.grid.Grid,{
 
         var updateGroup = MODx.load({
             xtype: 'modxminify-window-group'
-            ,title: _('modxminify.group.update')
+            ,title: _('modxminify.global.update')+' '+_('modxminify.group').toLowerCase()
             ,action: 'mgr/group/update'
             ,record: this.menu.record
             ,listeners: {
@@ -103,8 +103,8 @@ Ext.extend(modxMinify.grid.Groups,MODx.grid.Grid,{
         if (!this.menu.record) return false;
         
         MODx.msg.confirm({
-            title: _('modxminify.group.remove')
-            ,text: _('modxminify.group.remove_confirm')
+            title: _('modxminify.global.remove')+' '+_('modxminify.group').toLowerCase()
+            ,text: _('modxminify.global.remove_confirm')+' '+_('modxminify.group').toLowerCase()
             ,url: this.config.url
             ,params: {
                 action: 'mgr/group/remove'
@@ -129,7 +129,7 @@ Ext.reg('modxminify-grid-groups',modxMinify.grid.Groups);
 modxMinify.window.Group = function(config) {
     config = config || {};
     Ext.applyIf(config,{
-        title: _('modxminify.group.create')
+        title: _('modxminify.global.add')+' '+_('modxminify.group').toLowerCase()
         ,closeAction: 'close'
         ,url: modxMinify.config.connectorUrl
         ,action: 'mgr/group/create'

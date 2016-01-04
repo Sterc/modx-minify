@@ -1,5 +1,13 @@
 <?php
 
+use Assetic\AssetManager;
+use Assetic\AssetWriter;
+use Assetic\Asset\AssetCollection;
+use Assetic\Asset\FileAsset;
+use Assetic\Filter\CssMinFilter;
+use Assetic\Filter\ScssphpFilter;
+use Assetic\Filter\JSMinFilter;
+
 /**
  * The main modxMinify service class.
  *
@@ -31,7 +39,11 @@ class modxMinify {
             'assetsUrl' => $assetsUrl,
             'jsUrl' => $assetsUrl . 'js/',
             'cssUrl' => $assetsUrl . 'css/',
-            'connectorUrl' => $assetsUrl . 'connector.php'
+            'connectorUrl' => $assetsUrl . 'connector.php',
+            'rootPath' => $this->modx->getOption('base_path'),
+            'cacheOptions' => array(xPDO::OPT_CACHE_KEY => 'modxminify'),
+            'cachePath' => $assetsPath.'cache',
+            'cacheUrl' => $assetsUrl.'cache'
         ), $options);
 
         $this->modx->addPackage('modxminify', $this->getOption('modelPath'));
@@ -60,4 +72,183 @@ class modxMinify {
         }
         return $option;
     }
+
+    /**
+     * Process files from specified group with Assetic library
+     * https://github.com/kriswallsmith/assetic
+     *
+     * @param string $group
+     *
+     * @return string
+     */
+    public function minifyFiles($group) {
+
+        $output = '';
+        $filenames = $this->getGroupFilenames($group);
+        if(count($filenames)) {
+
+            require_once $this->options['corePath'] . 'assetic/vendor/autoload.php';
+
+            $minifiedFiles = array();
+        
+            $am = new AssetManager();
+            $writer = new AssetWriter($this->options['cachePath']);
+            $allFiles = array();
+            $fileDates = array();
+            $updatedFiles = 0;
+            $skipMinification = 0;
+
+            foreach($filenames as $file) {
+
+                $filePath = $this->options['rootPath'].$file;
+                $fileExt = pathinfo($filePath, PATHINFO_EXTENSION);
+                if(!$this->validateFile($filePath,$fileExt)) {
+                    // no valid files found in group (non-existent or not allowed extension)
+                    $this->log('File '.$filePath.' not valid.'."\n\r", 'error');
+                    continue;
+                } else {
+                    $this->log('File '.$filePath.' successfully added to group.'."\n\r");
+                }
+
+                $fileFilter = array();
+                $minifyFilter = array();
+                if($fileExt == 'js') {
+                    $minifyFilter = array(new JSMinFilter());
+                    $filePrefix = 'scripts';
+                    $fileSuffix = '.min.js';
+                } else {
+                    if($fileExt = 'scss') {
+                        $fileFilter = array(new ScssphpFilter());
+                    }
+                    $minifyFilter = array(new CssMinFilter());
+                    $filePrefix = 'styles';
+                    $fileSuffix = '.min.css';
+                }
+                $fileDates[] = filemtime($filePath);
+                $allFiles[] = new FileAsset($filePath,$fileFilter);
+
+            } // endforeach $files
+
+            if(count($fileDates) && count($allFiles)) {
+
+                sort($fileDates);
+                $lastEdited = end($fileDates);
+                $minifyFilename = $filePrefix.'-'.$group.'-'.$lastEdited.$fileSuffix;
+
+                // find the old minified files
+                // if necessary, remove old and generate new, based on file modification time of minified file
+                foreach (glob($this->options['cachePath'].'/'.$filePrefix.'-'.$group.'-*'.$fileSuffix) as $current) {
+                    if(filemtime($current) > $lastEdited) {
+                        // current file is up to date
+                        $this->log('Minified file "'.basename($current).'" up to date. Skipping group "'.$group.'" minification.'."\n\r");
+                        $minifyFilename = basename($current);
+                        $skip = 1;
+                    } else {
+                        unlink($current);
+                        $this->log('Removing current file '.$current."\n\r");
+                    }
+                }
+                $updatedFiles++;
+
+                $this->log("Writing ".$minifyFilename."\n\r");
+                $collection = new AssetCollection($allFiles,$minifyFilter);
+                $collection->setTargetPath($minifyFilename);
+                $am->set($group, $collection);
+
+                if($updatedFiles > 0 && $skip == 0) {
+                    $writer->writeManagerAssets($am);
+                }
+                $output = $this->options['cacheUrl'].'/'.$minifyFilename;
+
+            } else {
+
+                $this->log('No files parsed from group '.$group.'. Check the log for more info.'."\n\r",'error');
+
+            }
+
+
+        } else {
+            // No files in specified group
+        }
+        return $output;
+
+    }
+
+    /**
+     * Get all the filenames that are added to a group
+     *
+     * @param string $group
+     *
+     * @return array
+     */
+    public function getGroupFilenames($group) {
+
+        $filenames = $this->modx->cacheManager->get('group_'.$group.'_filenames', $this->options['cacheOptions']);
+        if(!$filenames) {
+            $filenames = array();
+            $c = $this->modx->newQuery('modxMinifyFile');
+            $c->where(array(
+                'group' => $group
+            ));
+            $c->sortby('position','asc');
+            $collection = $this->modx->getCollection('modxMinifyFile',$c);
+            foreach($collection as $file) {
+                $filenames[$file->get('id')] = $file->get('filename');
+            }
+            $this->modx->cacheManager->set('group_'.$group.'_filenames', $filenames, 0, $this->options['cacheOptions']);
+        }
+        return $filenames;
+
+    }
+
+     /**
+     * Validates a single file
+     *
+     * @param string $filePath
+     * @param string $fileExt
+     * @param array $allowedExtensions
+     *
+     * @return boolean
+     */
+    public function validateFile($filePath = false, $fileExt = false, $allowedExtensions = array('css','scss','js')) {
+
+        $validFile = true;
+
+        if(!file_exists($filePath)) {
+            // file does not exist
+            // $this->log .= '### Error: File "'.$filePath.'"" does not exist. Skipping..'."\n\r";
+            $validFile = false;
+        }
+        // $ext = pathinfo($filePath, PATHINFO_EXTENSION);
+        if(!in_array($fileExt, $allowedExtensions)) {
+            // not allowed extension
+            // skip file
+            // log extension in error message
+            $this->log('### Error: '.$fileExt.' extension is not allowed'."\n\r",'error');
+            $validFile = false;
+        }
+
+        return $validFile;
+
+    }
+
+    /**
+     * Write message to log
+     *
+     * @param string $message
+     * @param string $level
+     *
+     */
+    public function log($message,$level = 'info') {
+        switch ($level) {
+            case 'error':
+                $this->modx->log(xPDO::LOG_LEVEL_ERROR,$message);
+                break;
+            case 'info':
+            default:
+                $this->modx->log(xPDO::LOG_LEVEL_INFO,$message);
+                break;
+        }
+    }
+
 }

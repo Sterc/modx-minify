@@ -35,7 +35,7 @@ modxMinify.grid.Files = function(config) {
             ,editor: { xtype: 'textfield' }
         }]
         ,tbar: [{
-            text: _('modxminify.global.create')+' '+_('modxminify.file').toLowerCase()
+            text: _('modxminify.global.add')+' '+_('modxminify.file').toLowerCase()
             ,handler: this.createFile
             ,scope: this
         },'->',{
@@ -113,12 +113,12 @@ Ext.extend(modxMinify.grid.Files,MODx.grid.Grid,{
     ,getMenu: function() {
         var m = [];
         m.push({
-            text: _('modxminify.file.update')
+            text: _('modxminify.global.update')+' '+_('modxminify.file').toLowerCase()
             ,handler: this.updateFile
         });
         m.push('-');
         m.push({
-            text: _('modxminify.file.remove')
+            text: _('modxminify.global.remove')+' '+_('modxminify.file').toLowerCase()
             ,handler: this.removeFile
         });
         this.addContextMenuItem(m);
@@ -141,7 +141,7 @@ Ext.extend(modxMinify.grid.Files,MODx.grid.Grid,{
 
         var updateFile = MODx.load({
             xtype: 'modxminify-window-file'
-            ,title: _('modxminify.file.update')
+            ,title: _('modxminify.global.update')+' '+_('modxminify.file').toLowerCase()
             ,action: 'mgr/file/update'
             ,record: this.menu.record
             ,listeners: {
@@ -158,8 +158,8 @@ Ext.extend(modxMinify.grid.Files,MODx.grid.Grid,{
         if (!this.menu.record) return false;
         
         MODx.msg.confirm({
-            title: _('modxminify.file.remove')
-            ,text: _('modxminify.file.remove_confirm')
+            title: _('modxminify.global.remove')+' '+_('modxminify.file').toLowerCase()
+            ,text: _('modxminify.global.remove_confirm')+' '+_('modxminify.file').toLowerCase()
             ,url: this.config.url
             ,params: {
                 action: 'mgr/file/remove'
@@ -184,7 +184,7 @@ Ext.reg('modxminify-grid-files',modxMinify.grid.Files);
 modxMinify.window.File = function(config) {
     config = config || {};
     Ext.applyIf(config,{
-        title: _('modxminify.file.create')
+        title: _('modxminify.global.add')+' '+_('modxminify.file').toLowerCase()
         ,closeAction: 'close'
         ,width: 600
         ,url: modxMinify.config.connectorUrl
