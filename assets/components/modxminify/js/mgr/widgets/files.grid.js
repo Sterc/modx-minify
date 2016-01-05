@@ -144,6 +144,7 @@ Ext.extend(modxMinify.grid.Files,MODx.grid.Grid,{
             ,title: _('modxminify.global.update')+' '+_('modxminify.file').toLowerCase()
             ,action: 'mgr/file/update'
             ,record: this.menu.record
+            ,isUpdate: true
             ,listeners: {
                 'success': {fn:function() { this.refresh(); },scope:this}
             }
@@ -234,11 +235,11 @@ modxMinify.window.File = function(config) {
             }
             ,allowBlank: false
         },{
-            xtype: 'textarea'
+            xtype: (config.isUpdate) ? 'textfield' : 'textarea'
             ,fieldLabel: _('modxminify.file.name')
             ,name: 'filename'
             ,anchor: '100%'
-            ,height: 200
+            ,height: (config.isUpdate) ? 'auto' : 200
         },{
             xtype: 'label'
             ,text: _('modxminify.file.name.description')
