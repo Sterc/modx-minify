@@ -5,7 +5,7 @@
 $xpdo_meta_map['modxMinifyGroup']= array (
   'package' => 'modxminify',
   'version' => '0.1',
-  'table' => 'modxminify_groups',
+  'table' => 'minify_groups',
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (

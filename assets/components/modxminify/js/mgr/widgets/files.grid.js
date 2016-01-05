@@ -189,7 +189,7 @@ modxMinify.window.File = function(config) {
         ,closeAction: 'close'
         ,width: 600
         ,url: modxMinify.config.connectorUrl
-        ,action: 'mgr/file/create'
+        ,action: 'mgr/file/createmultiple'
         ,fields: [{
             xtype: 'textfield'
             ,name: 'id'

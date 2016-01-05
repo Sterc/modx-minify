@@ -38,3 +38,5 @@ $_lang['modxminify.err.group_name_ns'] = 'Key is not specified.';
 $_lang['modxminify.err.group_remove'] = 'An error occurred while trying to remove the group.';
 $_lang['modxminify.err.group_save'] = 'An error occurred while trying to save the group.';
 
+$_lang['modxminify.err.file_name_ae'] = 'One or more of your files already exists in this group. Please check your filenames.';
+$_lang['modxminify.err.file_name_notexist'] = 'One or more of your files cannot be found in the specified path(s).';

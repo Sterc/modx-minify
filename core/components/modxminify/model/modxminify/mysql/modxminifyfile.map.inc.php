@@ -5,7 +5,7 @@
 $xpdo_meta_map['modxMinifyFile']= array (
   'package' => 'modxminify',
   'version' => '0.1',
-  'table' => 'modxminify_file',
+  'table' => 'minify_files',
   'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (

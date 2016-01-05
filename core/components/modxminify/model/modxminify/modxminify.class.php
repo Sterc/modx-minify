@@ -83,6 +83,8 @@ class modxMinify {
      */
     public function minifyFiles($group) {
 
+        $group = $this->getGroupId($group);
+
         $output = '';
         $filenames = $this->getGroupFilenames($group);
         if(count($filenames)) {
@@ -229,6 +231,28 @@ class modxMinify {
         }
 
         return $validFile;
+
+    }
+
+
+    /**
+     * Returns the group ID based on group name
+     *
+     * @param string|int $group
+     *
+     * @return integer
+     */
+    public function getGroupId($group) {
+
+        if(is_numeric($group)) {
+            $groupId = intval($group);
+        } else {
+            $groupObj = $modx->getObject('modxMinifyGroup',array('name' => $group));
+            if($groupObj) {
+                $groupId = $groupObj->get('id');
+            }
+        }
+        return $groupId;
 
     }
 
