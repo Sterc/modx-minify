@@ -1,21 +1,20 @@
 {
-    "name": "modxMinify",
-    "lowCaseName": "modxminify",
-    "description": "Minify your CSS, SCSS, LESS and JS files.",
-    "author": "Joeke",
-    "version": "0.1.0",
-    "package":{
+    "name": "modxMinify"
+    ,"lowCaseName": "modxminify"
+    ,"description": "Minify your CSS, SCSS, LESS and JS files."
+    ,"author": "Joeke"
+    ,"version": "0.1.2"
+    ,"package":{
         "menus": [{
             "text": "modxminify.menu.modxminify"
             ,"description": "modxminify.menu.modxminify_desc"
             ,"action": "home"
-        }],
-        "elements": {
+        }]
+        ,"elements": {
             "snippets": [{
                 "name": "modxMinify"
             }]
-        },
-        "systemSettings": []
+        }
     }
     ,"database": {
         "tables": ["modxMinifyGroup","modxMinifyFile"]
