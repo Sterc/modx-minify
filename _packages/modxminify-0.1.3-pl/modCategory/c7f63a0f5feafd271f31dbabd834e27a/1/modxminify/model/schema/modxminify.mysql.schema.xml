@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="modxminify" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="modxminify" version="0.1">
+
+    <object class="modxMinifyGroup" table="minify_groups" extends="xPDOSimpleObject">
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+        <field key="description" dbtype="text" phptype="text" null="false" default="" />
+        <composite alias="File" class="modxMinifyFile" local="id" foreign="group" cardinality="many" owner="local" />
+    </object>
+    <object class="modxMinifyFile" table="minify_files" extends="xPDOSimpleObject">
+        <field key="filename" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+        <field key="position" dbtype="int" precision="10" phptype="integer" null="false"/>
+        <field key="group" dbtype="int" precision="10" phptype="integer" null="false" default="" />
+        <aggregate alias="Group" class="modxMinifyGroup" local="group" foreign="id" cardinality="one" owner="foreign" />
+    </object>
+
+</model>

@@ -1,0 +1,107 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Snippets' => 
+    array (
+      'c2b1637af6ef7432592a52d2271d2eb5' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"modxMinify","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/**\\n * The base modxMinify snippet.\\n *\\n * @package modxminify\\n *\\/\\n\\n$modxminify = $modx->getService(\'modxminify\',\'modxMinify\',$modx->getOption(\'modxminify.core_path\',null,$modx->getOption(\'core_path\').\'components\\/modxminify\\/\').\'model\\/modxminify\\/\',$scriptProperties);\\nif (!($modxminify instanceof modxMinify)) return \'\';\\n\\n$group = $modx->getOption(\'group\', $scriptProperties, false);\\n\\n$output = $modxminify->minifyFiles($group);\\n\\nreturn $output;","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/**\\n * The base modxMinify snippet.\\n *\\n * @package modxminify\\n *\\/\\n\\n$modxminify = $modx->getService(\'modxminify\',\'modxMinify\',$modx->getOption(\'modxminify.core_path\',null,$modx->getOption(\'core_path\').\'components\\/modxminify\\/\').\'model\\/modxminify\\/\',$scriptProperties);\\nif (!($modxminify instanceof modxMinify)) return \'\';\\n\\n$group = $modx->getOption(\'group\', $scriptProperties, false);\\n\\n$output = $modxminify->minifyFiles($group);\\n\\nreturn $output;"}',
+        'guid' => '794fddef2bf6f9bd36d288bbfb9383e2',
+        'native_key' => NULL,
+        'signature' => 'c91252012101de6286606eec4906af8a',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Children' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'parent',
+        1 => 'category',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Templates' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'templatename',
+    ),
+    'TemplateVars' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Plugins' => 
+    array (
+      'unique_key' => 'name',
+      'preserve_keys' => false,
+      'update_object' => true,
+      'related_objects' => true,
+      'related_object_attributes' => 
+      array (
+        'PluginEvents' => 
+        array (
+          'preserve_keys' => true,
+          'update_object' => false,
+          'unique_key' => 
+          array (
+            0 => 'pluginid',
+            1 => 'event',
+          ),
+        ),
+      ),
+    ),
+  ),
+  'namespace' => 'modxminify',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"modxminify-0.1.3-pl\\/modCategory\\/c7f63a0f5feafd271f31dbabd834e27a\\/0\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"modxminify"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"modxminify-0.1.3-pl\\/modCategory\\/c7f63a0f5feafd271f31dbabd834e27a\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"modxminify"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"modxminify-0.1.3-pl\\/modCategory\\/c7f63a0f5feafd271f31dbabd834e27a.gpm.resolve.tables.resolver","type":"php","name":"gpm.resolve.tables"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '8952b75a553a28f251a1a1e602dfe809',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => 'c7f63a0f5feafd271f31dbabd834e27a',
+  'native_key' => NULL,
+  'object' => '{"id":null,"parent":0,"category":"modxMinify","rank":0}',
+);
