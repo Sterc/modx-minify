@@ -247,7 +247,7 @@ class modxMinify {
         if(is_numeric($group)) {
             $groupId = intval($group);
         } else {
-            $groupObj = $modx->getObject('modxMinifyGroup',array('name' => $group));
+            $groupObj = $this->modx->getObject('modxMinifyGroup',array('name' => $group));
             if($groupObj) {
                 $groupId = $groupObj->get('id');
             }

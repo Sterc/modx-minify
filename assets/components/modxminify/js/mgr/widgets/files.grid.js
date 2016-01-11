@@ -38,6 +38,15 @@ modxMinify.grid.Files = function(config) {
             text: _('modxminify.global.add')+' '+_('modxminify.file').toLowerCase()
             ,handler: this.createFile
             ,scope: this
+            ,cls:'primary-button'
+
+            /* TODO: check for groups, if not disable button and show tooltip */
+
+            /*
+            ,tooltip: _('modxminify.file.nogroups')
+            ,disabled: true
+            */
+
         },'->',{
             xtype: 'textfield'
             ,emptyText: _('modxminify.global.search') + '...'
@@ -251,3 +260,4 @@ modxMinify.window.File = function(config) {
 Ext.extend(modxMinify.window.File,MODx.Window);
 Ext.reg('modxminify-window-file',modxMinify.window.File);
 
+Ext.QuickTips.init();

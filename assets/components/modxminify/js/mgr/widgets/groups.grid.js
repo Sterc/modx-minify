@@ -31,6 +31,7 @@ modxMinify.grid.Groups = function(config) {
             text: _('modxminify.global.add')+' '+_('modxminify.group').toLowerCase()
             ,handler: this.createGroup
             ,scope: this
+            ,cls:'primary-button'
         },'->',{
             xtype: 'textfield'
             ,emptyText: _('modxminify.global.search') + '...'
@@ -125,6 +126,8 @@ Ext.extend(modxMinify.grid.Groups,MODx.grid.Grid,{
     
 });
 Ext.reg('modxminify-grid-groups',modxMinify.grid.Groups);
+
+Ext.QuickTips.init();
 
 modxMinify.window.Group = function(config) {
     config = config || {};
