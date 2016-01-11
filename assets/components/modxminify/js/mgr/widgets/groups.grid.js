@@ -75,7 +75,11 @@ Ext.extend(modxMinify.grid.Groups,MODx.grid.Grid,{
         var createGroup = MODx.load({
             xtype: 'modxminify-window-group'
             ,listeners: {
-                'success': {fn:function() { this.refresh(); },scope:this}
+                'success': {fn:function() { 
+                    this.refresh(); 
+                    Ext.getCmp('btn-add-file').enable();
+                    Ext.QuickTips.unregister(Ext.get('btn-add-file'));
+                },scope:this}
             }
         });
 
@@ -112,7 +116,10 @@ Ext.extend(modxMinify.grid.Groups,MODx.grid.Grid,{
                 ,id: this.menu.record.id
             }
             ,listeners: {
-                'success': {fn:function(r) { this.refresh(); },scope:this}
+                'success': {fn:function(r) { 
+                    this.refresh(); 
+                    Ext.getCmp('modxminify-grid-files').refresh();
+                },scope:this}
             }
         });
     }

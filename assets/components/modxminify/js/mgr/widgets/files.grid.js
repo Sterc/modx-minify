@@ -39,19 +39,33 @@ modxMinify.grid.Files = function(config) {
             ,handler: this.createFile
             ,scope: this
             ,cls:'primary-button'
-
-            /* TODO: check for groups, if not disable button and show tooltip */
-
-            
-            ,disabled: true
+            ,id: 'btn-add-file'
             ,listeners: {
 			    render: function(c) {
-			        Ext.QuickTips.register({
-			            target: c,
-			            text: _('modxminify.file.nogroups'),
-			            showDelay: 40,
-			            trackMouse: false
-			        });
+			    	// getting the total groups count via ajax 
+			    	MODx.Ajax.request({
+                        url: modxMinify.config.connectorUrl
+                        ,params: {
+                            action: 'mgr/group/getlist'
+                        }
+                        ,listeners: {
+                            'success': {
+                                fn: function(r) {
+                                    var groupsCount = parseInt(r.total);
+                                    if(!groupsCount) {
+                                    	Ext.getCmp('btn-add-file').disable();
+                                    	Ext.QuickTips.register({
+								            target: c,
+								            text: _('modxminify.file.nogroups'),
+								            showDelay: 40,
+								            trackMouse: false
+								        });
+                                    }
+
+                                }
+                             }
+                         }
+                    });
 			    }
 			}
             
