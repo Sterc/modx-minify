@@ -42,10 +42,19 @@ modxMinify.grid.Files = function(config) {
 
             /* TODO: check for groups, if not disable button and show tooltip */
 
-            /*
-            ,tooltip: _('modxminify.file.nogroups')
+            
             ,disabled: true
-            */
+            ,listeners: {
+			    render: function(c) {
+			        Ext.QuickTips.register({
+			            target: c,
+			            text: _('modxminify.file.nogroups'),
+			            showDelay: 40,
+			            trackMouse: false
+			        });
+			    }
+			}
+            
 
         },'->',{
             xtype: 'textfield'
@@ -259,5 +268,3 @@ modxMinify.window.File = function(config) {
 };
 Ext.extend(modxMinify.window.File,MODx.Window);
 Ext.reg('modxminify-window-file',modxMinify.window.File);
-
-Ext.QuickTips.init();

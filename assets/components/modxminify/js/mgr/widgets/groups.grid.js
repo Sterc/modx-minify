@@ -127,8 +127,6 @@ Ext.extend(modxMinify.grid.Groups,MODx.grid.Grid,{
 });
 Ext.reg('modxminify-grid-groups',modxMinify.grid.Groups);
 
-Ext.QuickTips.init();
-
 modxMinify.window.Group = function(config) {
     config = config || {};
     Ext.applyIf(config,{
