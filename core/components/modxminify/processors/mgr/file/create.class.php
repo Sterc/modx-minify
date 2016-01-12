@@ -32,5 +32,16 @@ class modxMinifyFileCreateProcessor extends modObjectCreateProcessor {
         return parent::beforeSave();
 
     }
+
+    /**
+     * Return the success message
+     * @return array
+     */
+    public function cleanup() {
+         $modxminify = $this->modx->getService('modxminify','modxMinify',$this->modx->getOption('modxminify.core_path',null,$this->modx->getOption('core_path').'components/modxminify/').'model/modxminify/',array());
+        if (!($modxminify instanceof modxMinify)) return '';
+        $modxminify->emptyMinifyCache($this->object->get('group'));
+        return $this->success('',$this->object);
+    }
 }
 return 'modxMinifyFileCreateProcessor';

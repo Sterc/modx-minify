@@ -22,17 +22,14 @@ modxMinify.grid.Files = function(config) {
             header: _('modxminify.file.name')
             ,dataIndex: 'filename'
             ,width: 240
-            ,editor: { xtype: 'textfield' }
         },{
             header: _('last_modified')
             ,dataIndex: 'last_modified'
             ,width: 180
-            ,editor: { xtype: 'textfield' }
         },{
             header: _('modxminify.group')
             ,dataIndex: 'group_name'
             ,width: 80
-            ,editor: { xtype: 'textfield' }
         }]
         ,tbar: [{
             text: _('modxminify.global.add')+' '+_('modxminify.file').toLowerCase()
@@ -68,25 +65,6 @@ modxMinify.grid.Files = function(config) {
                     });
 			    }
 			}
-            
-
-        },'->',{
-            xtype: 'textfield'
-            ,emptyText: _('modxminify.global.search') + '...'
-            ,listeners: {
-                'change': {fn:this.search,scope:this}
-                ,'render': {fn: function(cmp) {
-                    new Ext.KeyMap(cmp.getEl(), {
-                        key: Ext.EventObject.ENTER
-                        ,fn: function() {
-                            this.fireEvent('change',this);
-                            this.blur();
-                            return true;
-                        }
-                        ,scope: cmp
-                    });
-                },scope:this}
-            }
         }]
         ,listeners: {
             'render': function(g) {
@@ -276,6 +254,7 @@ modxMinify.window.File = function(config) {
             xtype: 'label'
             ,text: _('modxminify.file.name.description')
             ,cls: 'desc-under'
+            ,hidden: (config.isUpdate) ? true : false
         }]
     });
     modxMinify.window.File.superclass.constructor.call(this,config);

@@ -20,35 +20,16 @@ modxMinify.grid.Groups = function(config) {
             header: _('modxminify.group.name')
             ,dataIndex: 'name'
             ,width: 200
-            ,editor: { xtype: 'textfield' }
         },{
             header: _('modxminify.group.description')
             ,dataIndex: 'description'
             ,width: 250
-            ,editor: { xtype: 'textfield' }
         }]
         ,tbar: [{
             text: _('modxminify.global.add')+' '+_('modxminify.group').toLowerCase()
             ,handler: this.createGroup
             ,scope: this
             ,cls:'primary-button'
-        },'->',{
-            xtype: 'textfield'
-            ,emptyText: _('modxminify.global.search') + '...'
-            ,listeners: {
-                'change': {fn:this.search,scope:this}
-                ,'render': {fn: function(cmp) {
-                    new Ext.KeyMap(cmp.getEl(), {
-                        key: Ext.EventObject.ENTER
-                        ,fn: function() {
-                            this.fireEvent('change',this);
-                            this.blur();
-                            return true;
-                        }
-                        ,scope: cmp
-                    });
-                },scope:this}
-            }
         }]
     });
     modxMinify.grid.Groups.superclass.constructor.call(this,config);

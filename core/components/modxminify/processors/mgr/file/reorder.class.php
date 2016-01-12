@@ -44,6 +44,10 @@ class modxMinifyReorderFileUpdateProcessor extends modObjectProcessor {
         $itemObject->set('position', $newIndex);
         $itemObject->save();
 
+        // empty the minified cache files
+        $modxminify = $this->modx->getService('modxminify','modxMinify',$this->modx->getOption('modxminify.core_path',null,$this->modx->getOption('core_path').'components/modxminify/').'model/modxminify/',array());
+        if (!($modxminify instanceof modxMinify)) return '';
+        $modxminify->emptyMinifyCache($itemObject->get('group'));
 
         return $this->success('', $itemObject);
     }

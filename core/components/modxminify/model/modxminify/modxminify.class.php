@@ -77,7 +77,7 @@ class modxMinify {
      * Process files from specified group with Assetic library
      * https://github.com/kriswallsmith/assetic
      *
-     * @param string $group
+     * @param string|int $group
      *
      * @return string
      */
@@ -253,6 +253,25 @@ class modxMinify {
             }
         }
         return $groupId;
+
+    }
+
+    /**
+     * Empty the modx cache files and remove minified file(s) for group
+     *
+     * @param string|int $group
+     *
+     * @return empty
+     */
+    public function emptyMinifyCache($group) {
+
+        $group = $this->getGroupId($group);
+        if($group) {
+            $this->modx->cacheManager->delete('group_'.$group.'_filenames', $this->options['cacheOptions']);
+            foreach (glob($this->options['cachePath'].'/*-'.$group.'-*') as $current) {
+                unlink($current);
+            }
+        }
 
     }
 

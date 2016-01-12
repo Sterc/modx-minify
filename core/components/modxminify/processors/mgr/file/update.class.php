@@ -23,9 +23,28 @@ class modxMinifyFileUpdateProcessor extends modObjectUpdateProcessor {
         }
 
         if ($this->modx->getCount($this->classKey, array('filename' => $filename, 'group' => $group)) && ($this->object->filename != $filename)) {
-            $this->addFieldError('filename',$this->modx->lexicon('modxminify.err.item_filename_ae'));
+            $this->addFieldError('filename',$this->modx->lexicon('modxminify.err.file_name_ae_single'));
         }
+
+        // check if file exists on server
+        if (!file_exists($this->modx->getOption('base_path').$filename)) {
+            $this->addFieldError('filename',$this->modx->lexicon('modxminify.err.file_name_notexist_single'));
+            // return $this->failure();
+        }
+
         return parent::beforeSet();
+    }
+
+    /**
+     * Return the success message
+     * @return array
+     */
+    public function cleanup() {
+        // empty the minified cache files
+        $modxminify = $this->modx->getService('modxminify','modxMinify',$this->modx->getOption('modxminify.core_path',null,$this->modx->getOption('core_path').'components/modxminify/').'model/modxminify/',array());
+        if (!($modxminify instanceof modxMinify)) return '';
+        $modxminify->emptyMinifyCache($this->object->get('group'));
+        return $this->success('',$this->object);
     }
 
 }

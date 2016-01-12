@@ -7,7 +7,7 @@
  */
 require_once (dirname(__FILE__).'/update.class.php');
 
-class modxMinifyFileUpdateFromGridProcessor extends modxMinifyGroupUpdateProcessor {
+class modxMinifyFileUpdateFromGridProcessor extends modxMinifyFileUpdateProcessor {
     public function initialize() {
         $data = $this->getProperty('data');
         if (empty($data)) return $this->modx->lexicon('invalid_data');

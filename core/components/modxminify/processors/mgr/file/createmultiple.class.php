@@ -49,7 +49,8 @@ class modxMinifyFileCreateMultipleProcessor extends modObjectCreateProcessor {
                 }
             }
         }
-        return;
+        return $this->cleanup();
     }
+
 }
 return 'modxMinifyFileCreateMultipleProcessor';
