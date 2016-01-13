@@ -6,6 +6,7 @@ use Assetic\Asset\AssetCollection;
 use Assetic\Asset\FileAsset;
 use Assetic\Filter\CssMinFilter;
 use Assetic\Filter\ScssphpFilter;
+use Assetic\Filter\LessphpFilter;
 use Assetic\Filter\JSMinFilter;
 
 /**
@@ -119,8 +120,14 @@ class modxMinify {
                     $filePrefix = 'scripts';
                     $fileSuffix = '.min.js';
                 } else {
+                    // if file is .scss, use the correct filter to parse scss to css
                     if($fileExt = 'scss') {
                         $fileFilter = array(new ScssphpFilter());
+                    }
+                    // array(new LessFilter())
+                    // if file is .less, use the correct filter to parse less to css
+                    if($fileExt = 'scss') {
+                        $fileFilter = array(new LessphpFilter());
                     }
                     $minifyFilter = array(new CssMinFilter());
                     $filePrefix = 'styles';
@@ -212,7 +219,7 @@ class modxMinify {
      *
      * @return boolean
      */
-    public function validateFile($filePath = false, $fileExt = false, $allowedExtensions = array('css','scss','js')) {
+    public function validateFile($filePath = false, $fileExt = false, $allowedExtensions = array('css','scss','less','js')) {
 
         $validFile = true;
 
