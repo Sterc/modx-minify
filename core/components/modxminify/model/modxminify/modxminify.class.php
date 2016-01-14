@@ -121,12 +121,11 @@ class modxMinify {
                     $fileSuffix = '.min.js';
                 } else {
                     // if file is .scss, use the correct filter to parse scss to css
-                    if($fileExt = 'scss') {
+                    if($fileExt == 'scss') {
                         $fileFilter = array(new ScssphpFilter());
                     }
-                    // array(new LessFilter())
                     // if file is .less, use the correct filter to parse less to css
-                    if($fileExt = 'scss') {
+                    if($fileExt == 'less') {
                         $fileFilter = array(new LessphpFilter());
                     }
                     $minifyFilter = array(new CssMinFilter());
