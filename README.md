@@ -1,6 +1,6 @@
 # Modx Minify
 
-Modx Minify is a MODX CMP to group and minify your CSS, SCSS, LESS and JS files. You can create groups, and each group can contain multiple files of the same type. So for instance you create a group named 'css' where you can add all your css, scss and less files. After that you place the snippet call [[!modxMinify?&group=`css`]] inside a `<link>` tag in your head and a minified css file will be generated which will contain all your files grouped and minified!
+Modx Minify is a MODX CMP to group and minify your CSS, SCSS, LESS and JS files. You can create groups, and each group can contain multiple files of the same type. So for instance you create a group named 'css' where you can add all your css, scss and less files. After that you place the snippet call ``[[!modxMinify?&group=`css`]]`` inside a `<link>` tag in your head and a minified css file will be generated which will contain all your files grouped and minified!
 
 ## Usage
 * Install the package via Package Management
