@@ -565,9 +565,5 @@ return array(
     'aCssRulesetEndToken' => $vendorDir . '/cssmin/cssmin/cssmin-v3.0.1.php',
     'aCssRulesetStartToken' => $vendorDir . '/cssmin/cssmin/cssmin-v3.0.1.php',
     'aCssToken' => $vendorDir . '/cssmin/cssmin/cssmin-v3.0.1.php',
-    'lessc' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
-    'lessc_formatter_classic' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
-    'lessc_formatter_compressed' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
-    'lessc_formatter_lessjs' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
-    'lessc_parser' => $vendorDir . '/leafo/lessphp/lessc.inc.php',
+    'lessc' => $vendorDir . '/oyejorge/less.php/lessc.inc.php',
 );

@@ -10,6 +10,7 @@ return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'Less' => array($vendorDir . '/oyejorge/less.php/lib'),
     'CssEmbed' => array($vendorDir . '/ptachoire/cssembed/src'),
     'Assetic' => array($baseDir . '/src'),
 );
