@@ -4,7 +4,8 @@ use Assetic\AssetManager;
 use Assetic\AssetWriter;
 use Assetic\Asset\AssetCollection;
 use Assetic\Asset\FileAsset;
-use Assetic\Filter\CssMinFilter;
+use Assetic\Filter\MinifyCssCompressorFilter;
+use Assetic\Filter\CssRewriteFilter;
 use Assetic\Filter\ScssphpFilter;
 use Assetic\Filter\LessphpFilter;
 use Assetic\Filter\JSMinFilter;
@@ -128,7 +129,7 @@ class modxMinify {
                     if($fileExt == 'less') {
                         $fileFilter = array(new LessphpFilter());
                     }
-                    $minifyFilter = array(new CssMinFilter());
+                    $minifyFilter = array(new CssRewriteFilter(), new MinifyCssCompressorFilter());
                     $filePrefix = 'styles';
                     $fileSuffix = '.min.css';
                 }
