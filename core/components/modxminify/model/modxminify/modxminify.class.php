@@ -5,7 +5,7 @@ use Assetic\AssetWriter;
 use Assetic\Asset\AssetCollection;
 use Assetic\Asset\FileAsset;
 use Assetic\Filter\MinifyCssCompressorFilter;
-use Assetic\Filter\CssRewriteFilter;
+use Assetic\Filter\CSSUriRewriteFilter;
 use Assetic\Filter\ScssphpFilter;
 use Assetic\Filter\LessphpFilter;
 use Assetic\Filter\JSMinFilter;
@@ -96,7 +96,7 @@ class modxMinify {
             $minifiedFiles = array();
         
             $am = new AssetManager();
-            $writer = new AssetWriter($this->options['cachePath']);
+            $writer = new AssetWriter($this->options['rootPath']);
             $allFiles = array();
             $fileDates = array();
             $updatedFiles = 0;
@@ -129,7 +129,7 @@ class modxMinify {
                     if($fileExt == 'less') {
                         $fileFilter = array(new LessphpFilter());
                     }
-                    $minifyFilter = array(new CssRewriteFilter(), new MinifyCssCompressorFilter());
+                    $minifyFilter = array(new CSSUriRewriteFilter(), new MinifyCssCompressorFilter());
                     $filePrefix = 'styles';
                     $fileSuffix = '.min.css';
                 }
@@ -161,7 +161,7 @@ class modxMinify {
 
                 $this->log("Writing ".$minifyFilename."\n\r");
                 $collection = new AssetCollection($allFiles,$minifyFilter);
-                $collection->setTargetPath($minifyFilename);
+                $collection->setTargetPath($this->options['cacheUrl'].'/'.$minifyFilename);
                 $am->set($group, $collection);
 
                 if($updatedFiles > 0 && $skip == 0) {

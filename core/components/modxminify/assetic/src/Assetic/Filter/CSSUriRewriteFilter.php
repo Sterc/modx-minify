@@ -36,11 +36,9 @@ class CSSUriRewriteFilter implements FilterInterface
 
         $content = \Minify_CSS_UriRewriter::rewrite(
             $asset->getContent()
-            ,$options['currentDir']
-            ,$options['docRoot']
-            ,$options['symlinks']
+            ,$sourceBase
         ); 
 
-        // $asset->setContent(\Minify_CSS_UriRewriter::minify($asset->getContent()));
+        $asset->setContent($content);
     }
 }
