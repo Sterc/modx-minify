@@ -243,7 +243,7 @@ class modxMinify {
 
 
     /**
-     * Returns the group ID based on group name
+     * Returns the group ID based on group name.
      *
      * @param string|int $group
      *
@@ -279,6 +279,23 @@ class modxMinify {
                 unlink($current);
             }
         }
+        $groupObj = $this->modx->getObject('modxMinifyGroup',$group);
+        $groupsConfigFile = $this->options['assetsPath'].'config.json';
+        if($groupObj && is_writable($this->options['assetsPath'])) {
+            $groupsArray = json_decode(file_get_contents($groupsConfigFile),true);
+            if(!count($groupsArray)) {
+                $groupsArray = array();
+            }
+            $groupsArray[$group]['group'] = $groupObj->toArray();
+            $filesColl = $this->modx->getCollection('modxMinifyFile',array('group' => $group));
+            foreach($filesColl as $file) {
+                $groupsArray[$group]['files'][$file->get('id')] = $file->toArray();
+            }
+            $fp = fopen($groupsConfigFile, 'w');
+            fwrite($fp, json_encode($groupsArray));
+            fclose($fp);
+        }
+        return;
 
     }
 
