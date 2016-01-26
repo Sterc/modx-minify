@@ -279,7 +279,20 @@ class modxMinify {
                 unlink($current);
             }
         }
-        $groupObj = $this->modx->getObject('modxMinifyGroup',$group);
+        return;
+
+    }
+
+    /**
+     * Write group data + group files to json file
+     *
+     * @param   string|int $group
+     * @return 	empty
+     */
+    public function writeGroupFile($group) {
+
+    	$group = $this->getGroupId($group);
+    	$groupObj = $this->modx->getObject('modxMinifyGroup',$group);
         $groupsConfigFile = $this->options['assetsPath'].'config.json';
         if($groupObj && is_writable($this->options['assetsPath'])) {
             $groupsArray = json_decode(file_get_contents($groupsConfigFile),true);
