@@ -10,6 +10,6 @@ node_modules/
 # Ignore various IDE project files and folders
 .idea/
 
-cache
+assets/components/modxminify/cache/*
 
 config.core.php
