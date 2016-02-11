@@ -283,6 +283,21 @@ class modxMinify {
 
     }
 
+     /**
+     * Empty the modx cache files and remove minified file(s) for all groups
+     * @return empty
+     */
+    public function emptyMinifyCacheAll() {
+
+        $groups = $this->modx->getCollection('modxMinifyGroup');
+        foreach($groups as $group) {
+            $this->modx->log(xPDO::LOG_LEVEL_INFO,'[modxMinify] Cache files for group '.$group->get('name').' cleared.');
+            $this->emptyMinifyCache($group->get('id'));
+        }
+        return;
+
+    }
+
     /**
      * Write group data + group files to json file
      *

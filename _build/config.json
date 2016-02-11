@@ -14,6 +14,11 @@
             "snippets": [{
                 "name": "modxMinify"
             }]
+            ,"plugins": [{
+                "name": "modxMinifyCacheClear",
+                "file": "modxminifycacheclear.plugin.php",
+                "events": ["OnSiteRefresh"]
+            }]
         }
     }
     ,"database": {
