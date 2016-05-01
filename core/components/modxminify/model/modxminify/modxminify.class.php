@@ -76,7 +76,7 @@ class modxMinify {
     }
 
     /**
-     * Process files from specified group with Assetic library
+     * Process files from specified group(s) with Assetic library
      * https://github.com/kriswallsmith/assetic
      *
      * @param string|int $group
@@ -85,10 +85,21 @@ class modxMinify {
      */
     public function minifyFiles($group) {
 
-        $group = $this->getGroupId($group);
+    	$output = '';
 
-        $output = '';
-        $filenames = $this->getGroupFilenames($group);
+    	/* // todo
+    	$filenames = array();
+    	// Check if multiple groups are defined in group parameter
+    	$allGroups = explode(',', $group);
+		foreach($allGroups as $group) {
+			$group = $this->getGroupId($group);
+    		$filenames[] = $this->getGroupFilenames($group);
+		}
+		*/
+
+		$group = $this->getGroupId($group);
+    	$filenames = $this->getGroupFilenames($group);
+
         if(count($filenames)) {
 
             require_once $this->options['corePath'] . 'assetic/vendor/autoload.php';
