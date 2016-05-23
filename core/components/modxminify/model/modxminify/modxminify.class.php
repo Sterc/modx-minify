@@ -87,18 +87,21 @@ class modxMinify {
 
     	$output = '';
 
-    	/* // todo
     	$filenames = array();
+    	$groupIds = array();
     	// Check if multiple groups are defined in group parameter
+    	// If so, combine all the files from specified groups
     	$allGroups = explode(',', $group);
 		foreach($allGroups as $group) {
 			$group = $this->getGroupId($group);
-    		$filenames[] = $this->getGroupFilenames($group);
+			$groupIds[] = $group;
+    		$filenames = array_merge($filenames,$this->getGroupFilenames($group));
 		}
-		*/
-
-		$group = $this->getGroupId($group);
-    	$filenames = $this->getGroupFilenames($group);
+		
+		// Setting group key which is used for filename and logging
+		if(count($groupIds) > 1) {
+			$group = implode('_',$groupIds);
+		}
 
         if(count($filenames)) {
 
