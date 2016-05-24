@@ -2,3 +2,12 @@
     content: "* ";
     color: red;
 }
+
+.modxminify-container {
+	margin: 20px 15px;
+}
+.modxminify-content {
+	background: #fff;
+	padding: 15px;
+	margin-top: 18px;
+}
