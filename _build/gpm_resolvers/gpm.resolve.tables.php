@@ -14,9 +14,7 @@ if ($object->xpdo) {
         case xPDOTransport::ACTION_INSTALL:
         case xPDOTransport::ACTION_UPGRADE:
             $modelPath = $modx->getOption('modxminify.core_path', null, $modx->getOption('core_path') . 'components/modxminify/') . 'model/';
-            
-            $modx->addPackage('modxminify', $modelPath, null);
-
+            $modx->addPackage('modxminify', $modelPath, 'modx_');
 
             $manager = $modx->getManager();
 
