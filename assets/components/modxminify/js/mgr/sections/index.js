@@ -1,35 +1,43 @@
 $(document).ready(function() {
 
-	function getAjaxResults(url,params,element) {
+	function ajaxConnector(url,params,callback) {
 		$.ajax({
 			type: 'post',
 			dataType: 'json',
 			url: url,
 			data: params,
 			success: function(response) {
-				if($(element).length && response.success == true) {
-					parseResponse(response.results,element);
-				} else {
-					// element does not exist or success is false
-					console.log(response);
-				}
+				if (typeof callback == "function") callback(response);
 			}
 		});
 	}
 
-	function parseResponse(data,element) {
+	function parseOutput(data,placeholders) {
 		var output = '';
 		$.each(data, function(key,values) {
-			output += values.filename;
+			output += values.name;
 		});
+		return output;
+	}
+
+	function renderOutput(element,output) {
 		$(element).html(output);
+	}
+
+	function getGroupsFiles() {
+
 	}
 
 	if(mm_connector_url && http_modauth) {
 		var params = {
-			action       : 'mgr/file/getlist',
+			action       : 'mgr/group/getgroupsfiles',
             HTTP_MODAUTH : http_modauth
 		};
-		getAjaxResults(mm_connector_url,params,'.groups-files');
+		ajaxConnector(mm_connector_url,params,function(response) {
+			var element = '.groups-files';
+			if($(element).length && response.success == true && response.html) {
+				renderOutput(element,response.html);
+			}
+		});
 	}
 });
