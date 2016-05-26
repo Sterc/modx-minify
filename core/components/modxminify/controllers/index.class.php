@@ -9,6 +9,12 @@ require_once dirname(dirname(__FILE__)) . '/index.class.php';
 class modxMinifyIndexManagerController extends modxMinifyBaseManagerController {
     public function process(array $scriptProperties = array()) {
 
+        $placeholders = array(
+            'pagetitle' => $this->modx->lexicon('modxminify'),
+            'description' => $this->modx->lexicon('modxminify.menu.modxminify_desc')
+        );
+        $this->setPlaceholders(array_merge($placeholders, $this->modxminify->options));
+
     }
     public function getPageTitle() { 
         return $this->modx->lexicon('modxminify');
