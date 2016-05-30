@@ -13,20 +13,46 @@
 }
 
 .groups-files ul {
-	margin: ;
+	margin: 0;
 }
-.groups-files ul.groups {
+.groups-files ul li .name {
+	padding: 8px 8px 8px 0;
+	display: inline-block;	
+}
+ul.groups {
 	margin: 20px 0;
 }
-.groups-files ul li a {
-	padding: 5px 10px;
+ul.groups > li {
+	/* margin-bottom: 10px; */
+}
+ul.groups > li > .name {
+	font-weight: bold;
+	font-size: 16px;
+	padding-left: 10px;
+	background: #ededed;
 	display: block;
+}
+ul.files {
+	border-top: 1px solid #ddd;
+}
+ul.files li {
 	border-bottom: 1px solid #ddd;
 }
-.groups-files ul.groups > li > a {
-	font-weight: bold;
-	font-size: 14px;
+.handle, .buttons {
+	padding: 8px;
+	display: inline-block;
 }
-.groups-files ul li ul li a {
-	padding-left: 20px;
+.handle:hover, .files .name:hover {
+	cursor: move;
+}
+.sortable-ghost {
+	background: #f5f5f5;
+}
+
+/* modx stuff */
+#modx-content {
+    overflow-y: auto;
+}
+#modx-content .x-panel-bwrap {
+	display: none;
 }

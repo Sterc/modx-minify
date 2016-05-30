@@ -1,7 +1,7 @@
 <div class="modxminify-container">
-	<h2>{$pagetitle}</h2>
+	<h2>{$_lang['modxminify']}</h2>
 	<div class="modxminify-content">
-		<p>{$description}</p>
+		<p>{$_lang['modxminify.menu.modxminify_desc']}</p>
 		<div class="groups-files">
 			
 		</div>

@@ -23,10 +23,16 @@ class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
             $items = '';
             $files = $this->modx->getCollection('modxMinifyFile',array('group' => $group->get('id')));
             foreach($files as $file) {
-                $items .= $this->modxMinify->getChunk('item', array('name' => $file->get('filename')));
+                $placeholders = array_merge(
+                    $file->toArray(),
+                    array(
+                        'lang.remove' => $this->modx->lexicon('modxminify.global.remove')
+                    )
+                );
+                $items .= $this->modxMinify->getChunk('file_item', $placeholders);
             }
             $inner = $this->modxMinify->getChunk('wrapper', array('class' => 'files', 'output' => $items));
-            $output .= $this->modxMinify->getChunk('item', array('name' => $group->get('name'), 'inner' => $inner));
+            $output .= $this->modxMinify->getChunk('group_item', array('name' => $group->get('name'), 'inner' => $inner));
             $count++;
         }
         $html = $this->modxMinify->getChunk('wrapper', array('class' => 'groups', 'output' => $output));

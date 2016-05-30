@@ -10,10 +10,10 @@ class modxMinifyIndexManagerController extends modxMinifyBaseManagerController {
     public function process(array $scriptProperties = array()) {
 
         $placeholders = array(
-            'pagetitle' => $this->modx->lexicon('modxminify'),
-            'description' => $this->modx->lexicon('modxminify.menu.modxminify_desc')
+            '_lang' => $this->modx->lexicon->fetch(),
         );
         $this->setPlaceholders(array_merge($placeholders, $this->modxminify->options));
+        // $this->setPlaceholder('_lang',$this->modx->lexicon->fetch());
 
     }
     public function getPageTitle() { 
@@ -24,7 +24,9 @@ class modxMinifyIndexManagerController extends modxMinifyBaseManagerController {
             var mm_connector_url = "'.$this->modxminify->options['connectorUrl'].'";
             var http_modauth = "'.$this->modx->user->getUserToken($this->modx->context->get('key')).'";
         </script>');
+        $this->addCss($this->modxminify->getOption('cssUrl').'libs/font-awesome/font-awesome.min.css');
         $this->addJavascript('https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js');
+        $this->addJavascript($this->modxminify->getOption('jsUrl').'libs/sortable/Sortable.min.js');
         $this->addJavascript($this->modxminify->getOption('jsUrl').'mgr/sections/index.js');
     }
 
