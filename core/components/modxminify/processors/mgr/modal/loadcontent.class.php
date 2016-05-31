@@ -17,7 +17,7 @@ class modxMinifyFileLoadContentProcessor extends modProcessor {
     public function process() {
 
         $chunk = $this->getProperty('chunk');
-        $data = $this->getProperty('data');
+        $data = !empty($this->getProperty('data')) ? $this->getProperty('data') : array();
         $placeholders = array_merge($data,$this->modx->lexicon->fetch('modxminify'));
         $content = $this->modxMinify->getChunk($chunk, $placeholders);
         return json_encode(array(

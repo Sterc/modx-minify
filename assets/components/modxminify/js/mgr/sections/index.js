@@ -144,7 +144,7 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click','button[data-add-group]',function(){
-		openModal();
+		loadModalContent('form_addgroup');
 	});
 
 	$(document).on('click','a[data-update]',function(){
