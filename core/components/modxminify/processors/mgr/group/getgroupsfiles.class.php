@@ -16,17 +16,21 @@ class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
 
     public function process() {
 
-        $groups = $this->modx->getCollection('modxMinifyGroup');
+        $groups = $this->modx->getCollection('modxMinifyGroup',$c);
         $output = '';
         $count = 0;
         foreach($groups as $group) {
             $items = '';
-            $files = $this->modx->getCollection('modxMinifyFile',array('group' => $group->get('id')));
+            $c = $this->modx->newQuery('modxMinifyFile');
+            $c->where(array('group' => $group->get('id')));
+            $c->sortby('position','asc');
+            $files = $this->modx->getCollection('modxMinifyFile',$c);
             foreach($files as $file) {
                 $placeholders = array_merge(
                     $file->toArray(),
                     array(
-                        'lang.remove' => $this->modx->lexicon('modxminify.global.remove')
+                        'lang.update_file' => $this->modx->lexicon('modxminify.global.update').' '.$this->modx->lexicon('modxminify.file'),
+                        'lang.remove_file' => $this->modx->lexicon('modxminify.global.remove').' '.$this->modx->lexicon('modxminify.file')
                     )
                 );
                 $items .= $this->modxMinify->getChunk('file_item', $placeholders);

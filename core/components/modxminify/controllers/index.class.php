@@ -24,6 +24,7 @@ class modxMinifyIndexManagerController extends modxMinifyBaseManagerController {
             var mm_connector_url = "'.$this->modxminify->options['connectorUrl'].'";
             var http_modauth = "'.$this->modx->user->getUserToken($this->modx->context->get('key')).'";
         </script>');
+        $this->addCss($this->modxminify->getOption('cssUrl').'modx.css');
         $this->addCss($this->modxminify->getOption('cssUrl').'libs/font-awesome/font-awesome.min.css');
         $this->addJavascript('https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js');
         $this->addJavascript($this->modxminify->getOption('jsUrl').'libs/sortable/Sortable.min.js');

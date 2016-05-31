@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	var modalElement = $('#modxminify-modal');
+
 	function initialize() {
 		getGroupsFiles();
 		setContentHeight();
@@ -44,12 +46,46 @@ $(document).ready(function() {
 		});
 	}
 
+	function addGroup(name,description) {
+
+	}
+
+	function addFile(filename,groupId) {
+
+	}
+
+	function removeFile(fileId) {
+		var params = {
+			action       : 'mgr/file/remove',
+            HTTP_MODAUTH : http_modauth,
+            id 			 : fileId
+		};
+		ajaxConnector(mm_connector_url,params,function(response) {
+			if(response.success == true) {
+				closeModal();
+				getGroupsFiles();
+			}
+		});
+	}
+
+	function reOrderFiles(order) {
+		var params = {
+			action       : 'mgr/file/reorderfiles',
+            HTTP_MODAUTH : http_modauth,
+            order: order
+		};
+        ajaxConnector(mm_connector_url,params,function(response) {
+			if(response.success == true) {
+				getGroupsFiles();
+			}
+		});
+	}
+
 	function initDragDrop() {
 		$('ul.files').each(function(i,element){
 			Sortable.create(element, {
-				// handle: '.handle',
-				animation: 150,
-				filter: '.buttons',
+				animation: 250,
+				filter: '.file-actions',
 			    store: {
 			    	get: function (sortable) {
 			            var order = localStorage.getItem(sortable.options.group);
@@ -57,7 +93,8 @@ $(document).ready(function() {
 			        },
 			    	set: function (sortable) {
 			            var order = sortable.toArray();
-			            // todo: run processor to reorder the file positions
+			            // process the new order of files
+			            reOrderFiles(order);
 			        }
 			    }
 			});
@@ -69,9 +106,77 @@ $(document).ready(function() {
 		$('#modx-content').height(height);
 	}
 
+	function openModal() {
+		modalElement.show();
+	}
+
+	function closeModal() {
+		// first empty the contents of the modal window
+		modalElement.find('.modal-content p').html('');
+		modalElement.hide();
+	}
+
+	function loadModalContent(chunk = false, data = {}) {
+		if(chunk) {
+			var params = {
+				action       : 'mgr/modal/loadcontent',
+	            HTTP_MODAUTH : http_modauth,
+	            chunk 		 : chunk,
+	            data 		 : data
+			};
+	        ajaxConnector(mm_connector_url,params,function(response) {
+				if(response.success == true && response.html) {
+					modalElement.find('.modal-content p').html(response.html);
+					openModal();
+				}
+			});
+		} else {
+			modalElement.find('.modal-content p').html('');
+		}
+	}
+
+	function handleForm() {
+
+	}
+
 	$(window).resize(function() {
 		setContentHeight();
 	});
+
+	$(document).on('click','button[data-add-group]',function(){
+		openModal();
+	});
+
+	$(document).on('click','a[data-update]',function(){
+		openModal();
+	});
+
+	$(document).on('click','a[data-remove]',function(){
+		loadModalContent('form_removefile',{ id: $(this).attr('data-remove') });
+	});
+
+	$(document).on('click','.modal .close',function(){
+		closeModal();
+	});
+
+	$(document).on('submit','.modxminify-form',function(e){
+		e.preventDefault();
+		var fileId = $(this).find('input[name="id"]').val();
+		if(fileId) {
+			removeFile(fileId);
+		}
+
+	});
+
+	$(document).on('click','button[data-form-cancel]',function(){
+		closeModal();
+	});
+
+	window.onclick = function(event) {
+	    if (event.target == modalElement[0]) {
+	        closeModal();
+	    }
+	}
 
 	// Initialize on page load
 	initialize();
