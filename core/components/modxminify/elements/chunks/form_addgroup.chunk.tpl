@@ -1,15 +1,17 @@
-<form action="#" method="post">
+<form action="mgr/group/create" method="post">
+
+	<h2>[[+modxminify.global.add]] [[+modxminify.group]]</h2>
+
 	<div class="form-group">
-		<label>[[+modxminify.group.name]]</label>
-		<input type="text" name="name" />
+		<label for="name">[[+modxminify.group.name]]</label>
+		<input type="text" name="name" id="name" class="form-control" />
 	</div>
 	
 	<div class="form-group">
-		<label>[[+modxminify.group.description]]</label>
-		<textarea name="description" />
+		<label for="description">[[+modxminify.group.description]]</label>
+		<textarea name="description" id="description" rows="4" class="form-control" />
 	</div>
 
-	<div class="form-group">
-		<button type="submit">Submit</button>
-	</div>
+	<button type="submit">[[+modxminify.global.save]]</button>
+
 </form>

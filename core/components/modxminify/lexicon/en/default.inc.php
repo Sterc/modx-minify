@@ -17,6 +17,8 @@ $_lang['modxminify.global.update'] = 'Update';
 $_lang['modxminify.global.remove'] = 'Remove';
 $_lang['modxminify.global.remove_confirm'] = 'Are you sure you want to remove this';
 $_lang['modxminify.global.search'] = 'Search';
+$_lang['modxminify.global.save'] = 'Save';
+$_lang['modxminify.global.cancel'] = 'Cancel';
 
 $_lang['modxminify.group'] = 'Group';
 $_lang['modxminify.group.groups'] = 'Groups';

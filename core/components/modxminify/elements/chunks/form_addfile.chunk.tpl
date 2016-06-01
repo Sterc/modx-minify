@@ -1,15 +1,13 @@
 <form action="#" method="post" id="createFile">
-	<div class="form-group">
-		<label>[[+modxminify.group]]</label>
-		<input type="text" name="filename" />
-	</div>
 	
-	<div class="form-group">
-		<label>[[+modxminify.file.name]]</label>
-		<input type="text" name="filename" />
-	</div>
+	<h2>[[+modxminify.global.add]] [[+modxminify.file]]</h2>
 
 	<div class="form-group">
-		<button type="submit">Submit</button>
+		<label for="filename">[[+modxminify.file.name]]</label>
+		<textarea name="filename" id="filename" rows="7" class="form-control" />
+		<p class="help-block">[[+modxminify.file.name.description]]</p>
 	</div>
+
+	<button type="submit">[[+modxminify.global.save]]</button>
+
 </form>

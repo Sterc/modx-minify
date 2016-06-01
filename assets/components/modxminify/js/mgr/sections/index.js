@@ -84,7 +84,7 @@ $(document).ready(function() {
 	function initDragDrop() {
 		$('ul.files').each(function(i,element){
 			Sortable.create(element, {
-				animation: 250,
+				animation: 100,
 				filter: '.file-actions',
 			    store: {
 			    	get: function (sortable) {
@@ -145,6 +145,10 @@ $(document).ready(function() {
 
 	$(document).on('click','button[data-add-group]',function(){
 		loadModalContent('form_addgroup');
+	});
+
+	$(document).on('click','button[data-add-file]',function(){
+		loadModalContent('form_addfile');
 	});
 
 	$(document).on('click','a[data-update]',function(){
