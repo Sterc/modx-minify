@@ -7,12 +7,14 @@ $(document).ready(function() {
 		HTTP_MODAUTH: http_modauth
 	}
 
-	function initialize() {
+	function initialize() 
+	{
 		getGroupsFiles();
 		setContentHeight();
 	}
 
-	function ajaxConnector(url,params,callback) {
+	function ajaxConnector(url,params,callback) 
+	{
 		$.ajax({
 			type: 'post',
 			dataType: 'json',
@@ -24,21 +26,15 @@ $(document).ready(function() {
 		});
 	}
 
-	function parseOutput(data,placeholders) {
-		var output = '';
-		$.each(data, function(key,values) {
-			output += values.name;
-		});
-		return output;
-	}
-
-	function renderOutput(element,output) {
+	function renderOutput(element,output) 
+	{
 		$(element).html(output);
 		initDragDrop();
 		setContentHeight();
 	}
 
-	function getGroupsFiles() {
+	function getGroupsFiles() 
+	{
 		var params = {
 			action       : 'mgr/group/getgroupsfiles',
             HTTP_MODAUTH : http_modauth
@@ -51,38 +47,23 @@ $(document).ready(function() {
 		});
 	}
 
-	function addGroup(name,description) {
-
-	}
-
-	function addFile(filename,groupId) {
-		var formParams = {
-			action       : 'mgr/file/createmultiple',
-            group 		 : groupId
-		};
-		var params = $.extend({},formParams,defaultParams);
-		ajaxConnector(mm_connector_url,params,function(response) {
-			closeModal();
-			if(response.success == true) {
-				getGroupsFiles();
-			}
-		});
-	}
-
-	function reOrderFiles(order) {
+	function reOrderFiles(order) 
+	{
 		var formParams = {
 			action       : 'mgr/file/reorderfiles',
             order: order
 		};
 		var params = $.extend({},formParams,defaultParams);
-        ajaxConnector(mm_connector_url,params,function(response) {
+        ajaxConnector(mm_connector_url,params,function(response) 
+        {
 			if(response.success == true) {
 				getGroupsFiles();
 			}
 		});
 	}
 
-	function initDragDrop() {
+	function initDragDrop() 
+	{
 		$('ul.files').each(function(i,element){
 			Sortable.create(element, {
 				animation: 100,
@@ -102,36 +83,44 @@ $(document).ready(function() {
 		})
 	}
 
-	function setContentHeight() {
+	function setContentHeight() 
+	{
 		height = $(document).height() - $('#modx-header').height();
 		$('#modx-content').height(height);
 	}
 
-	function openModal() {
+	function openModal() 
+	{
 		modalElement.show();
 	}
 
-	function closeModal() {
+	function closeModal() 
+	{
 		// first empty the contents of the modal window
 		modalContent.html('');
 		modalElement.hide();
 	}
 
-	function loadModalContent(chunk = false, data = {}) {
-		if(chunk) {
+	function loadModalContent(chunk = false, data = {}) 
+	{
+		if(chunk) 
+		{
 			var params = {
 				action       : 'mgr/modal/loadcontent',
 	            HTTP_MODAUTH : http_modauth,
 	            chunk 		 : chunk,
 	            data 		 : data
 			};
-	        ajaxConnector(mm_connector_url,params,function(response) {
+	        ajaxConnector(mm_connector_url,params,function(response) 
+	        {
 				if(response.success == true && response.html) {
 					modalContent.html(response.html);
 					openModal();
 				}
 			});
-		} else {
+		} 
+		else 
+		{
 			modalContent.html('');
 		}
 	}
@@ -143,17 +132,23 @@ $(document).ready(function() {
 	$(document).on('click','button[data-add-group]',function(){
 		loadModalContent('form_addgroup');
 	});
+	$(document).on('click','a[data-update-group]',function(){
+		openModal();
+	});
+	$(document).on('click','a[data-remove-group]',function(){
+		loadModalContent('form_removegroup',{ id: $(this).attr('data-remove-group') });
+	});
 
 	$(document).on('click','button[data-add-file]',function(){
 		loadModalContent('form_addfile');
 	});
 
-	$(document).on('click','a[data-update]',function(){
+	$(document).on('click','a[data-update-file]',function(){
 		openModal();
 	});
 
-	$(document).on('click','a[data-remove]',function(){
-		loadModalContent('form_removefile',{ id: $(this).attr('data-remove') });
+	$(document).on('click','a[data-remove-file]',function(){
+		loadModalContent('form_removefile',{ id: $(this).attr('data-remove-file') });
 	});
 
 	$(document).on('click','.modal .close',function(){
@@ -164,17 +159,34 @@ $(document).ready(function() {
 	// Prevents the default form submit, and processes it with the processor defined in form action
 	$(document).on('submit','.modxminify-form',function(e){
 		e.preventDefault();
+		var form = $(this);
 		// add action parameter from form into ajax parameters
 		var formParams = { action: $(this).attr('action')};
-		$(this).serializeArray().map(function(x){formParams[x.name] = x.value;});
+		form.serializeArray().map(function(x){formParams[x.name] = x.value;});
 		// merge form parameters with default params
 		var params = $.extend({},formParams,defaultParams);
-		ajaxConnector(mm_connector_url,params,function(response) {
-			if(response.success == true) {
+
+		ajaxConnector(mm_connector_url,params,function(response) 
+		{
+			form.find('.field-error').remove();
+			if (response.success == true) 
+			{
 				closeModal();
 				getGroupsFiles();
-			} else {
+			} 
+			else 
+			{
 				// get the form field(s) with error, show error(s) in form
+				$.each(response.data,function(index,value) 
+				{
+					if (value.id) 
+					{
+						if ($('[name="'+value.id+'"]').length > 0) 
+						{
+							$('[name="'+value.id+'"]').parent().addClass('has-error').append('<p class="help-block field-error">'+value.msg+'</p>');
+						}
+					}
+				});
 			}
 		});
 

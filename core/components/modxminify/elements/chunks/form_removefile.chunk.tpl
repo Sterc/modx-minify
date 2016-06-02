@@ -1,4 +1,4 @@
-<form action="mgr/file/remove" method="post" class="modxminify-form">
+<form method="post" class="modxminify-form" action="mgr/file/remove">
 
 	<h2>[[+modxminify.global.remove]] [[+modxminify.file]]</h2>
 

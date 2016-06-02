@@ -1,4 +1,4 @@
-<form action="mgr/group/create" method="post">
+<form method="post" class="modxminify-form" action="mgr/group/create">
 
 	<h2>[[+modxminify.global.add]] [[+modxminify.group]]</h2>
 

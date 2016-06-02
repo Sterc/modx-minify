@@ -36,7 +36,15 @@ class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
                 $items .= $this->modxMinify->getChunk('file_item', $placeholders);
             }
             $inner = $this->modxMinify->getChunk('wrapper', array('class' => 'files', 'output' => $items));
-            $output .= $this->modxMinify->getChunk('group_item', array('name' => $group->get('name'), 'inner' => $inner));
+            $output .= $this->modxMinify->getChunk('group_item', 
+                array_merge(
+                    $group->toArray(),
+                    array('inner' => $inner),
+                    array(
+                        'lang.update_group' => $this->modx->lexicon('modxminify.global.update').' '.$this->modx->lexicon('modxminify.group'),
+                        'lang.remove_group' => $this->modx->lexicon('modxminify.global.remove').' '.$this->modx->lexicon('modxminify.group')
+                    )
+                ));
             $count++;
         }
         $html = $this->modxMinify->getChunk('wrapper', array('class' => 'groups', 'output' => $output));
