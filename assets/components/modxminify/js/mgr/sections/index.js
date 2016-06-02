@@ -1,6 +1,11 @@
 $(document).ready(function() {
 
 	var modalElement = $('#modxminify-modal');
+	var modalContent = modalElement.find('.modal-content p');
+
+	var defaultParams = {
+		HTTP_MODAUTH: http_modauth
+	}
 
 	function initialize() {
 		getGroupsFiles();
@@ -51,29 +56,25 @@ $(document).ready(function() {
 	}
 
 	function addFile(filename,groupId) {
-
-	}
-
-	function removeFile(fileId) {
-		var params = {
-			action       : 'mgr/file/remove',
-            HTTP_MODAUTH : http_modauth,
-            id 			 : fileId
+		var formParams = {
+			action       : 'mgr/file/createmultiple',
+            group 		 : groupId
 		};
+		var params = $.extend({},formParams,defaultParams);
 		ajaxConnector(mm_connector_url,params,function(response) {
+			closeModal();
 			if(response.success == true) {
-				closeModal();
 				getGroupsFiles();
 			}
 		});
 	}
 
 	function reOrderFiles(order) {
-		var params = {
+		var formParams = {
 			action       : 'mgr/file/reorderfiles',
-            HTTP_MODAUTH : http_modauth,
             order: order
 		};
+		var params = $.extend({},formParams,defaultParams);
         ajaxConnector(mm_connector_url,params,function(response) {
 			if(response.success == true) {
 				getGroupsFiles();
@@ -112,7 +113,7 @@ $(document).ready(function() {
 
 	function closeModal() {
 		// first empty the contents of the modal window
-		modalElement.find('.modal-content p').html('');
+		modalContent.html('');
 		modalElement.hide();
 	}
 
@@ -126,17 +127,13 @@ $(document).ready(function() {
 			};
 	        ajaxConnector(mm_connector_url,params,function(response) {
 				if(response.success == true && response.html) {
-					modalElement.find('.modal-content p').html(response.html);
+					modalContent.html(response.html);
 					openModal();
 				}
 			});
 		} else {
-			modalElement.find('.modal-content p').html('');
+			modalContent.html('');
 		}
-	}
-
-	function handleForm() {
-
 	}
 
 	$(window).resize(function() {
@@ -163,12 +160,23 @@ $(document).ready(function() {
 		closeModal();
 	});
 
+	// Handle the form submits
+	// Prevents the default form submit, and processes it with the processor defined in form action
 	$(document).on('submit','.modxminify-form',function(e){
 		e.preventDefault();
-		var fileId = $(this).find('input[name="id"]').val();
-		if(fileId) {
-			removeFile(fileId);
-		}
+		// add action parameter from form into ajax parameters
+		var formParams = { action: $(this).attr('action')};
+		$(this).serializeArray().map(function(x){formParams[x.name] = x.value;});
+		// merge form parameters with default params
+		var params = $.extend({},formParams,defaultParams);
+		ajaxConnector(mm_connector_url,params,function(response) {
+			if(response.success == true) {
+				closeModal();
+				getGroupsFiles();
+			} else {
+				// get the form field(s) with error, show error(s) in form
+			}
+		});
 
 	});
 

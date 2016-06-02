@@ -58,6 +58,7 @@ ul.groups > li {
 	background: #efefef;
 }
 button {
+    font-size: 14px;
 	background: #3697CD;
 	border: 1px solid rgba(0,0,0,0.2);
 	padding: 8px 16px;
