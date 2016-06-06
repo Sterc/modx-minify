@@ -26,11 +26,13 @@ ul.groups > li {
 	margin-bottom: 20px;
 }
 .groups > li > .name {
-	font-weight: bold;
 	font-size: 16px;
 	padding-left: 10px;
 	background: #dfdfdf;
 	display: block;
+}
+.groups > li > .name a {
+    padding-left: 5px;
 }
 .files {
 	/* border-top: 1px solid #ddd; */
@@ -116,6 +118,12 @@ a.small {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.no-results {
+    color: #777;
+    padding: 6px;
+    font-style: italic;
 }
 
 .form-group {

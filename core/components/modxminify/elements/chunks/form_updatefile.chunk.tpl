@@ -1,6 +1,8 @@
-<form method="post" class="modxminify-form" action="mgr/file/createmultiple">
+<form method="post" class="modxminify-form" action="mgr/file/update">
 	
-	<h2>[[+modxminify.global.add]] [[+modxminify.file]]</h2>
+	<h2>[[+modxminify.global.update]] [[+modxminify.file]]</h2>
+
+	<input type="hidden" name="id" value="[[+id]]" />
 
 	<div class="form-group">
 		<label for="group">[[+modxminify.group]]</label>
@@ -12,7 +14,7 @@
 
 	<div class="form-group">
 		<label for="filename">[[+modxminify.file.name]]</label>
-		<textarea name="filename" id="filename" rows="7" class="form-control" />
+		<input type="text" name="filename" id="filename" class="form-control" value="[[+filename]]" />
 		<p class="help-block">[[+modxminify.file.name.description]]</p>
 	</div>
 

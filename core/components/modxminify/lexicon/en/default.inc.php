@@ -34,6 +34,7 @@ $_lang['modxminify.file.name'] = 'Filename';
 $_lang['modxminify.file.name.description'] = 'Enter the full path of your file (relative to your base_path). For multiple files place every file on a new line.';
 $_lang['modxminify.file.position'] = 'Position';
 $_lang['modxminify.file.nogroups'] = 'No groups added yet. Please add a group via the \'groups\' tab before adding files.';
+$_lang['modxminify.file.noresults'] = 'No files added to this group yet.';
 
 $_lang['modxminify.err.group_name_ae'] = 'A group already exists with that key.';
 $_lang['modxminify.err.group_nf'] = 'Group not found.';

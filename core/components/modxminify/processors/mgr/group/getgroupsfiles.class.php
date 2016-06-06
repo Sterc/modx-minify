@@ -25,6 +25,7 @@ class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
             $c->where(array('group' => $group->get('id')));
             $c->sortby('position','asc');
             $files = $this->modx->getCollection('modxMinifyFile',$c);
+            $filesCount = 0;
             foreach($files as $file) {
                 $placeholders = array_merge(
                     $file->toArray(),
@@ -34,8 +35,13 @@ class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
                     )
                 );
                 $items .= $this->modxMinify->getChunk('file_item', $placeholders);
+                $filesCount++;
             }
-            $inner = $this->modxMinify->getChunk('wrapper', array('class' => 'files', 'output' => $items));
+            if($filesCount) {
+                $inner = $this->modxMinify->getChunk('wrapper', array('class' => 'files', 'output' => $items));
+            } else {
+                $inner = '<div class="no-results">'.$this->modx->lexicon('modxminify.file.noresults').'</div>';
+            }
             $output .= $this->modxMinify->getChunk('group_item', 
                 array_merge(
                     $group->toArray(),
