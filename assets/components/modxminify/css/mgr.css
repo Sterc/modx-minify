@@ -12,6 +12,12 @@
 .modxminify-content p {
 	margin: 10px 0;
 }
+a.small {
+    font-size: 12px;
+}
+.remove {
+    color: #BE0000;
+}
 .groups-files ul {
 	margin: 0;
 }
@@ -20,10 +26,11 @@
 	display: inline-block;	
 }
 ul.groups {
-	margin: 10px 0;
+	margin: 15px 0;
 }
 ul.groups > li {
-	margin-bottom: 20px;
+	margin-bottom: 15px;
+    
 }
 .groups > li > .name {
 	font-size: 16px;
@@ -37,24 +44,35 @@ ul.groups > li {
 .files {
 	/* border-top: 1px solid #ddd; */
 	margin-bottom: 20px;
+    background: #fff;
 }
 .files li {
 	border-bottom: 1px solid #ddd;
 }
 .files li .name {
 }
-.handle, .file-actions {
-	padding: 6px;
+.handle {
+	padding: 6px 6px 6px 10px;
 	display: inline-block;
 }
 .handle:hover, .files .name:hover {
 	cursor: move;
 }
-.file-actions a {
-	padding: 0 10px 0 0;
+.block-actions {
+    padding-left: 10px;
 }
-.file-actions a:hover {
-	color: #222;
+.block-actions a {
+	padding: 4px 6px;
+    margin-right: 4px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+.block-actions a:hover {
+	color: #fff;
+    background: #3697cd;
+}
+.block-actions a.remove:hover {
+    background: #BE0000;
 }
 .sortable-ghost {
 	background: #efefef;
@@ -74,13 +92,6 @@ button.light {
 }
 button.danger {
 	background: red;
-}
-
-a.small {
-	font-size: 11px;
-}
-.remove {
-	color: red;
 }
 
 /* modal window */
@@ -124,6 +135,10 @@ a.small {
     color: #777;
     padding: 6px;
     font-style: italic;
+}
+
+.fa {
+    padding-right: 2px;
 }
 
 .form-group {

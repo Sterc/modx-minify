@@ -159,7 +159,7 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click','[data-update-group]',function() {
-		openModal();
+		loadModalContent('form_updategroup', { id: $(this).attr('data-update-group') }, 'modxMinifyGroup');
 	});
 
 	$(document).on('click','[data-remove-group]',function() {

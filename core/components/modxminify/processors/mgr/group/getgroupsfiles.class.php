@@ -16,6 +16,7 @@ class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
 
     public function process() {
 
+        $lexicons = $this->modx->lexicon->fetch('modxminify');
         $groups = $this->modx->getCollection('modxMinifyGroup',$c);
         $output = '';
         $count = 0;
@@ -29,10 +30,7 @@ class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
             foreach($files as $file) {
                 $placeholders = array_merge(
                     $file->toArray(),
-                    array(
-                        'lang.update_file' => $this->modx->lexicon('modxminify.global.update').' '.$this->modx->lexicon('modxminify.file'),
-                        'lang.remove_file' => $this->modx->lexicon('modxminify.global.remove').' '.$this->modx->lexicon('modxminify.file')
-                    )
+                    $lexicons
                 );
                 $items .= $this->modxMinify->getChunk('file_item', $placeholders);
                 $filesCount++;
@@ -46,10 +44,7 @@ class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
                 array_merge(
                     $group->toArray(),
                     array('inner' => $inner),
-                    array(
-                        'lang.update_group' => $this->modx->lexicon('modxminify.global.update').' '.$this->modx->lexicon('modxminify.group'),
-                        'lang.remove_group' => $this->modx->lexicon('modxminify.global.remove').' '.$this->modx->lexicon('modxminify.group')
-                    )
+                    $lexicons
                 ));
             $count++;
         }

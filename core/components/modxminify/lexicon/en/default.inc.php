@@ -14,6 +14,7 @@ $_lang['modxminify.menu.modxminify_desc'] = 'Minify your CSS, SCSS, LESS and JS 
 $_lang['modxminify.global.create'] = 'Create';
 $_lang['modxminify.global.add'] = 'Add';
 $_lang['modxminify.global.update'] = 'Update';
+$_lang['modxminify.global.edit'] = 'Edit';
 $_lang['modxminify.global.remove'] = 'Remove';
 $_lang['modxminify.global.remove_confirm'] = 'Are you sure you want to remove this';
 $_lang['modxminify.global.search'] = 'Search';
@@ -35,6 +36,7 @@ $_lang['modxminify.file.name.description'] = 'Enter the full path of your file (
 $_lang['modxminify.file.position'] = 'Position';
 $_lang['modxminify.file.nogroups'] = 'No groups added yet. Please add a group via the \'groups\' tab before adding files.';
 $_lang['modxminify.file.noresults'] = 'No files added to this group yet.';
+$_lang['modxminify.file.remove.notice'] = 'Only the file reference in this group will be removed. The actual file will ofcourse remain safe.';
 
 $_lang['modxminify.err.group_name_ae'] = 'A group already exists with that key.';
 $_lang['modxminify.err.group_nf'] = 'Group not found.';

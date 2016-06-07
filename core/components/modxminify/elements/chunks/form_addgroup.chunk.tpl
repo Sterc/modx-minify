@@ -9,7 +9,7 @@
 	
 	<div class="form-group">
 		<label for="description">[[+modxminify.group.description]]</label>
-		<textarea name="description" id="description" rows="4" class="form-control" />
+		<textarea name="description" id="description" rows="4" class="form-control"></textarea>
 	</div>
 
 	<button type="submit">[[+modxminify.global.save]]</button>

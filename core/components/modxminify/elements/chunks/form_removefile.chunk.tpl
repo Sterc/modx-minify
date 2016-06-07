@@ -5,8 +5,12 @@
 	<input type="hidden" name="id" value="[[+id]]" />
 
 	<div class="form-group">
-		<p>[[+modxminify.global.remove_confirm]] [[+modxminify.file:strtolower]]?</p>
-		<p class="help-block"><i>[[+filename]]</i></p>
+		<p>
+			[[+modxminify.global.remove_confirm]] [[+modxminify.file:strtolower]]?
+			<br>
+			<b>[[+filename]]</b>
+		</p>
+		<p class="help-block"><i>[[+modxminify.file.remove.notice]]</i></p>
 	</div>
 	
 	<button type="submit" class="danger">[[+modxminify.global.remove]]</button>

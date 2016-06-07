@@ -5,8 +5,11 @@
 	<input type="hidden" name="id" value="[[+id]]" />
 
 	<div class="form-group">
-		<p>[[+modxminify.global.remove_confirm]] [[+modxminify.group:strtolower]]?</p>
-		<p class="help-block"><i>[[+name]]</i></p>
+		<p>
+			[[+modxminify.global.remove_confirm]] [[+modxminify.group:strtolower]]?
+			<br>
+			<b>[[+name]]</b>
+		</p>
 	</div>
 	
 	<button type="submit" class="danger">[[+modxminify.global.remove]]</button>
