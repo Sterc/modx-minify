@@ -91,7 +91,7 @@ button.light {
 	background: #efefef;
 }
 button.danger {
-	background: red;
+	background: #BE0000;
 }
 
 /* modal window */
@@ -133,7 +133,7 @@ button.danger {
 
 .no-results {
     color: #777;
-    padding: 6px;
+    padding: 6px 10px;
     font-style: italic;
 }
 

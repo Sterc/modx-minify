@@ -1,6 +1,6 @@
 <form method="post" class="modxminify-form" action="mgr/file/update">
 	
-	<h2>[[+modxminify.global.update]] [[+modxminify.file]]</h2>
+	<h2>[[+modxminify.global.edit]] [[+modxminify.file]]</h2>
 
 	<input type="hidden" name="id" value="[[+id]]" />
 
