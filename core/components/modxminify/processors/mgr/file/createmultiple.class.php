@@ -13,6 +13,12 @@ class modxMinifyFileCreateMultipleProcessor extends modObjectCreateProcessor {
         
         $data = $this->getProperties();
 
+        // check if filename is empty
+        if (empty($data['filename'])) {
+            $this->addFieldError('filename',$this->modx->lexicon('modxminify.err.file_name_ns'));
+            return $this->failure();
+        }
+
         // check for multiple filenames from textarea
         // a bit ugly because exploding on "/r/n" or PHP_EOL does not work for some reason
         $allFiles = nl2br($data['filename']);

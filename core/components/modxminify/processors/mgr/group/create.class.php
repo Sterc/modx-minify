@@ -13,9 +13,9 @@ class modxMinifyGroupCreateProcessor extends modObjectCreateProcessor {
         $name = $this->getProperty('name');
 
         if (empty($name)) {
-            $this->addFieldError('name',$this->modx->lexicon('modxminify.err.item_name_ns'));
+            $this->addFieldError('name',$this->modx->lexicon('modxminify.err.group_name_ns'));
         } else if ($this->doesAlreadyExist(array('name' => $name))) {
-            $this->addFieldError('name',$this->modx->lexicon('modxminify.err.item_name_ae'));
+            $this->addFieldError('name',$this->modx->lexicon('modxminify.err.group_name_ae'));
         }
         return parent::beforeSave();
     }

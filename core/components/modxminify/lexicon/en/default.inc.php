@@ -45,6 +45,7 @@ $_lang['modxminify.err.group_remove'] = 'An error occurred while trying to remov
 $_lang['modxminify.err.group_save'] = 'An error occurred while trying to save the group.';
 
 $_lang['modxminify.err.file_name_ae'] = 'One or more of your files already exists in this group. Please check your filenames.';
+$_lang['modxminify.err.file_name_ns'] = 'Filename not specified. Please enter at least one filename.';
 $_lang['modxminify.err.file_name_notexist'] = 'One or more of your files cannot be found in the specified path(s).';
 $_lang['modxminify.err.file_name_ae_single'] = 'That file already exists in this group. Please check your filename.';
 $_lang['modxminify.err.file_name_notexist_single'] = 'That file cannot be found in the specified path.';

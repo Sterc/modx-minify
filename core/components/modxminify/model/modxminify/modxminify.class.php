@@ -265,6 +265,7 @@ class modxMinify {
      */
     public function getGroupId($group) {
 
+        $groupId = 0;
         if(is_numeric($group)) {
             $groupId = intval($group);
         } else {
