@@ -53,8 +53,7 @@ $(document).ready(function() {
 			action 	: 'mgr/file/reorderfiles',
             order 	: order
 		};
-        ajaxConnector(mm_connector_url,params,function(response) 
-        {
+        ajaxConnector(mm_connector_url,params,function(response) {
 			if(response.success == true) {
 				getGroupsFiles();
 			}
@@ -102,8 +101,7 @@ $(document).ready(function() {
 
 	function loadModalContent(chunk = false, data = {}, includeObject = false) 
 	{
-		if(chunk) 
-		{
+		if (chunk) {
 			var params = {
 				action       	: 'mgr/modal/loadcontent',
 	            chunk 		 	: chunk,
@@ -117,9 +115,7 @@ $(document).ready(function() {
 					openModal();
 				}
 			});
-		} 
-		else 
-		{
+		} else {
 			modalContent.html('');
 		}
 	}
@@ -131,8 +127,7 @@ $(document).ready(function() {
 		};
         ajaxConnector(mm_connector_url,params,function(response) 
         {
-			if(response.success == true && response.results) 
-			{
+			if (response.success == true && response.results) {
 				response.output = '';
 				$.each(response.results,function(index,value) 
 				{
@@ -142,8 +137,7 @@ $(document).ready(function() {
 					}
 					response.output += '<option value="'+value.id+'" '+selectedElem+'>'+value.name+'</option>';
 				});
-				if (typeof callback == "function") 
-				{
+				if (typeof callback == "function") {
 					callback(response);
 				}
 			}
@@ -184,8 +178,7 @@ $(document).ready(function() {
 		loadModalContent('form_removefile', { id: $(this).attr('data-remove-file') }, 'modxMinifyFile');
 	});
 
-	$(document).on('click','.modal .close',function()
-	{
+	$(document).on('click','.modal .close',function() {
 		closeModal();
 	});
 
@@ -204,13 +197,10 @@ $(document).ready(function() {
 		ajaxConnector(mm_connector_url,params,function(response) 
 		{
 			form.find('.field-error').remove();
-			if (response.success == true) 
-			{
+			if (response.success == true) {
 				closeModal();
 				getGroupsFiles();
-			} 
-			else 
-			{
+			} else {
 				// get the form field(s) with error, show error(s) in form
 				$.each(response.data,function(index,value) 
 				{
