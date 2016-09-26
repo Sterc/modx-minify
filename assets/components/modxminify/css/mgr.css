@@ -4,6 +4,9 @@
 .modxminify-container * {
 	box-sizing: border-box;
 }
+.modxminify-container .icon {
+    padding-right: 2px;
+}
 .modxminify-content {
 	background: #fff;
 	padding: 15px;
@@ -135,10 +138,6 @@ button.danger {
     color: #777;
     padding: 6px 10px;
     font-style: italic;
-}
-
-.fa {
-    padding-right: 2px;
 }
 
 .form-group {

@@ -11,7 +11,7 @@
 
 	<div id="modxminify-modal" class="modal">
 		<div class="modal-content">
-			<i class="fa fa-times close" aria-hidden="true"></i>
+			<i class="icon icon-times close" aria-hidden="true"></i>
 			<p></p>
 		</div>
 	</div>

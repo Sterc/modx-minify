@@ -4,58 +4,54 @@
  * @package modxminify
  * @subpackage processors
  */
-class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor {
+class modxMinifyGroupGetGroupsFilesProcessor extends modProcessor
+{
 
-    public function initialize() {
-        
-        $this->modxMinify = $this->modx->getService('modxminify', 'modxMinify', $this->modx->getOption('modxminify.core_path', null, $this->modx->getOption('core_path') . 'components/modxminify/') . 'model/modxminify/');
-
-        return parent::initialize();
-
-    }
-
-    public function process() {
+    public function process()
+    {
 
         $lexicons = $this->modx->lexicon->fetch('modxminify');
-        $groups = $this->modx->getCollection('modxMinifyGroup',$c);
+        $c = $this->modx->newQuery('modxMinifyGroup');
+        $c->sortby('id', 'asc');
+        $groups = $this->modx->getCollection('modxMinifyGroup', $c);
         $output = '';
         $count = 0;
-        foreach($groups as $group) {
+        foreach ($groups as $group) {
             $items = '';
             $c = $this->modx->newQuery('modxMinifyFile');
             $c->where(array('group' => $group->get('id')));
-            $c->sortby('position','asc');
-            $files = $this->modx->getCollection('modxMinifyFile',$c);
+            $c->sortby('position', 'asc');
+            $files = $this->modx->getCollection('modxMinifyFile', $c);
             $filesCount = 0;
-            foreach($files as $file) {
+            foreach ($files as $file) {
                 $placeholders = array_merge(
                     $file->toArray(),
                     $lexicons
                 );
-                $items .= $this->modxMinify->getChunk('file_item', $placeholders);
+                $items .= $this->modx->modxminify->getChunk('file_item', $placeholders);
                 $filesCount++;
             }
-            if($filesCount) {
-                $inner = $this->modxMinify->getChunk('wrapper', array('class' => 'files', 'output' => $items));
+            if ($filesCount) {
+                $inner = $this->modx->modxminify->getChunk('wrapper', array('class' => 'files', 'output' => $items));
             } else {
                 $inner = '<div class="no-results">'.$this->modx->lexicon('modxminify.file.noresults').'</div>';
             }
-            $output .= $this->modxMinify->getChunk('group_item', 
+            $output .= $this->modx->modxminify->getChunk(
+                'group_item',
                 array_merge(
                     $group->toArray(),
                     array('inner' => $inner),
                     $lexicons
-                ));
+                )
+            );
             $count++;
         }
-        $html = $this->modxMinify->getChunk('wrapper', array('class' => 'groups', 'output' => $output));
+        $html = $this->modx->modxminify->getChunk('wrapper', array('class' => 'groups', 'output' => $output));
         return json_encode(array(
             'success' => true,
             'total' => $count,
             'html' => $html
         ));
-        
     }
-
 }
 return 'modxMinifyGroupGetGroupsFilesProcessor';

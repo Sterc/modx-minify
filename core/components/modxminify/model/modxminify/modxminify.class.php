@@ -15,13 +15,15 @@ use Assetic\Filter\JSMinFilter;
  *
  * @package modxminify
  */
-class modxMinify {
+class modxMinify
+{
     public $modx = null;
     public $namespace = 'modxminify';
     public $cache = null;
     public $options = array();
 
-    public function __construct(modX &$modx, array $options = array()) {
+    public function __construct(modX &$modx, array $options = array())
+    {
         $this->modx =& $modx;
         $this->namespace = $this->getOption('namespace', $options, 'modxminify');
 
@@ -61,7 +63,8 @@ class modxMinify {
      * namespaced system setting; by default this value is null.
      * @return mixed The option value or the default value specified.
      */
-    public function getOption($key, $options = array(), $default = null) {
+    public function getOption($key, $options = array(), $default = null)
+    {
         $option = $default;
         if (!empty($key) && is_string($key)) {
             if ($options != null && array_key_exists($key, $options)) {
@@ -83,28 +86,28 @@ class modxMinify {
      *
      * @return string
      */
-    public function minifyFiles($group) {
+    public function minifyFiles($group)
+    {
 
-    	$output = '';
+        $output = '';
 
-    	$filenames = array();
-    	$groupIds = array();
-    	// Check if multiple groups are defined in group parameter
-    	// If so, combine all the files from specified groups
-    	$allGroups = explode(',', $group);
-		foreach($allGroups as $group) {
-			$group = $this->getGroupId($group);
-			$groupIds[] = $group;
-    		$filenames = array_merge($filenames,$this->getGroupFilenames($group));
-		}
-		
-		// Setting group key which is used for filename and logging
-		if(count($groupIds) > 1) {
-			$group = implode('_',$groupIds);
-		}
+        $filenames = array();
+        $groupIds = array();
+        // Check if multiple groups are defined in group parameter
+        // If so, combine all the files from specified groups
+        $allGroups = explode(',', $group);
+        foreach ($allGroups as $group) {
+            $group = $this->getGroupId($group);
+            $groupIds[] = $group;
+            $filenames = array_merge($filenames, $this->getGroupFilenames($group));
+        }
 
-        if(count($filenames)) {
+        // Setting group key which is used for filename and logging
+        if (count($groupIds) > 1) {
+            $group = implode('_', $groupIds);
+        }
 
+        if (count($filenames)) {
             require_once $this->options['corePath'] . 'assetic/vendor/autoload.php';
 
             $minifiedFiles = array();
@@ -116,11 +119,10 @@ class modxMinify {
             $updatedFiles = 0;
             $skipMinification = 0;
 
-            foreach($filenames as $file) {
-
+            foreach ($filenames as $file) {
                 $filePath = $this->options['rootPath'].$file;
                 $fileExt = pathinfo($filePath, PATHINFO_EXTENSION);
-                if(!$this->validateFile($filePath,$fileExt)) {
+                if (!$this->validateFile($filePath, $fileExt)) {
                     // no valid files found in group (non-existent or not allowed extension)
                     $this->log('File '.$filePath.' not valid.'."\n\r", 'error');
                     continue;
@@ -130,17 +132,17 @@ class modxMinify {
 
                 $fileFilter = array();
                 $minifyFilter = array();
-                if($fileExt == 'js') {
+                if ($fileExt == 'js') {
                     $minifyFilter = array(new JSMinFilter());
                     $filePrefix = 'scripts';
                     $fileSuffix = '.min.js';
                 } else {
                     // if file is .scss, use the correct filter to parse scss to css
-                    if($fileExt == 'scss') {
+                    if ($fileExt == 'scss') {
                         $fileFilter = array(new ScssphpFilter());
                     }
                     // if file is .less, use the correct filter to parse less to css
-                    if($fileExt == 'less') {
+                    if ($fileExt == 'less') {
                         $fileFilter = array(new LessphpFilter());
                     }
                     $minifyFilter = array(new CSSUriRewriteFilter(), new MinifyCssCompressorFilter());
@@ -148,12 +150,10 @@ class modxMinify {
                     $fileSuffix = '.min.css';
                 }
                 $fileDates[] = filemtime($filePath);
-                $allFiles[] = new FileAsset($filePath,$fileFilter);
-
+                $allFiles[] = new FileAsset($filePath, $fileFilter);
             } // endforeach $files
 
-            if(count($fileDates) && count($allFiles)) {
-
+            if (count($fileDates) && count($allFiles)) {
                 sort($fileDates);
                 $lastEdited = end($fileDates);
                 $minifyFilename = $filePrefix.'-'.$group.'-'.$lastEdited.$fileSuffix;
@@ -161,7 +161,7 @@ class modxMinify {
                 // find the old minified files
                 // if necessary, remove old and generate new, based on file modification time of minified file
                 foreach (glob($this->options['cachePath'].'/'.$filePrefix.'-'.$group.'-*'.$fileSuffix) as $current) {
-                    if(filemtime($current) > $lastEdited) {
+                    if (filemtime($current) > $lastEdited) {
                         // current file is up to date
                         $this->log('Minified file "'.basename($current).'" up to date. Skipping group "'.$group.'" minification.'."\n\r");
                         $minifyFilename = basename($current);
@@ -174,27 +174,21 @@ class modxMinify {
                 $updatedFiles++;
 
                 $this->log("Writing ".$minifyFilename."\n\r");
-                $collection = new AssetCollection($allFiles,$minifyFilter);
+                $collection = new AssetCollection($allFiles, $minifyFilter);
                 $collection->setTargetPath($this->options['cacheUrl'].'/'.$minifyFilename);
                 $am->set($group, $collection);
 
-                if($updatedFiles > 0 && $skip == 0) {
+                if ($updatedFiles > 0 && $skip == 0) {
                     $writer->writeManagerAssets($am);
                 }
                 $output = $this->options['cacheUrl'].'/'.$minifyFilename;
-
             } else {
-
-                $this->log('No files parsed from group '.$group.'. Check the log for more info.'."\n\r",'error');
-
+                $this->log('No files parsed from group '.$group.'. Check the log for more info.'."\n\r", 'error');
             }
-
-
         } else {
             // No files in specified group
         }
         return $output;
-
     }
 
     /**
@@ -204,24 +198,23 @@ class modxMinify {
      *
      * @return array
      */
-    public function getGroupFilenames($group) {
-
+    public function getGroupFilenames($group)
+    {
         $filenames = $this->modx->cacheManager->get('group_'.$group.'_filenames', $this->options['cacheOptions']);
-        if(!$filenames) {
+        if (!$filenames) {
             $filenames = array();
             $c = $this->modx->newQuery('modxMinifyFile');
             $c->where(array(
                 'group' => $group
             ));
-            $c->sortby('position','asc');
-            $collection = $this->modx->getCollection('modxMinifyFile',$c);
-            foreach($collection as $file) {
+            $c->sortby('position', 'asc');
+            $collection = $this->modx->getCollection('modxMinifyFile', $c);
+            foreach ($collection as $file) {
                 $filenames[$file->get('id')] = $file->get('filename');
             }
             $this->modx->cacheManager->set('group_'.$group.'_filenames', $filenames, 0, $this->options['cacheOptions']);
         }
         return $filenames;
-
     }
 
      /**
@@ -233,26 +226,25 @@ class modxMinify {
      *
      * @return boolean
      */
-    public function validateFile($filePath = false, $fileExt = false, $allowedExtensions = array('css','scss','less','js')) {
-
+    public function validateFile($filePath = false, $fileExt = false, $allowedExtensions = array('css','scss','less','js'))
+    {
         $validFile = true;
 
-        if(!file_exists($filePath)) {
+        if (!file_exists($filePath)) {
             // file does not exist
             // $this->log .= '### Error: File "'.$filePath.'"" does not exist. Skipping..'."\n\r";
             $validFile = false;
         }
         // $ext = pathinfo($filePath, PATHINFO_EXTENSION);
-        if(!in_array($fileExt, $allowedExtensions)) {
+        if (!in_array($fileExt, $allowedExtensions)) {
             // not allowed extension
             // skip file
             // log extension in error message
-            $this->log('### Error: '.$fileExt.' extension is not allowed'."\n\r",'error');
+            $this->log('### Error: '.$fileExt.' extension is not allowed'."\n\r", 'error');
             $validFile = false;
         }
 
         return $validFile;
-
     }
 
 
@@ -263,19 +255,18 @@ class modxMinify {
      *
      * @return integer
      */
-    public function getGroupId($group) {
-
+    public function getGroupId($group)
+    {
         $groupId = 0;
-        if(is_numeric($group)) {
+        if (is_numeric($group)) {
             $groupId = intval($group);
         } else {
-            $groupObj = $this->modx->getObject('modxMinifyGroup',array('name' => $group));
-            if($groupObj) {
+            $groupObj = $this->modx->getObject('modxMinifyGroup', array('name' => $group));
+            if ($groupObj) {
                 $groupId = $groupObj->get('id');
             }
         }
         return $groupId;
-
     }
 
     /**
@@ -285,53 +276,59 @@ class modxMinify {
      *
      * @return empty
      */
-    public function emptyMinifyCache($group) {
+    public function emptyMinifyCache($group)
+    {
 
         $group = $this->getGroupId($group);
-        if($group) {
+        if ($group) {
             $this->modx->cacheManager->delete('group_'.$group.'_filenames', $this->options['cacheOptions']);
-            foreach (glob($this->options['cachePath'].'/*-'.$group.'-*') as $current) {
-                unlink($current);
+            foreach (glob($this->options['cachePath'].'/*'.$group.'*') as $file) {
+                if (strpos($file, '-'.$group.'-') ||
+                    strpos($file, '_'.$group) ||
+                    strpos($file, $group.'_')
+                ) {
+                    unlink($file);
+                    $this->modx->log(xPDO::LOG_LEVEL_INFO, '[modxMinify] '.basename($file).' removed.');
+                }
             }
         }
         return;
-
     }
 
      /**
      * Empty the modx cache files and remove minified file(s) for all groups
      * @return empty
      */
-    public function emptyMinifyCacheAll() {
-
+    public function emptyMinifyCacheAll()
+    {
         $groups = $this->modx->getCollection('modxMinifyGroup');
-        foreach($groups as $group) {
-            $this->modx->log(xPDO::LOG_LEVEL_INFO,'[modxMinify] Cache files for group '.$group->get('name').' cleared.');
+        foreach ($groups as $group) {
+            $this->modx->log(xPDO::LOG_LEVEL_INFO, '[modxMinify] Clearing cache files for group '.$group->get('name').'.');
             $this->emptyMinifyCache($group->get('id'));
         }
         return;
-
     }
 
     /**
      * Write group data + group files to json file
      *
      * @param   string|int $group
-     * @return 	empty
+     * @return  empty
      */
-    public function writeGroupFile($group) {
+    public function writeGroupFile($group)
+    {
 
-    	$group = $this->getGroupId($group);
-    	$groupObj = $this->modx->getObject('modxMinifyGroup',$group);
+        $group = $this->getGroupId($group);
+        $groupObj = $this->modx->getObject('modxMinifyGroup', $group);
         $groupsConfigFile = $this->options['assetsPath'].'config.json';
-        if($groupObj && is_writable($this->options['assetsPath'])) {
-            $groupsArray = json_decode(file_get_contents($groupsConfigFile),true);
-            if(!count($groupsArray)) {
+        if ($groupObj && is_writable($this->options['assetsPath'])) {
+            $groupsArray = json_decode(file_get_contents($groupsConfigFile), true);
+            if (!count($groupsArray)) {
                 $groupsArray = array();
             }
             $groupsArray[$group]['group'] = $groupObj->toArray();
-            $filesColl = $this->modx->getCollection('modxMinifyFile',array('group' => $group));
-            foreach($filesColl as $file) {
+            $filesColl = $this->modx->getCollection('modxMinifyFile', array('group' => $group));
+            foreach ($filesColl as $file) {
                 $groupsArray[$group]['files'][$file->get('id')] = $file->toArray();
             }
             $fp = fopen($groupsConfigFile, 'w');
@@ -339,7 +336,6 @@ class modxMinify {
             fclose($fp);
         }
         return;
-
     }
 
     /**
@@ -349,14 +345,15 @@ class modxMinify {
      * @param string $level
      *
      */
-    public function log($message,$level = 'info') {
+    public function log($message, $level = 'info')
+    {
         switch ($level) {
             case 'error':
-                $this->modx->log(xPDO::LOG_LEVEL_ERROR,$message);
+                $this->modx->log(xPDO::LOG_LEVEL_ERROR, $message);
                 break;
             case 'info':
             default:
-                $this->modx->log(xPDO::LOG_LEVEL_INFO,$message);
+                $this->modx->log(xPDO::LOG_LEVEL_INFO, $message);
                 break;
         }
     }
@@ -370,14 +367,16 @@ class modxMinify {
      * @param array $properties The properties for the Chunk
      * @return string The processed content of the Chunk
      */
-    public function getChunk($name,array $properties = array())
+    public function getChunk($name, array $properties = array())
     {
         $chunk = null;
         if (!isset($this->chunks[$name])) {
-            $chunk = $this->modx->getObject('modChunk',array('name' => $name),true);
+            $chunk = $this->modx->getObject('modChunk', array('name' => $name), true);
             if (empty($chunk)) {
                 $chunk = $this->_getTplChunk($name);
-                if ($chunk == false) return false;
+                if ($chunk == false) {
+                    return false;
+                }
             }
             $this->chunks[$name] = $chunk->getContent();
         } else {
@@ -406,10 +405,9 @@ class modxMinify {
             $o = file_get_contents($f);
             /** @var modChunk $chunk */
             $chunk = $this->modx->newObject('modChunk');
-            $chunk->set('name',$name);
+            $chunk->set('name', $name);
             $chunk->setContent($o);
         }
         return $chunk;
     }
-
 }

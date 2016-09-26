@@ -5,13 +5,15 @@
  * @package modxminify
  * @subpackage processors
  */
-class modxMinifyGroupGetListProcessor extends modObjectGetListProcessor {
+class modxMinifyGroupGetListProcessor extends modObjectGetListProcessor
+{
     public $classKey = 'modxMinifyGroup';
     public $languageTopics = array('modxminify:default');
-    public $defaultSortField = 'name';
+    public $defaultSortField = 'id';
     public $defaultSortDirection = 'ASC';
 
-    public function prepareQueryBeforeCount(xPDOQuery $c) {
+    public function prepareQueryBeforeCount(xPDOQuery $c)
+    {
         $query = $this->getProperty('query');
         if (!empty($query)) {
             $c->where(array(
