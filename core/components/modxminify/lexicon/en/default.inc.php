@@ -14,9 +14,12 @@ $_lang['modxminify.menu.modxminify_desc'] = 'Minify your CSS, SCSS, LESS and JS 
 $_lang['modxminify.global.create'] = 'Create';
 $_lang['modxminify.global.add'] = 'Add';
 $_lang['modxminify.global.update'] = 'Update';
+$_lang['modxminify.global.edit'] = 'Edit';
 $_lang['modxminify.global.remove'] = 'Remove';
 $_lang['modxminify.global.remove_confirm'] = 'Are you sure you want to remove this';
 $_lang['modxminify.global.search'] = 'Search';
+$_lang['modxminify.global.save'] = 'Save';
+$_lang['modxminify.global.cancel'] = 'Cancel';
 
 $_lang['modxminify.group'] = 'Group';
 $_lang['modxminify.group.groups'] = 'Groups';
@@ -32,6 +35,8 @@ $_lang['modxminify.file.name'] = 'Filename';
 $_lang['modxminify.file.name.description'] = 'Enter the full path of your file (relative to your base_path). For multiple files place every file on a new line.';
 $_lang['modxminify.file.position'] = 'Position';
 $_lang['modxminify.file.nogroups'] = 'No groups added yet. Please add a group via the \'groups\' tab before adding files.';
+$_lang['modxminify.file.noresults'] = 'No files added to this group yet.';
+$_lang['modxminify.file.remove.notice'] = 'Only the file reference in this group will be removed. The actual file will ofcourse remain safe.';
 
 $_lang['modxminify.err.group_name_ae'] = 'A group already exists with that key.';
 $_lang['modxminify.err.group_nf'] = 'Group not found.';
@@ -40,6 +45,7 @@ $_lang['modxminify.err.group_remove'] = 'An error occurred while trying to remov
 $_lang['modxminify.err.group_save'] = 'An error occurred while trying to save the group.';
 
 $_lang['modxminify.err.file_name_ae'] = 'One or more of your files already exists in this group. Please check your filenames.';
+$_lang['modxminify.err.file_name_ns'] = 'Filename not specified. Please enter at least one filename.';
 $_lang['modxminify.err.file_name_notexist'] = 'One or more of your files cannot be found in the specified path(s).';
 $_lang['modxminify.err.file_name_ae_single'] = 'That file already exists in this group. Please check your filename.';
 $_lang['modxminify.err.file_name_notexist_single'] = 'That file cannot be found in the specified path.';

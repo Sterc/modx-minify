@@ -1,0 +1,7 @@
+/* modx overrides */
+#modx-content {
+    overflow-y: auto;
+}
+#modx-content .x-panel-bwrap {
+	display: none;
+}

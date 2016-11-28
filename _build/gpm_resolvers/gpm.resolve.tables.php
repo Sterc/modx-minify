@@ -13,7 +13,11 @@ if ($object->xpdo) {
     switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         case xPDOTransport::ACTION_INSTALL:
         case xPDOTransport::ACTION_UPGRADE:
-            $modelPath = $modx->getOption('modxminify.core_path', null, $modx->getOption('core_path') . 'components/modxminify/') . 'model/';
+            $modelPath = $modx->getOption(
+                'modxminify.core_path',
+                null,
+                $modx->getOption('core_path') . 'components/modxminify/'
+            ) . 'model/';
             $modx->addPackage('modxminify', $modelPath, 'modx_');
 
             $manager = $modx->getManager();
@@ -24,5 +28,4 @@ if ($object->xpdo) {
             break;
     }
 }
-
 return true;
