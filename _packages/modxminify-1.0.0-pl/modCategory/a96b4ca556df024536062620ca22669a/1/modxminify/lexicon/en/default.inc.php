@@ -49,3 +49,12 @@ $_lang['modxminify.err.file_name_ns'] = 'Filename not specified. Please enter at
 $_lang['modxminify.err.file_name_notexist'] = 'One or more of your files cannot be found in the specified path(s).';
 $_lang['modxminify.err.file_name_ae_single'] = 'That file already exists in this group. Please check your filename.';
 $_lang['modxminify.err.file_name_notexist_single'] = 'That file cannot be found in the specified path.';
+
+/* System settings */
+$_lang['setting_clientlexicon.namespaces'] = 'Namespaces';
+$_lang['setting_clientlexicon.namespaces_desc'] = 'Comma separated list of namespaces to use in clientlexicon.
+ When left empty, all namespaces are shown.';
+$_lang['setting_clientlexicon.user_name'] = 'Your name';
+$_lang['setting_clientlexicon.user_name_desc'] = 'Is used for the Sterc Extra\'s newsletter subscription. (optional)';
+$_lang['setting_clientlexicon.user_email'] = 'Your emailaddress';
+$_lang['setting_clientlexicon.user_email_desc'] = 'Is used for the Sterc Extra\'s newsletter subscription. (optional)';
