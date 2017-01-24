@@ -1,0 +1,200 @@
+.modxminify-container {
+	margin: 20px 15px;
+}
+.modxminify-container * {
+	box-sizing: border-box;
+}
+.modxminify-container .icon {
+    padding-right: 2px;
+}
+.modxminify-content {
+	background: #fff;
+	padding: 15px;
+	margin-top: 18px;
+}
+.modxminify-content p {
+	margin: 10px 0;
+}
+a.small {
+    font-size: 12px;
+}
+.remove {
+    color: #BE0000;
+}
+.groups-files ul {
+	margin: 0;
+}
+.groups-files .name {
+	padding: 8px 8px 8px 0;
+	display: inline-block;	
+}
+ul.groups {
+	margin: 15px 0;
+}
+ul.groups > li {
+	margin-bottom: 15px;
+    
+}
+.groups > li > .name {
+	font-size: 16px;
+	padding-left: 10px;
+	background: #dfdfdf;
+	display: block;
+}
+.groups > li > .name a {
+    padding-left: 5px;
+}
+.files {
+	/* border-top: 1px solid #ddd; */
+	margin-bottom: 20px;
+    background: #fff;
+}
+.files li {
+	border-bottom: 1px solid #ddd;
+}
+.files li .name {
+}
+.handle {
+	padding: 6px 6px 6px 10px;
+	display: inline-block;
+}
+.handle:hover, .files .name:hover {
+	cursor: move;
+}
+.block-actions {
+    padding-left: 10px;
+}
+.block-actions a {
+	padding: 4px 6px;
+    margin-right: 4px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+.block-actions a:hover {
+	color: #fff;
+    background: #3697cd;
+}
+.block-actions a.remove:hover {
+    background: #BE0000;
+}
+.sortable-ghost {
+	background: #efefef;
+}
+button {
+    font-size: 14px;
+	background: #3697CD;
+	border: 1px solid rgba(0,0,0,0.2);
+	padding: 8px 16px;
+	margin: 0 5px 0 0;
+	color: #fff;
+	border-radius: 4px;
+	cursor: pointer;
+}
+button.light {
+	background: #efefef;
+}
+button.danger {
+	background: #BE0000;
+}
+
+/* modal window */
+.modal {
+    display: none;
+    position: fixed; 
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.7);
+}
+.modal-content {
+	position: relative;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 500px;
+    border-radius: 5px;
+}
+.close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 20px !important;
+    padding: 5px;
+    color: #999;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.no-results {
+    color: #777;
+    padding: 6px 10px;
+    font-style: italic;
+}
+
+.form-group {
+	padding: 5px 0;
+	margin-bottom: 10px;
+	width: 100%;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.form-control {
+	display: block;
+    width: 100%;
+    height: 34px;
+    padding: 5px 8px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-control:focus {
+	border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+textarea.form-control {
+	height: auto;
+}
+
+.help-block {
+	display: block;
+    margin: 5px 0;
+    color: #888;
+}
+
+.has-error label,
+.has-error .checkbox, 
+.has-error .checkbox-inline, 
+.has-error .control-label, 
+.has-error .help-block, 
+.has-error .radio, 
+.has-error .radio-inline, 
+.has-error.checkbox label, 
+.has-error.checkbox-inline label, 
+.has-error.radio label, 
+.has-error.radio-inline label {
+    color: #a94442;
+}
+.has-error .form-control {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}

@@ -1,0 +1,16 @@
+<?php return array (
+  'unique_key' => 'key',
+  'preserve_keys' => true,
+  'update_object' => false,
+  'namespace' => 'modxminify',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'd35558efc091cfdda4f83c59bb265eff',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'e3be52f0c16b9139ed96bc31420feca3',
+  'native_key' => 'modxminify.user_name',
+  'object' => '{"key":"modxminify.user_name","value":"","xtype":"textfield","namespace":"modxminify","area":"Sterc Extra","editedon":null}',
+);

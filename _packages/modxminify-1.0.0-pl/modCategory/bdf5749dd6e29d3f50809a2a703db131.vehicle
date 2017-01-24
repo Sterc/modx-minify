@@ -1,0 +1,162 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Snippets' => 
+    array (
+      '338f63a531a21147050f1dfd9fe4e99e' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"modxMinify","description":"","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/**\\n * The base modxMinify snippet.\\n *\\n * @package modxminify\\n *\\/\\n\\n$modxminify = $modx->getService(\'modxminify\',\'modxMinify\',$modx->getOption(\'modxminify.core_path\',null,$modx->getOption(\'core_path\').\'components\\/modxminify\\/\').\'model\\/modxminify\\/\',$scriptProperties);\\nif (!($modxminify instanceof modxMinify)) return \'\';\\n\\n$group = $modx->getOption(\'group\', $scriptProperties, false);\\n\\n$output = $modxminify->minifyFiles($group);\\n\\nreturn $output;","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/**\\n * The base modxMinify snippet.\\n *\\n * @package modxminify\\n *\\/\\n\\n$modxminify = $modx->getService(\'modxminify\',\'modxMinify\',$modx->getOption(\'modxminify.core_path\',null,$modx->getOption(\'core_path\').\'components\\/modxminify\\/\').\'model\\/modxminify\\/\',$scriptProperties);\\nif (!($modxminify instanceof modxMinify)) return \'\';\\n\\n$group = $modx->getOption(\'group\', $scriptProperties, false);\\n\\n$output = $modxminify->minifyFiles($group);\\n\\nreturn $output;"}',
+        'guid' => 'd8a106514d8873ee3528d787339be1b9',
+        'native_key' => NULL,
+        'signature' => '76f6b54d65f08a5d91656ef59c50b81f',
+      ),
+    ),
+    'Plugins' => 
+    array (
+      '62e00a4f8c61ec577c5c7fdddc4d299f' => 
+      array (
+        'unique_key' => 'name',
+        'preserve_keys' => false,
+        'update_object' => true,
+        'related_objects' => 
+        array (
+          'PluginEvents' => 
+          array (
+            '23c2590a7c336cfcba72166f821ed94e' => 
+            array (
+              'class' => 'modPluginEvent',
+              'object' => '{"pluginid":0,"event":"OnSiteRefresh","priority":0,"propertyset":0}',
+              'guid' => '62538a81096eb723ba5e502b9375fcaa',
+              'native_key' => 
+              array (
+                0 => 0,
+                1 => 'OnSiteRefresh',
+              ),
+              'signature' => '02a25f940280dfd21f75b5bab6278de9',
+            ),
+          ),
+        ),
+        'related_object_attributes' => 
+        array (
+          'PluginEvents' => 
+          array (
+            'preserve_keys' => true,
+            'update_object' => false,
+            'unique_key' => 
+            array (
+              0 => 'pluginid',
+              1 => 'event',
+            ),
+          ),
+        ),
+        'class' => 'modPlugin',
+        'object' => '{"id":null,"source":0,"property_preprocess":0,"name":"modxMinifyCacheClear","description":"","editor_type":0,"category":0,"cache_type":0,"plugincode":"switch ($modx->event->name) {\\n\\n\\tcase \'OnSiteRefresh\':\\n\\t\\t$modxminify = $modx->getService(\'modxminify\',\'modxMinify\',$modx->getOption(\'modxminify.core_path\',null,$modx->getOption(\'core_path\').\'components\\/modxminify\\/\').\'model\\/modxminify\\/\',$scriptProperties);\\n\\t\\tif (!($modxminify instanceof modxMinify)) return \'\';\\n\\t\\t$modxminify->emptyMinifyCacheAll();\\n\\t\\tbreak;\\n\\n}","locked":0,"properties":"a:0:{}","disabled":0,"moduleguid":"","static":0,"static_file":"","content":"switch ($modx->event->name) {\\n\\n\\tcase \'OnSiteRefresh\':\\n\\t\\t$modxminify = $modx->getService(\'modxminify\',\'modxMinify\',$modx->getOption(\'modxminify.core_path\',null,$modx->getOption(\'core_path\').\'components\\/modxminify\\/\').\'model\\/modxminify\\/\',$scriptProperties);\\n\\t\\tif (!($modxminify instanceof modxMinify)) return \'\';\\n\\t\\t$modxminify->emptyMinifyCacheAll();\\n\\t\\tbreak;\\n\\n}"}',
+        'guid' => '9adc3419e3638f9b106a92fcfd693cac',
+        'native_key' => NULL,
+        'signature' => 'eab1676e3cf9a4c01d52eb49f425b4cc',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Children' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'parent',
+        1 => 'category',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Templates' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'templatename',
+    ),
+    'TemplateVars' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Plugins' => 
+    array (
+      'unique_key' => 'name',
+      'preserve_keys' => false,
+      'update_object' => true,
+      'related_objects' => true,
+      'related_object_attributes' => 
+      array (
+        'PluginEvents' => 
+        array (
+          'preserve_keys' => true,
+          'update_object' => false,
+          'unique_key' => 
+          array (
+            0 => 'pluginid',
+            1 => 'event',
+          ),
+        ),
+      ),
+    ),
+  ),
+  'namespace' => 'modxminify',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"modxminify-1.0.0-pl\\/modCategory\\/bdf5749dd6e29d3f50809a2a703db131\\/0\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"modxminify"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"modxminify-1.0.0-pl\\/modCategory\\/bdf5749dd6e29d3f50809a2a703db131\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"modxminify"}',
+    ),
+    2 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"modxminify-1.0.0-pl\\/modCategory\\/bdf5749dd6e29d3f50809a2a703db131.gpm.resolve.tables.resolver","type":"php","name":"gpm.resolve.tables"}',
+    ),
+    3 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"modxminify-1.0.0-pl\\/modCategory\\/bdf5749dd6e29d3f50809a2a703db131.setupoptions.resolver.resolver","type":"php","name":"setupoptions.resolver"}',
+    ),
+    4 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"modxminify-1.0.0-pl\\/modCategory\\/bdf5749dd6e29d3f50809a2a703db131.stercextra.resolver.resolver","type":"php","name":"stercextra.resolver"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'bfbe2050d930bec0ebf69ff91e335f14',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => 'bdf5749dd6e29d3f50809a2a703db131',
+  'native_key' => NULL,
+  'object' => '{"id":null,"parent":0,"category":"modxMinify","rank":0}',
+);

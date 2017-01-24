@@ -1,0 +1,30 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'unique_key' => 'text',
+  'related_objects' => true,
+  'related_object_attributes' => 
+  array (
+    'Action' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'namespace',
+        1 => 'controller',
+      ),
+    ),
+  ),
+  'namespace' => 'modxminify',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '133c3c1feae64655e81b8ba1a92fb112',
+  'package' => 'modx',
+  'class' => 'modMenu',
+  'signature' => 'eae8b355def0438908aedc9875c1e997',
+  'native_key' => 'modxminify.menu.modxminify',
+  'object' => '{"text":"modxminify.menu.modxminify","parent":"components","action":"index","description":"modxminify.menu.modxminify_desc","icon":"","menuindex":0,"params":"","handler":"","permissions":"","namespace":"modxminify"}',
+);

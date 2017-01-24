@@ -2,8 +2,8 @@
     "name": "modxMinify"
     ,"lowCaseName": "modxminify"
     ,"description": "Minify your CSS, SCSS, LESS and JS files."
-    ,"author": "Joeke"
-    ,"version": "0.2.1"
+    ,"author": "Sterc"
+    ,"version": "1.0.0"
     ,"package":{
         "menus": [{
             "text": "modxminify.menu.modxminify"
@@ -19,9 +19,28 @@
                 "file": "modxminifycacheclear.plugin.php",
                 "events": ["OnSiteRefresh"]
             }]
-        }
+        },
+        "systemSettings": [{
+            "key": "user_name",
+            "type": "textfield",
+            "area": "Sterc Extra",
+            "value": ""
+        }, {
+            "key": "user_email",
+            "type": "textfield",
+            "area": "Sterc Extra",
+            "value": ""
+        }]
     }
     ,"database": {
         "tables": ["modxMinifyGroup","modxMinifyFile"]
+    },
+    "build":{
+      "resolver": {
+        "after": ["setupoptions.resolver.php", "stercextra.resolver.php"]
+      },
+      "setupOptions":{
+        "source": "setup.options.php"
+      }
     }
 }
