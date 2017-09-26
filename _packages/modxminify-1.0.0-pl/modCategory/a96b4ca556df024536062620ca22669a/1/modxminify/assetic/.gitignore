@@ -1,6 +1,0 @@
-bin/
-composer.lock
-composer.phar
-phpunit.xml
-node_modules/
-Gemfile.lock
