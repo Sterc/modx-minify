@@ -31,6 +31,11 @@ class modxMinify
         $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path', null, MODX_ASSETS_PATH) . 'components/modxminify/');
         $assetsUrl = $this->getOption('assets_url', $options, $this->modx->getOption('assets_url', null, MODX_ASSETS_URL) . 'components/modxminify/');
 
+        $cachePath = $this->getOption('cache_path');
+        if (!$cachePath) $cachePath = $assetsPath.'cache';
+        $cacheUrl = $this->getOption('cache_url');
+        if (!$cacheUrl) $cacheUrl = $assetsUrl.'cache';
+
         /* loads some default paths for easier management */
         $this->options = array_merge(array(
             'namespace' => $this->namespace,
@@ -46,8 +51,8 @@ class modxMinify
             'connectorUrl' => $assetsUrl . 'connector.php',
             'rootPath' => $this->modx->getOption('base_path'),
             'cacheOptions' => array(xPDO::OPT_CACHE_KEY => 'modxminify'),
-            'cachePath' => $assetsPath.'cache',
-            'cacheUrl' => $assetsUrl.'cache'
+            'cachePath' => $cachePath,
+            'cacheUrl' => $cacheUrl
         ), $options);
 
         $this->modx->addPackage('modxminify', $this->getOption('modelPath'));

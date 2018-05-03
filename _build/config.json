@@ -30,6 +30,16 @@
             "type": "textfield",
             "area": "Sterc Extra",
             "value": ""
+        },{
+            "key": "cache_path",
+            "type": "textfield",
+            "area": "Cache Settings",
+            "value": ""
+        },{
+            "key": "cache_url",
+            "type": "textfield",
+            "area": "Cache Settings",
+            "value": ""
         }]
     }
     ,"database": {
