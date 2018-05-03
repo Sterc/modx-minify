@@ -3,6 +3,8 @@ Changelog for modxMinify.
 ModxMinify 1.0.1
 =============================
 - Add missing less.php library
+- Fix bug with hardcoded 'modx_' prefix in build
+-
 
 ModxMinify 1.0.0 (2017-01-24)
 =============================
