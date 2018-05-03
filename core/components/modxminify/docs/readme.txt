@@ -1,7 +1,7 @@
 --------------------
 MODX Minify
 --------------------
-Version: 2.0.0-pl
+Version: 1.0.1-pl
 Author: Sterc <modx@sterc.nl>
 License: GNU GPLv2
 --------------------

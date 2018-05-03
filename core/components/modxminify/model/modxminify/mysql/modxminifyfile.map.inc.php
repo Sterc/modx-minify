@@ -7,6 +7,10 @@ $xpdo_meta_map['modxMinifyFile']= array (
   'version' => '0.1',
   'table' => 'minify_files',
   'extends' => 'xPDOSimpleObject',
+  'tableMeta' => 
+  array (
+    'engine' => 'InnoDB',
+  ),
   'fields' => 
   array (
     'filename' => '',

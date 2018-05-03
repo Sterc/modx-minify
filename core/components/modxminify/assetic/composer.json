@@ -22,7 +22,6 @@
     "require-dev": {
         "phpunit/phpunit": "~4.8",
         "symfony/phpunit-bridge": "~2.7|~3.0",
-        "twig/twig": "~1.23|~2.0",
         "leafo/scssphp": "~0.1",
         "ptachoire/cssembed": "~1.0",
         "oyejorge/less.php": "~1.7.0.9",
@@ -34,7 +33,6 @@
         "psr/log": "~1.0"
     },
     "suggest": {
-        "twig/twig": "Assetic provides the integration with the Twig templating engine",
         "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
         "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
         "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",

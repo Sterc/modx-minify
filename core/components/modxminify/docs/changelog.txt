@@ -3,7 +3,8 @@ Changelog for modxMinify.
 ModxMinify 1.0.1
 =============================
 - Add missing less.php library
-- Fix bug with hardcoded 'modx_' prefix in build
+- Fix bug with hardcoded 'modx_' prefix in build (#9 and #25)
+- Add cache_path and cache_url settings to override path to minified file (PR#27) - Thanks to @digitalpenguin
 -
 
 ModxMinify 1.0.0 (2017-01-24)

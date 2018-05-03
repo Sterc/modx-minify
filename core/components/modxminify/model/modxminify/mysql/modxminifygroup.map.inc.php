@@ -7,6 +7,10 @@ $xpdo_meta_map['modxMinifyGroup']= array (
   'version' => '0.1',
   'table' => 'minify_groups',
   'extends' => 'xPDOSimpleObject',
+  'tableMeta' => 
+  array (
+    'engine' => 'InnoDB',
+  ),
   'fields' => 
   array (
     'name' => '',

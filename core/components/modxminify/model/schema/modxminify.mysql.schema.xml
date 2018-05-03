@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model package="modxminify" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="modxminify" version="0.1">
+<model package="modxminify" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" phpdoc-package="modxminify" version="0.1">
 
     <object class="modxMinifyGroup" table="minify_groups" extends="xPDOSimpleObject">
         <field key="name" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
