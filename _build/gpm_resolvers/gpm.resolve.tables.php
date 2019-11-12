@@ -22,10 +22,12 @@ if ($object->xpdo) {
             $modx->addPackage('modxminify', $modelPath, null);
 
 
+
             $manager = $modx->getManager();
 
             $manager->createObjectContainer('modxMinifyGroup');
             $manager->createObjectContainer('modxMinifyFile');
+
 
             break;
     }

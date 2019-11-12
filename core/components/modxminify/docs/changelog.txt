@@ -1,5 +1,9 @@
 Changelog for modxMinify.
 
+ModxMinify 1.0.2
+=============================
+- Update composer dependency package leafo/scssphp to v0.8.4
+
 ModxMinify 1.0.1
 =============================
 - Add missing less.php library
