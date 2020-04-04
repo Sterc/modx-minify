@@ -17,7 +17,7 @@
         "symfony/process": "~2.1|~3.0"
     },
     "require-dev": {
-        "leafo/scssphp": "~0.1",
+        "scssphp/scssphp": "~1.0",
         "ptachoire/cssembed": "~1.0",
         "oyejorge/less.php": "~1.7.0.9",
         "cssmin/cssmin": "3.0.1",
@@ -29,7 +29,7 @@
     },
     "suggest": {
         "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
-        "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+        "scssphp/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
         "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
         "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
         "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor"

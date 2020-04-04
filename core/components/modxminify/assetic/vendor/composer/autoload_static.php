@@ -14,15 +14,12 @@ class ComposerStaticInite802f67b6ee25a77a3e76f5a417b5777
         'S' => 
         array (
             'Symfony\\Component\\Process\\' => 26,
+            'ScssPhp\\ScssPhp\\' => 16,
         ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
             'Patchwork\\' => 10,
-        ),
-        'L' => 
-        array (
-            'Leafo\\ScssPhp\\' => 14,
         ),
     );
 
@@ -31,6 +28,10 @@ class ComposerStaticInite802f67b6ee25a77a3e76f5a417b5777
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
+        'ScssPhp\\ScssPhp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/scssphp/scssphp/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -38,10 +39,6 @@ class ComposerStaticInite802f67b6ee25a77a3e76f5a417b5777
         'Patchwork\\' => 
         array (
             0 => __DIR__ . '/..' . '/patchwork/jsqueeze/src',
-        ),
-        'Leafo\\ScssPhp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/leafo/scssphp/src',
         ),
     );
 
