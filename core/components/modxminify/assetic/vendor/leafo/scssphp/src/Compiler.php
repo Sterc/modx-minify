@@ -2689,9 +2689,9 @@ class Compiler
                 // [4] - optional alpha component
                 list(, $r, $g, $b) = $value;
 
-                $r = round($r);
-                $g = round($g);
-                $b = round($b);
+                $r = round((int)$r);
+                $g = round((int)$g);
+                $b = round((int)$b);
 
                 if (count($value) === 5 && $value[4] !== 1) { // rgba
                     return 'rgba(' . $r . ', ' . $g . ', ' . $b . ', ' . $value[4] . ')';
