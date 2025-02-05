@@ -13,3 +13,9 @@ node_modules/
 assets/components/modxminify/cache/*
 
 config.core.php
+
+# Add only ZIP transport packages
+_packages/*
+!_packages/*.transport.zip
+_build/gpm_resolvers/
+_build/gpm_scripts/
