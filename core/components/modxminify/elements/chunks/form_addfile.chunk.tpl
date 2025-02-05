@@ -12,7 +12,7 @@
 
 	<div class="form-group">
 		<label for="filename">[[+modxminify.file.name]]</label>
-		<textarea name="filename" id="filename" rows="7" class="form-control" />
+		<textarea name="filename" id="filename" rows="7" class="form-control" ></textarea>
 		<p class="help-block">[[+modxminify.file.name.description]]</p>
 	</div>
 
