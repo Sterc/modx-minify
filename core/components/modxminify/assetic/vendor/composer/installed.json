@@ -1,1621 +1,1079 @@
 {
-        "packages": [
-                {
-                        "name": "cssmin/cssmin",
-                        "version": "3.0.1",
-                        "version_normalized": "3.0.1.0",
-                        "dist": {
-                                "type": "file",
-                                "url": "http://cssmin.googlecode.com/files/cssmin-v3.0.1.php"
-                        },
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "classmap": [
-                                        "cssmin-v3.0.1.php"
-                                ]
-                        },
-                        "install-path": "../cssmin/cssmin"
-                },
-                {
-                        "name": "intervention/httpauth",
-                        "version": "3.0.3",
-                        "version_normalized": "3.0.3.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/Intervention/httpauth.git",
-                                "reference": "7742aa013e1a72f94379cb6623286f06fa1ea5f7"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/Intervention/httpauth/zipball/7742aa013e1a72f94379cb6623286f06fa1ea5f7",
-                                "reference": "7742aa013e1a72f94379cb6623286f06fa1ea5f7",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": "^7.3|^8.0"
-                        },
-                        "require-dev": {
-                                "phpstan/phpstan": "^0.12.11",
-                                "phpunit/phpunit": "^9.0"
-                        },
-                        "time": "2021-01-22T15:08:35+00:00",
-                        "type": "library",
-                        "extra": {
-                                "laravel": {
-                                        "aliases": {
-                                                "HttpAuth": "Intervention\\HttpAuth\\Laravel\\Facades\\HttpAuth"
-                                        },
-                                        "providers": [
-                                                "Intervention\\HttpAuth\\Laravel\\HttpAuthServiceProvider"
-                                        ]
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Intervention\\HttpAuth\\": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Oliver Vogel",
-                                        "email": "oliver@olivervogel.com",
-                                        "homepage": "https://olivervogel.com/"
-                                }
-                        ],
-                        "description": "HTTP authentication (Basic & Digest) including ServiceProviders for easy Laravel integration",
-                        "homepage": "https://github.com/Intervention/httpauth",
-                        "keywords": [
-                                "Authentication",
-                                "http",
-                                "laravel"
-                        ],
-                        "support": {
-                                "issues": "https://github.com/Intervention/httpauth/issues",
-                                "source": "https://github.com/Intervention/httpauth/tree/3.0.3"
-                        },
-                        "install-path": "../intervention/httpauth"
-                },
-                {
-                        "name": "joliclic/javascript-packer",
-                        "version": "1.1",
-                        "version_normalized": "1.1.0.0",
-                        "dist": {
-                                "type": "zip",
-                                "url": "http://joliclic.free.fr/php/javascript-packer/telechargement.php?id=2&action=telecharger"
-                        },
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "classmap": [
-                                        "class.JavaScriptPacker.php"
-                                ]
-                        },
-                        "install-path": "../joliclic/javascript-packer"
-                },
-                {
-                        "name": "kamicane/packager",
-                        "version": "1.0",
-                        "version_normalized": "1.0.0.0",
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://github.com/kamicane/packager/archive/1.0.zip"
-                        },
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "classmap": [
-                                        "."
-                                ]
-                        },
-                        "install-path": "../kamicane/packager"
-                },
-                {
-                        "name": "league/uri",
-                        "version": "7.5.1",
-                        "version_normalized": "7.5.1.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/thephpleague/uri.git",
-                                "reference": "81fb5145d2644324614cc532b28efd0215bda430"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/thephpleague/uri/zipball/81fb5145d2644324614cc532b28efd0215bda430",
-                                "reference": "81fb5145d2644324614cc532b28efd0215bda430",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "league/uri-interfaces": "^7.5",
-                                "php": "^8.1"
-                        },
-                        "conflict": {
-                                "league/uri-schemes": "^1.0"
-                        },
-                        "suggest": {
-                                "ext-bcmath": "to improve IPV4 host parsing",
-                                "ext-fileinfo": "to create Data URI from file contennts",
-                                "ext-gmp": "to improve IPV4 host parsing",
-                                "ext-intl": "to handle IDN host with the best performance",
-                                "jeremykendall/php-domain-parser": "to resolve Public Suffix and Top Level Domain",
-                                "league/uri-components": "Needed to easily manipulate URI objects components",
-                                "php-64bit": "to improve IPV4 host parsing",
-                                "symfony/polyfill-intl-idn": "to handle IDN host via the Symfony polyfill if ext-intl is not present"
-                        },
-                        "time": "2024-12-08T08:40:02+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "7.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "League\\Uri\\": ""
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Ignace Nyamagana Butera",
-                                        "email": "nyamsprod@gmail.com",
-                                        "homepage": "https://nyamsprod.com"
-                                }
-                        ],
-                        "description": "URI manipulation library",
-                        "homepage": "https://uri.thephpleague.com",
-                        "keywords": [
-                                "data-uri",
-                                "file-uri",
-                                "ftp",
-                                "hostname",
-                                "http",
-                                "https",
-                                "middleware",
-                                "parse_str",
-                                "parse_url",
-                                "psr-7",
-                                "query-string",
-                                "querystring",
-                                "rfc3986",
-                                "rfc3987",
-                                "rfc6570",
-                                "uri",
-                                "uri-template",
-                                "url",
-                                "ws"
-                        ],
-                        "support": {
-                                "docs": "https://uri.thephpleague.com",
-                                "forum": "https://thephpleague.slack.com",
-                                "issues": "https://github.com/thephpleague/uri-src/issues",
-                                "source": "https://github.com/thephpleague/uri/tree/7.5.1"
-                        },
-                        "funding": [
-                                {
-                                        "url": "https://github.com/sponsors/nyamsprod",
-                                        "type": "github"
-                                }
-                        ],
-                        "install-path": "../league/uri"
-                },
-                {
-                        "name": "league/uri-interfaces",
-                        "version": "7.5.0",
-                        "version_normalized": "7.5.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/thephpleague/uri-interfaces.git",
-                                "reference": "08cfc6c4f3d811584fb09c37e2849e6a7f9b0742"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/08cfc6c4f3d811584fb09c37e2849e6a7f9b0742",
-                                "reference": "08cfc6c4f3d811584fb09c37e2849e6a7f9b0742",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "ext-filter": "*",
-                                "php": "^8.1",
-                                "psr/http-factory": "^1",
-                                "psr/http-message": "^1.1 || ^2.0"
-                        },
-                        "suggest": {
-                                "ext-bcmath": "to improve IPV4 host parsing",
-                                "ext-gmp": "to improve IPV4 host parsing",
-                                "ext-intl": "to handle IDN host with the best performance",
-                                "php-64bit": "to improve IPV4 host parsing",
-                                "symfony/polyfill-intl-idn": "to handle IDN host via the Symfony polyfill if ext-intl is not present"
-                        },
-                        "time": "2024-12-08T08:18:47+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "7.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "League\\Uri\\": ""
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Ignace Nyamagana Butera",
-                                        "email": "nyamsprod@gmail.com",
-                                        "homepage": "https://nyamsprod.com"
-                                }
-                        ],
-                        "description": "Common interfaces and classes for URI representation and interaction",
-                        "homepage": "https://uri.thephpleague.com",
-                        "keywords": [
-                                "data-uri",
-                                "file-uri",
-                                "ftp",
-                                "hostname",
-                                "http",
-                                "https",
-                                "parse_str",
-                                "parse_url",
-                                "psr-7",
-                                "query-string",
-                                "querystring",
-                                "rfc3986",
-                                "rfc3987",
-                                "rfc6570",
-                                "uri",
-                                "url",
-                                "ws"
-                        ],
-                        "support": {
-                                "docs": "https://uri.thephpleague.com",
-                                "forum": "https://thephpleague.slack.com",
-                                "issues": "https://github.com/thephpleague/uri-src/issues",
-                                "source": "https://github.com/thephpleague/uri-interfaces/tree/7.5.0"
-                        },
-                        "funding": [
-                                {
-                                        "url": "https://github.com/sponsors/nyamsprod",
-                                        "type": "github"
-                                }
-                        ],
-                        "install-path": "../league/uri-interfaces"
-                },
-                {
-                        "name": "marcusschwarz/lesserphp",
-                        "version": "v0.5.5",
-                        "version_normalized": "0.5.5.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/MarcusSchwarz/lesserphp.git",
-                                "reference": "77ba82b5218ff228267d3b0e5ec8697be75e86a7"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/MarcusSchwarz/lesserphp/zipball/77ba82b5218ff228267d3b0e5ec8697be75e86a7",
-                                "reference": "77ba82b5218ff228267d3b0e5ec8697be75e86a7",
-                                "shasum": ""
-                        },
-                        "require-dev": {
-                                "phpunit/phpunit": ">=4.8.35 <8"
-                        },
-                        "time": "2021-03-10T17:56:57+00:00",
-                        "bin": [
-                                "plessc"
-                        ],
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "0.5.1-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "classmap": [
-                                        "lessc.inc.php"
-                                ]
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT",
-                                "GPL-3.0"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Leaf Corcoran",
-                                        "email": "leafot@gmail.com",
-                                        "homepage": "http://leafo.net"
-                                },
-                                {
-                                        "name": "Marcus Schwarz",
-                                        "email": "github@maswaba.de",
-                                        "homepage": "https://www.maswaba.de"
-                                }
-                        ],
-                        "description": "lesserphp is a compiler for LESS written in PHP based on leafo's lessphp.",
-                        "homepage": "http://leafo.net/lessphp/",
-                        "support": {
-                                "issues": "https://github.com/MarcusSchwarz/lesserphp/issues",
-                                "source": "https://github.com/MarcusSchwarz/lesserphp/tree/v0.5.5"
-                        },
-                        "install-path": "../marcusschwarz/lesserphp"
-                },
-                {
-                        "name": "monolog/monolog",
-                        "version": "2.10.0",
-                        "version_normalized": "2.10.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/Seldaek/monolog.git",
-                                "reference": "5cf826f2991858b54d5c3809bee745560a1042a7"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/5cf826f2991858b54d5c3809bee745560a1042a7",
-                                "reference": "5cf826f2991858b54d5c3809bee745560a1042a7",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=7.2",
-                                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
-                        },
-                        "provide": {
-                                "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
-                        },
-                        "require-dev": {
-                                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
-                                "doctrine/couchdb": "~1.0@dev",
-                                "elasticsearch/elasticsearch": "^7 || ^8",
-                                "ext-json": "*",
-                                "graylog2/gelf-php": "^1.4.2 || ^2@dev",
-                                "guzzlehttp/guzzle": "^7.4",
-                                "guzzlehttp/psr7": "^2.2",
-                                "mongodb/mongodb": "^1.8",
-                                "php-amqplib/php-amqplib": "~2.4 || ^3",
-                                "phpspec/prophecy": "^1.15",
-                                "phpstan/phpstan": "^1.10",
-                                "phpunit/phpunit": "^8.5.38 || ^9.6.19",
-                                "predis/predis": "^1.1 || ^2.0",
-                                "rollbar/rollbar": "^1.3 || ^2 || ^3",
-                                "ruflin/elastica": "^7",
-                                "swiftmailer/swiftmailer": "^5.3|^6.0",
-                                "symfony/mailer": "^5.4 || ^6",
-                                "symfony/mime": "^5.4 || ^6"
-                        },
-                        "suggest": {
-                                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
-                                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
-                                "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
-                                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                                "ext-curl": "Required to send log messages using the IFTTTHandler, the LogglyHandler, the SendGridHandler, the SlackWebhookHandler or the TelegramBotHandler",
-                                "ext-mbstring": "Allow to work properly with unicode symbols",
-                                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
-                                "ext-openssl": "Required to send log messages using SSL",
-                                "ext-sockets": "Allow sending log messages to a Syslog server (via UDP driver)",
-                                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
-                                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
-                                "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
-                        },
-                        "time": "2024-11-12T12:43:37+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-main": "2.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Monolog\\": "src/Monolog"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Jordi Boggiano",
-                                        "email": "j.boggiano@seld.be",
-                                        "homepage": "https://seld.be"
-                                }
-                        ],
-                        "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-                        "homepage": "https://github.com/Seldaek/monolog",
-                        "keywords": [
-                                "log",
-                                "logging",
-                                "psr-3"
-                        ],
-                        "support": {
-                                "issues": "https://github.com/Seldaek/monolog/issues",
-                                "source": "https://github.com/Seldaek/monolog/tree/2.10.0"
-                        },
-                        "funding": [
-                                {
-                                        "url": "https://github.com/Seldaek",
-                                        "type": "github"
-                                },
-                                {
-                                        "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
-                                        "type": "tidelift"
-                                }
-                        ],
-                        "install-path": "../monolog/monolog"
-                },
-                {
-                        "name": "mrclay/jsmin-php",
-                        "version": "2.4.3",
-                        "version_normalized": "2.4.3.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/mrclay/jsmin-php.git",
-                                "reference": "49feaa85933458c15bb62ae65644bf22d60b7610"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/mrclay/jsmin-php/zipball/49feaa85933458c15bb62ae65644bf22d60b7610",
-                                "reference": "49feaa85933458c15bb62ae65644bf22d60b7610",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "ext-pcre": "*",
-                                "php": ">=5.3.0"
-                        },
-                        "require-dev": {
-                                "phpunit/phpunit": "^4.8.36|^9.5.26"
-                        },
-                        "time": "2022-12-13T20:15:15+00:00",
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-0": {
-                                        "JSMin\\": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Stephen Clay",
-                                        "email": "steve@mrclay.org",
-                                        "role": "Developer"
-                                },
-                                {
-                                        "name": "Ryan Grove",
-                                        "email": "ryan@wonko.com",
-                                        "role": "Developer"
-                                }
-                        ],
-                        "description": "Provides a modified port of Douglas Crockford's jsmin.c, which removes unnecessary whitespace from JavaScript files.",
-                        "homepage": "https://github.com/mrclay/jsmin-php/",
-                        "keywords": [
-                                "compress",
-                                "jsmin",
-                                "minify"
-                        ],
-                        "support": {
-                                "email": "minify@googlegroups.com",
-                                "issues": "https://github.com/mrclay/jsmin-php/issues",
-                                "source": "https://github.com/mrclay/jsmin-php/tree/2.4.3"
-                        },
-                        "install-path": "../mrclay/jsmin-php"
-                },
-                {
-                        "name": "mrclay/minify",
-                        "version": "4.0.1",
-                        "version_normalized": "4.0.1.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/mrclay/minify.git",
-                                "reference": "5597771d6eefcc13e3244bb13764881415f61879"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/mrclay/minify/zipball/5597771d6eefcc13e3244bb13764881415f61879",
-                                "reference": "5597771d6eefcc13e3244bb13764881415f61879",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "ext-pcre": "*",
-                                "intervention/httpauth": "^2.0|^3.0",
-                                "marcusschwarz/lesserphp": "^0.5.5",
-                                "monolog/monolog": "~1.1|~2.0|~3.0",
-                                "mrclay/jsmin-php": "~2",
-                                "mrclay/props-dic": "^4",
-                                "php": "^8.1",
-                                "tubalmartin/cssmin": "~4"
-                        },
-                        "require-dev": {
-                                "firephp/firephp-core": "~0.4.0",
-                                "meenie/javascript-packer": "~1.1",
-                                "phpunit/phpunit": "^8",
-                                "scssphp/scssphp": "^1.12",
-                                "tedivm/jshrink": "~1.1.0"
-                        },
-                        "suggest": {
-                                "firephp/firephp-core": "Use FirePHP for Log messages",
-                                "meenie/javascript-packer": "Keep track of the Packer PHP port using Composer"
-                        },
-                        "time": "2025-02-03T08:48:56+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "3.0.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "classmap": [
-                                        "lib/"
-                                ]
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "BSD-3-Clause"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Stephen Clay",
-                                        "email": "steve@mrclay.org",
-                                        "role": "Developer"
-                                }
-                        ],
-                        "description": "Minify is a PHP app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
-                        "homepage": "https://github.com/mrclay/minify",
-                        "support": {
-                                "email": "minify@googlegroups.com",
-                                "issues": "https://github.com/mrclay/minify/issues",
-                                "source": "https://github.com/mrclay/minify/tree/4.0.1",
-                                "wiki": "https://github.com/mrclay/minify/blob/master/docs"
-                        },
-                        "install-path": "../mrclay/minify"
-                },
-                {
-                        "name": "mrclay/props-dic",
-                        "version": "4.0.0",
-                        "version_normalized": "4.0.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/mrclay/Props.git",
-                                "reference": "f7e00db2918fd31ea7d16a8fedfeba3814bdf7e4"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/mrclay/Props/zipball/f7e00db2918fd31ea7d16a8fedfeba3814bdf7e4",
-                                "reference": "f7e00db2918fd31ea7d16a8fedfeba3814bdf7e4",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=8.1.0",
-                                "pimple/pimple": "~3.0",
-                                "psr/container": "^2.0"
-                        },
-                        "require-dev": {
-                                "phpunit/phpunit": "10"
-                        },
-                        "time": "2024-01-04T04:27:19+00:00",
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-0": {
-                                        "Props\\": [
-                                                "src/"
-                                        ]
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Steve Clay",
-                                        "email": "steve@mrclay.org",
-                                        "homepage": "http://www.mrclay.org/"
-                                }
-                        ],
-                        "description": "Props is a simple DI container that allows retrieving values via custom property and method names",
-                        "keywords": [
-                                "container",
-                                "dependency injection",
-                                "dependency injection container",
-                                "di",
-                                "di container"
-                        ],
-                        "support": {
-                                "issues": "https://github.com/mrclay/Props/issues",
-                                "source": "https://github.com/mrclay/Props/tree/4.0.0"
-                        },
-                        "install-path": "../mrclay/props-dic"
-                },
-                {
-                        "name": "oyejorge/less.php",
-                        "version": "v1.7.0.14",
-                        "version_normalized": "1.7.0.14",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/oyejorge/less.php.git",
-                                "reference": "42925c5a01a07d67ca7e82dfc8fb31814d557bc9"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/oyejorge/less.php/zipball/42925c5a01a07d67ca7e82dfc8fb31814d557bc9",
-                                "reference": "42925c5a01a07d67ca7e82dfc8fb31814d557bc9",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=5.3"
-                        },
-                        "require-dev": {
-                                "phpunit/phpunit": "~4.8.24"
-                        },
-                        "time": "2017-03-28T22:19:25+00:00",
-                        "bin": [
-                                "bin/lessc"
-                        ],
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-0": {
-                                        "Less": "lib/"
-                                },
-                                "classmap": [
-                                        "lessc.inc.php"
-                                ]
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "Apache-2.0"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Matt Agar",
-                                        "homepage": "https://github.com/agar"
-                                },
-                                {
-                                        "name": "Martin Jantošovič",
-                                        "homepage": "https://github.com/Mordred"
-                                },
-                                {
-                                        "name": "Josh Schmidt",
-                                        "homepage": "https://github.com/oyejorge"
-                                }
-                        ],
-                        "description": "PHP port of the Javascript version of LESS http://lesscss.org (Originally maintained by Josh Schmidt)",
-                        "homepage": "http://lessphp.gpeasy.com",
-                        "keywords": [
-                                "css",
-                                "less",
-                                "less.js",
-                                "lesscss",
-                                "php",
-                                "stylesheet"
-                        ],
-                        "install-path": "../oyejorge/less.php"
-                },
-                {
-                        "name": "patchwork/jsqueeze",
-                        "version": "v2.0.5",
-                        "version_normalized": "2.0.5.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/tchwork/jsqueeze.git",
-                                "reference": "693d64850eab2ce6a7c8f7cf547e1ab46e69d542"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/tchwork/jsqueeze/zipball/693d64850eab2ce6a7c8f7cf547e1ab46e69d542",
-                                "reference": "693d64850eab2ce6a7c8f7cf547e1ab46e69d542",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=5.3.0"
-                        },
-                        "time": "2016-04-19T09:28:22+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "2.0-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Patchwork\\": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "(Apache-2.0 or GPL-2.0)"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Nicolas Grekas",
-                                        "email": "p@tchwork.com"
-                                }
-                        ],
-                        "description": "Efficient JavaScript minification in PHP",
-                        "homepage": "https://github.com/tchwork/jsqueeze",
-                        "keywords": [
-                                "compression",
-                                "javascript",
-                                "minification"
-                        ],
-                        "install-path": "../patchwork/jsqueeze"
-                },
-                {
-                        "name": "pimple/pimple",
-                        "version": "v3.5.0",
-                        "version_normalized": "3.5.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/silexphp/Pimple.git",
-                                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
-                                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=7.2.5",
-                                "psr/container": "^1.1 || ^2.0"
-                        },
-                        "require-dev": {
-                                "symfony/phpunit-bridge": "^5.4@dev"
-                        },
-                        "time": "2021-10-28T11:13:42+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "3.4.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-0": {
-                                        "Pimple": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Fabien Potencier",
-                                        "email": "fabien@symfony.com"
-                                }
-                        ],
-                        "description": "Pimple, a simple Dependency Injection Container",
-                        "homepage": "https://pimple.symfony.com",
-                        "keywords": [
-                                "container",
-                                "dependency injection"
-                        ],
-                        "support": {
-                                "source": "https://github.com/silexphp/Pimple/tree/v3.5.0"
-                        },
-                        "install-path": "../pimple/pimple"
-                },
-                {
-                        "name": "psr/container",
-                        "version": "2.0.2",
-                        "version_normalized": "2.0.2.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/php-fig/container.git",
-                                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/php-fig/container/zipball/c71ecc56dfe541dbd90c5360474fbc405f8d5963",
-                                "reference": "c71ecc56dfe541dbd90c5360474fbc405f8d5963",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=7.4.0"
-                        },
-                        "time": "2021-11-05T16:47:00+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "2.0.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Psr\\Container\\": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "PHP-FIG",
-                                        "homepage": "https://www.php-fig.org/"
-                                }
-                        ],
-                        "description": "Common Container Interface (PHP FIG PSR-11)",
-                        "homepage": "https://github.com/php-fig/container",
-                        "keywords": [
-                                "PSR-11",
-                                "container",
-                                "container-interface",
-                                "container-interop",
-                                "psr"
-                        ],
-                        "support": {
-                                "issues": "https://github.com/php-fig/container/issues",
-                                "source": "https://github.com/php-fig/container/tree/2.0.2"
-                        },
-                        "install-path": "../psr/container"
-                },
-                {
-                        "name": "psr/http-factory",
-                        "version": "1.1.0",
-                        "version_normalized": "1.1.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/php-fig/http-factory.git",
-                                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
-                                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=7.1",
-                                "psr/http-message": "^1.0 || ^2.0"
-                        },
-                        "time": "2024-04-15T12:06:14+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "1.0.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Psr\\Http\\Message\\": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "PHP-FIG",
-                                        "homepage": "https://www.php-fig.org/"
-                                }
-                        ],
-                        "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
-                        "keywords": [
-                                "factory",
-                                "http",
-                                "message",
-                                "psr",
-                                "psr-17",
-                                "psr-7",
-                                "request",
-                                "response"
-                        ],
-                        "support": {
-                                "source": "https://github.com/php-fig/http-factory"
-                        },
-                        "install-path": "../psr/http-factory"
-                },
-                {
-                        "name": "psr/http-message",
-                        "version": "2.0",
-                        "version_normalized": "2.0.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/php-fig/http-message.git",
-                                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
-                                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": "^7.2 || ^8.0"
-                        },
-                        "time": "2023-04-04T09:54:51+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "2.0.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Psr\\Http\\Message\\": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "PHP-FIG",
-                                        "homepage": "https://www.php-fig.org/"
-                                }
-                        ],
-                        "description": "Common interface for HTTP messages",
-                        "homepage": "https://github.com/php-fig/http-message",
-                        "keywords": [
-                                "http",
-                                "http-message",
-                                "psr",
-                                "psr-7",
-                                "request",
-                                "response"
-                        ],
-                        "support": {
-                                "source": "https://github.com/php-fig/http-message/tree/2.0"
-                        },
-                        "install-path": "../psr/http-message"
-                },
-                {
-                        "name": "psr/log",
-                        "version": "1.1.4",
-                        "version_normalized": "1.1.4.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/php-fig/log.git",
-                                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
-                                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=5.3.0"
-                        },
-                        "time": "2021-05-03T11:20:27+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-master": "1.1.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Psr\\Log\\": "Psr/Log/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "PHP-FIG",
-                                        "homepage": "https://www.php-fig.org/"
-                                }
-                        ],
-                        "description": "Common interface for logging libraries",
-                        "homepage": "https://github.com/php-fig/log",
-                        "keywords": [
-                                "log",
-                                "psr",
-                                "psr-3"
-                        ],
-                        "support": {
-                                "source": "https://github.com/php-fig/log/tree/1.1.4"
-                        },
-                        "install-path": "../psr/log"
-                },
-                {
-                        "name": "ptachoire/cssembed",
-                        "version": "v1.0.2",
-                        "version_normalized": "1.0.2.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/krichprollsch/phpCssEmbed.git",
-                                "reference": "406c6d5b846cafa9186f9944a6210d0e6fed154b"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/krichprollsch/phpCssEmbed/zipball/406c6d5b846cafa9186f9944a6210d0e6fed154b",
-                                "reference": "406c6d5b846cafa9186f9944a6210d0e6fed154b",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=5.3.0"
-                        },
-                        "time": "2013-07-22T20:01:48+00:00",
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-0": {
-                                        "CssEmbed": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Pierre Tachoire",
-                                        "email": "pierre.tachoire@gmail.com"
-                                }
-                        ],
-                        "description": "Css url embed library.",
-                        "homepage": "https://github.com/krichprollsch/phpCssEmbed",
-                        "keywords": [
-                                "css",
-                                "url"
-                        ],
-                        "install-path": "../ptachoire/cssembed"
-                },
-                {
-                        "name": "scssphp/scssphp",
-                        "version": "v2.0.1",
-                        "version_normalized": "2.0.1.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/scssphp/scssphp.git",
-                                "reference": "024f92cd9782e3033b41c2d1c66ab1c0e5c12c0f"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/024f92cd9782e3033b41c2d1c66ab1c0e5c12c0f",
-                                "reference": "024f92cd9782e3033b41c2d1c66ab1c0e5c12c0f",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "ext-ctype": "*",
-                                "ext-json": "*",
-                                "league/uri": "^7.4",
-                                "league/uri-interfaces": "^7.4",
-                                "php": ">=8.1",
-                                "scssphp/source-span": "^1.0",
-                                "symfony/filesystem": "^5.4 || ^6.0 || ^7.0",
-                                "symfony/polyfill-mbstring": "^1.30"
-                        },
-                        "require-dev": {
-                                "bamarni/composer-bin-plugin": "^1.4",
-                                "phpunit/phpunit": "^9.5.6",
-                                "sass/sass-spec": "*",
-                                "squizlabs/php_codesniffer": "~3.5",
-                                "symfony/phpunit-bridge": "^5.1",
-                                "symfony/var-dumper": "^6.3",
-                                "thoughtbot/bourbon": "^7.0",
-                                "twbs/bootstrap": "~5.0",
-                                "twbs/bootstrap4": "4.6.1",
-                                "zurb/foundation": "~6.7.0"
-                        },
-                        "suggest": {
-                                "ext-mbstring": "For best performance, mbstring should be installed as it is faster than the polyfill"
-                        },
-                        "time": "2025-01-31T12:28:20+00:00",
-                        "type": "library",
-                        "extra": {
-                                "bamarni-bin": {
-                                        "bin-links": false,
-                                        "forward-command": false
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "ScssPhp\\ScssPhp\\": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Anthon Pang",
-                                        "email": "apang@softwaredevelopment.ca",
-                                        "homepage": "https://github.com/robocoder"
-                                },
-                                {
-                                        "name": "Cédric Morin",
-                                        "email": "cedric@yterium.com",
-                                        "homepage": "https://github.com/Cerdic"
-                                }
-                        ],
-                        "description": "scssphp is a compiler for SCSS written in PHP.",
-                        "homepage": "http://scssphp.github.io/scssphp/",
-                        "keywords": [
-                                "css",
-                                "less",
-                                "sass",
-                                "scss",
-                                "stylesheet"
-                        ],
-                        "support": {
-                                "issues": "https://github.com/scssphp/scssphp/issues",
-                                "source": "https://github.com/scssphp/scssphp/tree/v2.0.1"
-                        },
-                        "install-path": "../scssphp/scssphp"
-                },
-                {
-                        "name": "scssphp/source-span",
-                        "version": "v1.0.0",
-                        "version_normalized": "1.0.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/scssphp/source-span.git",
-                                "reference": "f08fc78765e6fb6fa8ca0573fc61b3f8860f0114"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/scssphp/source-span/zipball/f08fc78765e6fb6fa8ca0573fc61b3f8860f0114",
-                                "reference": "f08fc78765e6fb6fa8ca0573fc61b3f8860f0114",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "league/uri": "^7.4",
-                                "league/uri-interfaces": "^7.4",
-                                "php": ">=8.1"
-                        },
-                        "require-dev": {
-                                "phpstan/phpstan": "^2.0",
-                                "phpstan/phpstan-deprecation-rules": "^2.0",
-                                "phpunit/phpunit": "^9.5.6",
-                                "squizlabs/php_codesniffer": "~3.5",
-                                "symfony/phpunit-bridge": "^5.1",
-                                "symfony/var-dumper": "^6.3"
-                        },
-                        "time": "2024-12-09T23:08:15+00:00",
-                        "type": "library",
-                        "extra": {
-                                "branch-alias": {
-                                        "dev-main": "1.x-dev"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "SourceSpan\\": "src/"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Christophe Coevoet",
-                                        "homepage": "https://github.com/stof"
-                                }
-                        ],
-                        "description": "Provides a representation for source code locations and spans.",
-                        "keywords": [
-                                "parsing"
-                        ],
-                        "support": {
-                                "issues": "https://github.com/scssphp/source-span/issues",
-                                "source": "https://github.com/scssphp/source-span/tree/v1.0.0"
-                        },
-                        "install-path": "../scssphp/source-span"
-                },
-                {
-                        "name": "symfony/filesystem",
-                        "version": "v7.2.0",
-                        "version_normalized": "7.2.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/symfony/filesystem.git",
-                                "reference": "b8dce482de9d7c9fe2891155035a7248ab5c7fdb"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b8dce482de9d7c9fe2891155035a7248ab5c7fdb",
-                                "reference": "b8dce482de9d7c9fe2891155035a7248ab5c7fdb",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=8.2",
-                                "symfony/polyfill-ctype": "~1.8",
-                                "symfony/polyfill-mbstring": "~1.8"
-                        },
-                        "require-dev": {
-                                "symfony/process": "^6.4|^7.0"
-                        },
-                        "time": "2024-10-25T15:15:23+00:00",
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Symfony\\Component\\Filesystem\\": ""
-                                },
-                                "exclude-from-classmap": [
-                                        "/Tests/"
-                                ]
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Fabien Potencier",
-                                        "email": "fabien@symfony.com"
-                                },
-                                {
-                                        "name": "Symfony Community",
-                                        "homepage": "https://symfony.com/contributors"
-                                }
-                        ],
-                        "description": "Provides basic utilities for the filesystem",
-                        "homepage": "https://symfony.com",
-                        "support": {
-                                "source": "https://github.com/symfony/filesystem/tree/v7.2.0"
-                        },
-                        "funding": [
-                                {
-                                        "url": "https://symfony.com/sponsor",
-                                        "type": "custom"
-                                },
-                                {
-                                        "url": "https://github.com/fabpot",
-                                        "type": "github"
-                                },
-                                {
-                                        "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                                        "type": "tidelift"
-                                }
-                        ],
-                        "install-path": "../symfony/filesystem"
-                },
-                {
-                        "name": "symfony/polyfill-ctype",
-                        "version": "v1.31.0",
-                        "version_normalized": "1.31.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/symfony/polyfill-ctype.git",
-                                "reference": "a3cc8b044a6ea513310cbd48ef7333b384945638"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/a3cc8b044a6ea513310cbd48ef7333b384945638",
-                                "reference": "a3cc8b044a6ea513310cbd48ef7333b384945638",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=7.2"
-                        },
-                        "provide": {
-                                "ext-ctype": "*"
-                        },
-                        "suggest": {
-                                "ext-ctype": "For best performance"
-                        },
-                        "time": "2024-09-09T11:45:10+00:00",
-                        "type": "library",
-                        "extra": {
-                                "thanks": {
-                                        "url": "https://github.com/symfony/polyfill",
-                                        "name": "symfony/polyfill"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "files": [
-                                        "bootstrap.php"
-                                ],
-                                "psr-4": {
-                                        "Symfony\\Polyfill\\Ctype\\": ""
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Gert de Pagter",
-                                        "email": "BackEndTea@gmail.com"
-                                },
-                                {
-                                        "name": "Symfony Community",
-                                        "homepage": "https://symfony.com/contributors"
-                                }
-                        ],
-                        "description": "Symfony polyfill for ctype functions",
-                        "homepage": "https://symfony.com",
-                        "keywords": [
-                                "compatibility",
-                                "ctype",
-                                "polyfill",
-                                "portable"
-                        ],
-                        "support": {
-                                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.31.0"
-                        },
-                        "funding": [
-                                {
-                                        "url": "https://symfony.com/sponsor",
-                                        "type": "custom"
-                                },
-                                {
-                                        "url": "https://github.com/fabpot",
-                                        "type": "github"
-                                },
-                                {
-                                        "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                                        "type": "tidelift"
-                                }
-                        ],
-                        "install-path": "../symfony/polyfill-ctype"
-                },
-                {
-                        "name": "symfony/polyfill-mbstring",
-                        "version": "v1.31.0",
-                        "version_normalized": "1.31.0.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/symfony/polyfill-mbstring.git",
-                                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/85181ba99b2345b0ef10ce42ecac37612d9fd341",
-                                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": ">=7.2"
-                        },
-                        "provide": {
-                                "ext-mbstring": "*"
-                        },
-                        "suggest": {
-                                "ext-mbstring": "For best performance"
-                        },
-                        "time": "2024-09-09T11:45:10+00:00",
-                        "type": "library",
-                        "extra": {
-                                "thanks": {
-                                        "url": "https://github.com/symfony/polyfill",
-                                        "name": "symfony/polyfill"
-                                }
-                        },
-                        "installation-source": "dist",
-                        "autoload": {
-                                "files": [
-                                        "bootstrap.php"
-                                ],
-                                "psr-4": {
-                                        "Symfony\\Polyfill\\Mbstring\\": ""
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Nicolas Grekas",
-                                        "email": "p@tchwork.com"
-                                },
-                                {
-                                        "name": "Symfony Community",
-                                        "homepage": "https://symfony.com/contributors"
-                                }
-                        ],
-                        "description": "Symfony polyfill for the Mbstring extension",
-                        "homepage": "https://symfony.com",
-                        "keywords": [
-                                "compatibility",
-                                "mbstring",
-                                "polyfill",
-                                "portable",
-                                "shim"
-                        ],
-                        "support": {
-                                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.31.0"
-                        },
-                        "funding": [
-                                {
-                                        "url": "https://symfony.com/sponsor",
-                                        "type": "custom"
-                                },
-                                {
-                                        "url": "https://github.com/fabpot",
-                                        "type": "github"
-                                },
-                                {
-                                        "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                                        "type": "tidelift"
-                                }
-                        ],
-                        "install-path": "../symfony/polyfill-mbstring"
-                },
-                {
-                        "name": "symfony/process",
-                        "version": "v3.4.47",
-                        "version_normalized": "3.4.47.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/symfony/process.git",
-                                "reference": "b8648cf1d5af12a44a51d07ef9bf980921f15fca"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/symfony/process/zipball/b8648cf1d5af12a44a51d07ef9bf980921f15fca",
-                                "reference": "b8648cf1d5af12a44a51d07ef9bf980921f15fca",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "php": "^5.5.9|>=7.0.8"
-                        },
-                        "time": "2020-10-24T10:57:07+00:00",
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "Symfony\\Component\\Process\\": ""
-                                },
-                                "exclude-from-classmap": [
-                                        "/Tests/"
-                                ]
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "MIT"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Fabien Potencier",
-                                        "email": "fabien@symfony.com"
-                                },
-                                {
-                                        "name": "Symfony Community",
-                                        "homepage": "https://symfony.com/contributors"
-                                }
-                        ],
-                        "description": "Symfony Process Component",
-                        "homepage": "https://symfony.com",
-                        "support": {
-                                "source": "https://github.com/symfony/process/tree/v3.4.47"
-                        },
-                        "funding": [
-                                {
-                                        "url": "https://symfony.com/sponsor",
-                                        "type": "custom"
-                                },
-                                {
-                                        "url": "https://github.com/fabpot",
-                                        "type": "github"
-                                },
-                                {
-                                        "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                                        "type": "tidelift"
-                                }
-                        ],
-                        "install-path": "../symfony/process"
-                },
-                {
-                        "name": "tubalmartin/cssmin",
-                        "version": "v4.1.1",
-                        "version_normalized": "4.1.1.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port.git",
-                                "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://api.github.com/repos/tubalmartin/YUI-CSS-compressor-PHP-port/zipball/3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
-                                "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
-                                "shasum": ""
-                        },
-                        "require": {
-                                "ext-pcre": "*",
-                                "php": ">=5.3.2"
-                        },
-                        "require-dev": {
-                                "cogpowered/finediff": "0.3.*",
-                                "phpunit/phpunit": "4.8.*"
-                        },
-                        "time": "2018-01-15T15:26:51+00:00",
-                        "bin": [
-                                "cssmin"
-                        ],
-                        "type": "library",
-                        "installation-source": "dist",
-                        "autoload": {
-                                "psr-4": {
-                                        "tubalmartin\\CssMin\\": "src"
-                                }
-                        },
-                        "notification-url": "https://packagist.org/downloads/",
-                        "license": [
-                                "BSD-3-Clause"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "Túbal Martín",
-                                        "homepage": "http://tubalmartin.me/"
-                                }
-                        ],
-                        "description": "A PHP port of the YUI CSS compressor",
-                        "homepage": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port",
-                        "keywords": [
-                                "compress",
-                                "compressor",
-                                "css",
-                                "cssmin",
-                                "minify",
-                                "yui"
-                        ],
-                        "support": {
-                                "issues": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port/issues",
-                                "source": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port"
-                        },
-                        "install-path": "../tubalmartin/cssmin"
+    "packages": [
+        {
+            "name": "cssmin/cssmin",
+            "version": "3.0.1",
+            "version_normalized": "3.0.1.0",
+            "dist": {
+                "type": "file",
+                "url": "http://cssmin.googlecode.com/files/cssmin-v3.0.1.php"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "cssmin-v3.0.1.php"
+                ]
+            },
+            "install-path": "../cssmin/cssmin"
+        },
+        {
+            "name": "joliclic/javascript-packer",
+            "version": "1.1",
+            "version_normalized": "1.1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "http://joliclic.free.fr/php/javascript-packer/telechargement.php?id=2&action=telecharger"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "class.JavaScriptPacker.php"
+                ]
+            },
+            "install-path": "../joliclic/javascript-packer"
+        },
+        {
+            "name": "kamicane/packager",
+            "version": "1.0",
+            "version_normalized": "1.0.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kamicane/packager/archive/1.0.zip"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "."
+                ]
+            },
+            "install-path": "../kamicane/packager"
+        },
+        {
+            "name": "league/uri",
+            "version": "7.5.1",
+            "version_normalized": "7.5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/uri.git",
+                "reference": "81fb5145d2644324614cc532b28efd0215bda430"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri/zipball/81fb5145d2644324614cc532b28efd0215bda430",
+                "reference": "81fb5145d2644324614cc532b28efd0215bda430",
+                "shasum": ""
+            },
+            "require": {
+                "league/uri-interfaces": "^7.5",
+                "php": "^8.1"
+            },
+            "conflict": {
+                "league/uri-schemes": "^1.0"
+            },
+            "suggest": {
+                "ext-bcmath": "to improve IPV4 host parsing",
+                "ext-fileinfo": "to create Data URI from file contennts",
+                "ext-gmp": "to improve IPV4 host parsing",
+                "ext-intl": "to handle IDN host with the best performance",
+                "jeremykendall/php-domain-parser": "to resolve Public Suffix and Top Level Domain",
+                "league/uri-components": "Needed to easily manipulate URI objects components",
+                "php-64bit": "to improve IPV4 host parsing",
+                "symfony/polyfill-intl-idn": "to handle IDN host via the Symfony polyfill if ext-intl is not present"
+            },
+            "time": "2024-12-08T08:40:02+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.x-dev"
                 }
-        ],
-        "dev": true,
-        "dev-package-names": [
-                "cssmin/cssmin",
-                "intervention/httpauth",
-                "joliclic/javascript-packer",
-                "kamicane/packager",
-                "league/uri",
-                "league/uri-interfaces",
-                "marcusschwarz/lesserphp",
-                "monolog/monolog",
-                "mrclay/jsmin-php",
-                "mrclay/minify",
-                "mrclay/props-dic",
-                "oyejorge/less.php",
-                "patchwork/jsqueeze",
-                "pimple/pimple",
-                "psr/container",
-                "psr/http-factory",
-                "psr/http-message",
-                "psr/log",
-                "ptachoire/cssembed",
-                "scssphp/scssphp",
-                "scssphp/source-span",
-                "symfony/filesystem",
-                "symfony/polyfill-ctype",
-                "symfony/polyfill-mbstring",
-                "tubalmartin/cssmin"
-        ]
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "League\\Uri\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://nyamsprod.com"
+                }
+            ],
+            "description": "URI manipulation library",
+            "homepage": "https://uri.thephpleague.com",
+            "keywords": [
+                "data-uri",
+                "file-uri",
+                "ftp",
+                "hostname",
+                "http",
+                "https",
+                "middleware",
+                "parse_str",
+                "parse_url",
+                "psr-7",
+                "query-string",
+                "querystring",
+                "rfc3986",
+                "rfc3987",
+                "rfc6570",
+                "uri",
+                "uri-template",
+                "url",
+                "ws"
+            ],
+            "support": {
+                "docs": "https://uri.thephpleague.com",
+                "forum": "https://thephpleague.slack.com",
+                "issues": "https://github.com/thephpleague/uri-src/issues",
+                "source": "https://github.com/thephpleague/uri/tree/7.5.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/nyamsprod",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../league/uri"
+        },
+        {
+            "name": "league/uri-interfaces",
+            "version": "7.5.0",
+            "version_normalized": "7.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/uri-interfaces.git",
+                "reference": "08cfc6c4f3d811584fb09c37e2849e6a7f9b0742"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri-interfaces/zipball/08cfc6c4f3d811584fb09c37e2849e6a7f9b0742",
+                "reference": "08cfc6c4f3d811584fb09c37e2849e6a7f9b0742",
+                "shasum": ""
+            },
+            "require": {
+                "ext-filter": "*",
+                "php": "^8.1",
+                "psr/http-factory": "^1",
+                "psr/http-message": "^1.1 || ^2.0"
+            },
+            "suggest": {
+                "ext-bcmath": "to improve IPV4 host parsing",
+                "ext-gmp": "to improve IPV4 host parsing",
+                "ext-intl": "to handle IDN host with the best performance",
+                "php-64bit": "to improve IPV4 host parsing",
+                "symfony/polyfill-intl-idn": "to handle IDN host via the Symfony polyfill if ext-intl is not present"
+            },
+            "time": "2024-12-08T08:18:47+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "League\\Uri\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://nyamsprod.com"
+                }
+            ],
+            "description": "Common interfaces and classes for URI representation and interaction",
+            "homepage": "https://uri.thephpleague.com",
+            "keywords": [
+                "data-uri",
+                "file-uri",
+                "ftp",
+                "hostname",
+                "http",
+                "https",
+                "parse_str",
+                "parse_url",
+                "psr-7",
+                "query-string",
+                "querystring",
+                "rfc3986",
+                "rfc3987",
+                "rfc6570",
+                "uri",
+                "url",
+                "ws"
+            ],
+            "support": {
+                "docs": "https://uri.thephpleague.com",
+                "forum": "https://thephpleague.slack.com",
+                "issues": "https://github.com/thephpleague/uri-src/issues",
+                "source": "https://github.com/thephpleague/uri-interfaces/tree/7.5.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/nyamsprod",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../league/uri-interfaces"
+        },
+        {
+            "name": "mrclay/minify",
+            "version": "2.3.3",
+            "version_normalized": "2.3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrclay/minify.git",
+                "reference": "1928e89208d28e91427b2f13b67acdbd8cd01ac9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrclay/minify/zipball/1928e89208d28e91427b2f13b67acdbd8cd01ac9",
+                "reference": "1928e89208d28e91427b2f13b67acdbd8cd01ac9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.2.1"
+            },
+            "require-dev": {
+                "tubalmartin/cssmin": "~2.4.8"
+            },
+            "suggest": {
+                "tubalmartin/cssmin": "Support minify with CSSMin (YUI PHP port)"
+            },
+            "time": "2017-11-03T21:04:01+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "min/lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Clay",
+                    "email": "steve@mrclay.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Minify is a PHP5 app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
+            "homepage": "http://code.google.com/p/minify/",
+            "support": {
+                "email": "minify@googlegroups.com",
+                "issues": "http://code.google.com/p/minify/issues/list",
+                "source": "https://github.com/mrclay/minify/tree/2.x",
+                "wiki": "http://code.google.com/p/minify/w/list"
+            },
+            "install-path": "../mrclay/minify"
+        },
+        {
+            "name": "oyejorge/less.php",
+            "version": "v1.7.0.14",
+            "version_normalized": "1.7.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oyejorge/less.php.git",
+                "reference": "42925c5a01a07d67ca7e82dfc8fb31814d557bc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oyejorge/less.php/zipball/42925c5a01a07d67ca7e82dfc8fb31814d557bc9",
+                "reference": "42925c5a01a07d67ca7e82dfc8fb31814d557bc9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.24"
+            },
+            "time": "2017-03-28T22:19:25+00:00",
+            "bin": [
+                "bin/lessc"
+            ],
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Less": "lib/"
+                },
+                "classmap": [
+                    "lessc.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Agar",
+                    "homepage": "https://github.com/agar"
+                },
+                {
+                    "name": "Martin Jantošovič",
+                    "homepage": "https://github.com/Mordred"
+                },
+                {
+                    "name": "Josh Schmidt",
+                    "homepage": "https://github.com/oyejorge"
+                }
+            ],
+            "description": "PHP port of the Javascript version of LESS http://lesscss.org (Originally maintained by Josh Schmidt)",
+            "homepage": "http://lessphp.gpeasy.com",
+            "keywords": [
+                "css",
+                "less",
+                "less.js",
+                "lesscss",
+                "php",
+                "stylesheet"
+            ],
+            "install-path": "../oyejorge/less.php"
+        },
+        {
+            "name": "patchwork/jsqueeze",
+            "version": "v2.0.5",
+            "version_normalized": "2.0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tchwork/jsqueeze.git",
+                "reference": "693d64850eab2ce6a7c8f7cf547e1ab46e69d542"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tchwork/jsqueeze/zipball/693d64850eab2ce6a7c8f7cf547e1ab46e69d542",
+                "reference": "693d64850eab2ce6a7c8f7cf547e1ab46e69d542",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2016-04-19T09:28:22+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Patchwork\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(Apache-2.0 or GPL-2.0)"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                }
+            ],
+            "description": "Efficient JavaScript minification in PHP",
+            "homepage": "https://github.com/tchwork/jsqueeze",
+            "keywords": [
+                "compression",
+                "javascript",
+                "minification"
+            ],
+            "install-path": "../patchwork/jsqueeze"
+        },
+        {
+            "name": "psr/http-factory",
+            "version": "1.1.0",
+            "version_normalized": "1.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "reference": "2b4765fddfe3b508ac62f829e852b1501d3f6e8a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "psr/http-message": "^1.0 || ^2.0"
+            },
+            "time": "2024-04-15T12:06:14+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "PSR-17: Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-factory"
+            },
+            "install-path": "../psr/http-factory"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "2.0",
+            "version_normalized": "2.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "time": "2023-04-04T09:54:51+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/2.0"
+            },
+            "install-path": "../psr/http-message"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.1.4",
+            "version_normalized": "1.1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2021-05-03T11:20:27+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
+            "install-path": "../psr/log"
+        },
+        {
+            "name": "ptachoire/cssembed",
+            "version": "v1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krichprollsch/phpCssEmbed.git",
+                "reference": "406c6d5b846cafa9186f9944a6210d0e6fed154b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krichprollsch/phpCssEmbed/zipball/406c6d5b846cafa9186f9944a6210d0e6fed154b",
+                "reference": "406c6d5b846cafa9186f9944a6210d0e6fed154b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2013-07-22T20:01:48+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "CssEmbed": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pierre Tachoire",
+                    "email": "pierre.tachoire@gmail.com"
+                }
+            ],
+            "description": "Css url embed library.",
+            "homepage": "https://github.com/krichprollsch/phpCssEmbed",
+            "keywords": [
+                "css",
+                "url"
+            ],
+            "install-path": "../ptachoire/cssembed"
+        },
+        {
+            "name": "scssphp/scssphp",
+            "version": "v2.0.1",
+            "version_normalized": "2.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scssphp/scssphp.git",
+                "reference": "024f92cd9782e3033b41c2d1c66ab1c0e5c12c0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/024f92cd9782e3033b41c2d1c66ab1c0e5c12c0f",
+                "reference": "024f92cd9782e3033b41c2d1c66ab1c0e5c12c0f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "league/uri": "^7.4",
+                "league/uri-interfaces": "^7.4",
+                "php": ">=8.1",
+                "scssphp/source-span": "^1.0",
+                "symfony/filesystem": "^5.4 || ^6.0 || ^7.0",
+                "symfony/polyfill-mbstring": "^1.30"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4",
+                "phpunit/phpunit": "^9.5.6",
+                "sass/sass-spec": "*",
+                "squizlabs/php_codesniffer": "~3.5",
+                "symfony/phpunit-bridge": "^5.1",
+                "symfony/var-dumper": "^6.3",
+                "thoughtbot/bourbon": "^7.0",
+                "twbs/bootstrap": "~5.0",
+                "twbs/bootstrap4": "4.6.1",
+                "zurb/foundation": "~6.7.0"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance, mbstring should be installed as it is faster than the polyfill"
+            },
+            "time": "2025-01-31T12:28:20+00:00",
+            "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": false,
+                    "forward-command": false
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "ScssPhp\\ScssPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthon Pang",
+                    "email": "apang@softwaredevelopment.ca",
+                    "homepage": "https://github.com/robocoder"
+                },
+                {
+                    "name": "Cédric Morin",
+                    "email": "cedric@yterium.com",
+                    "homepage": "https://github.com/Cerdic"
+                }
+            ],
+            "description": "scssphp is a compiler for SCSS written in PHP.",
+            "homepage": "http://scssphp.github.io/scssphp/",
+            "keywords": [
+                "css",
+                "less",
+                "sass",
+                "scss",
+                "stylesheet"
+            ],
+            "support": {
+                "issues": "https://github.com/scssphp/scssphp/issues",
+                "source": "https://github.com/scssphp/scssphp/tree/v2.0.1"
+            },
+            "install-path": "../scssphp/scssphp"
+        },
+        {
+            "name": "scssphp/source-span",
+            "version": "v1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scssphp/source-span.git",
+                "reference": "f08fc78765e6fb6fa8ca0573fc61b3f8860f0114"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scssphp/source-span/zipball/f08fc78765e6fb6fa8ca0573fc61b3f8860f0114",
+                "reference": "f08fc78765e6fb6fa8ca0573fc61b3f8860f0114",
+                "shasum": ""
+            },
+            "require": {
+                "league/uri": "^7.4",
+                "league/uri-interfaces": "^7.4",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.0",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpunit/phpunit": "^9.5.6",
+                "squizlabs/php_codesniffer": "~3.5",
+                "symfony/phpunit-bridge": "^5.1",
+                "symfony/var-dumper": "^6.3"
+            },
+            "time": "2024-12-09T23:08:15+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "SourceSpan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "homepage": "https://github.com/stof"
+                }
+            ],
+            "description": "Provides a representation for source code locations and spans.",
+            "keywords": [
+                "parsing"
+            ],
+            "support": {
+                "issues": "https://github.com/scssphp/source-span/issues",
+                "source": "https://github.com/scssphp/source-span/tree/v1.0.0"
+            },
+            "install-path": "../scssphp/source-span"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v6.4.13",
+            "version_normalized": "6.4.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "4856c9cf585d5a0313d8d35afd681a526f038dd3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/4856c9cf585d5a0313d8d35afd681a526f038dd3",
+                "reference": "4856c9cf585d5a0313d8d35afd681a526f038dd3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-mbstring": "~1.8"
+            },
+            "require-dev": {
+                "symfony/process": "^5.4|^6.4|^7.0"
+            },
+            "time": "2024-10-25T15:07:50+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides basic utilities for the filesystem",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/filesystem/tree/v6.4.13"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/filesystem"
+        },
+        {
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.31.0",
+            "version_normalized": "1.31.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-ctype.git",
+                "reference": "a3cc8b044a6ea513310cbd48ef7333b384945638"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/a3cc8b044a6ea513310cbd48ef7333b384945638",
+                "reference": "a3cc8b044a6ea513310cbd48ef7333b384945638",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "provide": {
+                "ext-ctype": "*"
+            },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
+            "time": "2024-09-09T11:45:10+00:00",
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.31.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/polyfill-ctype"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.31.0",
+            "version_normalized": "1.31.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/85181ba99b2345b0ef10ce42ecac37612d9fd341",
+                "reference": "85181ba99b2345b0ef10ce42ecac37612d9fd341",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "provide": {
+                "ext-mbstring": "*"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "time": "2024-09-09T11:45:10+00:00",
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.31.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/polyfill-mbstring"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v3.4.47",
+            "version_normalized": "3.4.47.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "b8648cf1d5af12a44a51d07ef9bf980921f15fca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/b8648cf1d5af12a44a51d07ef9bf980921f15fca",
+                "reference": "b8648cf1d5af12a44a51d07ef9bf980921f15fca",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "time": "2020-10-24T10:57:07+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/v3.4.47"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/process"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": [
+        "cssmin/cssmin",
+        "joliclic/javascript-packer",
+        "kamicane/packager",
+        "league/uri",
+        "league/uri-interfaces",
+        "mrclay/minify",
+        "oyejorge/less.php",
+        "patchwork/jsqueeze",
+        "psr/http-factory",
+        "psr/http-message",
+        "psr/log",
+        "ptachoire/cssembed",
+        "scssphp/scssphp",
+        "scssphp/source-span",
+        "symfony/filesystem",
+        "symfony/polyfill-ctype",
+        "symfony/polyfill-mbstring"
+    ]
 }

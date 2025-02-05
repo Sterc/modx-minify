@@ -3,7 +3,7 @@
     ,"lowCaseName": "modxminify"
     ,"description": "Minify your CSS, SCSS, LESS and JS files."
     ,"author": "Sterc"
-    ,"version": "1.0.3"
+    ,"version": "1.0.3-pl2"
     ,"package":{
         "menus": [{
             "text": "modxminify.menu.modxminify"
