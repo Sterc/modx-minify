@@ -7,50 +7,131 @@ namespace Composer\Autoload;
 class ComposerStaticInite802f67b6ee25a77a3e76f5a417b5777
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/../..' . '/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        't' => 
+        array (
+            'tubalmartin\\CssMin\\' => 19,
+        ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Process\\' => 26,
+            'Symfony\\Component\\Filesystem\\' => 29,
+            'SourceSpan\\' => 11,
+            'ScssPhp\\ScssPhp\\' => 16,
         ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Container\\' => 14,
             'Patchwork\\' => 10,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
         ),
         'L' => 
         array (
-            'Leafo\\ScssPhp\\' => 14,
+            'League\\Uri\\' => 11,
+        ),
+        'I' => 
+        array (
+            'Intervention\\HttpAuth\\' => 22,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'tubalmartin\\CssMin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tubalmartin/cssmin/src',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
         'Symfony\\Component\\Process\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
+        ),
+        'Symfony\\Component\\Filesystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/filesystem',
+        ),
+        'SourceSpan\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/scssphp/source-span/src',
+        ),
+        'ScssPhp\\ScssPhp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/scssphp/scssphp/src',
         ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
         'Patchwork\\' => 
         array (
             0 => __DIR__ . '/..' . '/patchwork/jsqueeze/src',
         ),
-        'Leafo\\ScssPhp\\' => 
+        'Monolog\\' => 
         array (
-            0 => __DIR__ . '/..' . '/leafo/scssphp/src',
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'League\\Uri\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/uri-interfaces',
+            1 => __DIR__ . '/..' . '/league/uri',
+        ),
+        'Intervention\\HttpAuth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/httpauth/src',
         ),
     );
 
     public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Props\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/mrclay/props-dic/src',
+            ),
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
+        ),
         'L' => 
         array (
             'Less' => 
             array (
                 0 => __DIR__ . '/..' . '/oyejorge/less.php/lib',
+            ),
+        ),
+        'J' => 
+        array (
+            'JSMin\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/mrclay/jsmin-php/src',
             ),
         ),
         'C' => 
@@ -70,7 +151,7 @@ class ComposerStaticInite802f67b6ee25a77a3e76f5a417b5777
     );
 
     public static $classMap = array (
-        'CSSmin' => __DIR__ . '/..' . '/mrclay/minify/min/lib/CSSmin.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'CssAtCharsetParserPlugin' => __DIR__ . '/..' . '/cssmin/cssmin/cssmin-v3.0.1.php',
         'CssAtCharsetToken' => __DIR__ . '/..' . '/cssmin/cssmin/cssmin-v3.0.1.php',
         'CssAtFontFaceDeclarationToken' => __DIR__ . '/..' . '/cssmin/cssmin/cssmin-v3.0.1.php',
@@ -129,57 +210,58 @@ class ComposerStaticInite802f67b6ee25a77a3e76f5a417b5777
         'CssVariablesMinifierFilter' => __DIR__ . '/..' . '/cssmin/cssmin/cssmin-v3.0.1.php',
         'CssVariablesMinifierPlugin' => __DIR__ . '/..' . '/cssmin/cssmin/cssmin-v3.0.1.php',
         'CssWhitesmithsFormatter' => __DIR__ . '/..' . '/cssmin/cssmin/cssmin-v3.0.1.php',
-        'DooDigestAuth' => __DIR__ . '/..' . '/mrclay/minify/min/lib/DooDigestAuth.php',
-        'FirePHP' => __DIR__ . '/..' . '/mrclay/minify/min/lib/FirePHP.php',
-        'HTTP_ConditionalGet' => __DIR__ . '/..' . '/mrclay/minify/min/lib/HTTP/ConditionalGet.php',
-        'HTTP_Encoder' => __DIR__ . '/..' . '/mrclay/minify/min/lib/HTTP/Encoder.php',
-        'JSCompilerContext' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMinPlus.php',
-        'JSMin' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMin.php',
-        'JSMinPlus' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMinPlus.php',
-        'JSMin_UnterminatedCommentException' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMin.php',
-        'JSMin_UnterminatedRegExpException' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMin.php',
-        'JSMin_UnterminatedStringException' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMin.php',
-        'JSNode' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMinPlus.php',
-        'JSParser' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMinPlus.php',
-        'JSToken' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMinPlus.php',
-        'JSTokenizer' => __DIR__ . '/..' . '/mrclay/minify/min/lib/JSMinPlus.php',
+        'HTTP_ConditionalGet' => __DIR__ . '/..' . '/mrclay/minify/lib/HTTP/ConditionalGet.php',
+        'HTTP_Encoder' => __DIR__ . '/..' . '/mrclay/minify/lib/HTTP/Encoder.php',
         'JavaScriptPacker' => __DIR__ . '/..' . '/joliclic/javascript-packer/class.JavaScriptPacker.php',
-        'Minify' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify.php',
-        'Minify_Build' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Build.php',
-        'Minify_CSS' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/CSS.php',
-        'Minify_CSS_Compressor' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/CSS/Compressor.php',
-        'Minify_CSS_UriRewriter' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/CSS/UriRewriter.php',
-        'Minify_CSSmin' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/CSSmin.php',
-        'Minify_Cache_APC' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Cache/APC.php',
-        'Minify_Cache_File' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Cache/File.php',
-        'Minify_Cache_Memcache' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Cache/Memcache.php',
-        'Minify_Cache_WinCache' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Cache/WinCache.php',
-        'Minify_Cache_XCache' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Cache/XCache.php',
-        'Minify_Cache_ZendPlatform' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Cache/ZendPlatform.php',
-        'Minify_ClosureCompiler' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/ClosureCompiler.php',
-        'Minify_ClosureCompiler_Exception' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/ClosureCompiler.php',
-        'Minify_CommentPreserver' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/CommentPreserver.php',
-        'Minify_Controller_Base' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Controller/Base.php',
-        'Minify_Controller_Files' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Controller/Files.php',
-        'Minify_Controller_Groups' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Controller/Groups.php',
-        'Minify_Controller_MinApp' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Controller/MinApp.php',
-        'Minify_Controller_Page' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Controller/Page.php',
-        'Minify_Controller_Version1' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Controller/Version1.php',
-        'Minify_DebugDetector' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/DebugDetector.php',
-        'Minify_HTML' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/HTML.php',
-        'Minify_HTML_Helper' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/HTML/Helper.php',
-        'Minify_ImportProcessor' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/ImportProcessor.php',
-        'Minify_JS_ClosureCompiler' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/JS/ClosureCompiler.php',
-        'Minify_JS_ClosureCompiler_Exception' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/JS/ClosureCompiler.php',
-        'Minify_Lines' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Lines.php',
-        'Minify_Loader' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Loader.php',
-        'Minify_Logger' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Logger.php',
-        'Minify_Packer' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Packer.php',
-        'Minify_Source' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/Source.php',
-        'Minify_YUICompressor' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/YUICompressor.php',
-        'Minify_YUI_CssCompressor' => __DIR__ . '/..' . '/mrclay/minify/min/lib/Minify/YUI/CssCompressor.php',
-        'MrClay\\Cli' => __DIR__ . '/..' . '/mrclay/minify/min/lib/MrClay/Cli.php',
-        'MrClay\\Cli\\Arg' => __DIR__ . '/..' . '/mrclay/minify/min/lib/MrClay/Cli/Arg.php',
+        'Minify' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify.php',
+        'Minify\\App' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/App.php',
+        'Minify\\Config' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Config.php',
+        'Minify\\JS\\JShrink' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/JS/JShrink.php',
+        'Minify\\Logger\\LegacyHandler' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Logger/LegacyHandler.php',
+        'Minify_Build' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Build.php',
+        'Minify_CSS' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/CSS.php',
+        'Minify_CSS_Compressor' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/CSS/Compressor.php',
+        'Minify_CSS_UriRewriter' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/CSS/UriRewriter.php',
+        'Minify_CSSmin' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/CSSmin.php',
+        'Minify_CacheInterface' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/CacheInterface.php',
+        'Minify_Cache_APC' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Cache/APC.php',
+        'Minify_Cache_APCu' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Cache/APCu.php',
+        'Minify_Cache_File' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Cache/File.php',
+        'Minify_Cache_Memcache' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Cache/Memcache.php',
+        'Minify_Cache_Null' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Cache/Null.php',
+        'Minify_Cache_WinCache' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Cache/WinCache.php',
+        'Minify_Cache_XCache' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Cache/XCache.php',
+        'Minify_Cache_ZendPlatform' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Cache/ZendPlatform.php',
+        'Minify_ClosureCompiler' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/ClosureCompiler.php',
+        'Minify_ClosureCompiler_Exception' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/ClosureCompiler.php',
+        'Minify_CommentPreserver' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/CommentPreserver.php',
+        'Minify_ControllerInterface' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/ControllerInterface.php',
+        'Minify_Controller_Base' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Controller/Base.php',
+        'Minify_Controller_Files' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Controller/Files.php',
+        'Minify_Controller_Groups' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Controller/Groups.php',
+        'Minify_Controller_MinApp' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Controller/MinApp.php',
+        'Minify_Controller_Page' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Controller/Page.php',
+        'Minify_DebugDetector' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/DebugDetector.php',
+        'Minify_Env' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Env.php',
+        'Minify_HTML' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/HTML.php',
+        'Minify_HTML_Helper' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/HTML/Helper.php',
+        'Minify_ImportProcessor' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/ImportProcessor.php',
+        'Minify_JS_ClosureCompiler' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/JS/ClosureCompiler.php',
+        'Minify_JS_ClosureCompiler_Exception' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/JS/ClosureCompiler.php',
+        'Minify_LessCssSource' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/LessCssSource.php',
+        'Minify_Lines' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Lines.php',
+        'Minify_NailgunClosureCompiler' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/NailgunClosureCompiler.php',
+        'Minify_Packer' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Packer.php',
+        'Minify_ScssCssSource' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/ScssCssSource.php',
+        'Minify_ServeConfiguration' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/ServeConfiguration.php',
+        'Minify_Source' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Source.php',
+        'Minify_SourceInterface' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/SourceInterface.php',
+        'Minify_SourceSet' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/SourceSet.php',
+        'Minify_Source_Factory' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Source/Factory.php',
+        'Minify_Source_FactoryException' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/Source/FactoryException.php',
+        'Minify_YUICompressor' => __DIR__ . '/..' . '/mrclay/minify/lib/Minify/YUICompressor.php',
+        'MrClay\\Cli' => __DIR__ . '/..' . '/mrclay/minify/lib/MrClay/Cli.php',
+        'MrClay\\Cli\\Arg' => __DIR__ . '/..' . '/mrclay/minify/lib/MrClay/Cli/Arg.php',
         'Packager' => __DIR__ . '/..' . '/kamicane/packager/packager.php',
         'ParseMaster' => __DIR__ . '/..' . '/joliclic/javascript-packer/class.JavaScriptPacker.php',
         'Spyc' => __DIR__ . '/..' . '/kamicane/packager/libs/spyc.php',
@@ -195,6 +277,10 @@ class ComposerStaticInite802f67b6ee25a77a3e76f5a417b5777
         'aCssRulesetStartToken' => __DIR__ . '/..' . '/cssmin/cssmin/cssmin-v3.0.1.php',
         'aCssToken' => __DIR__ . '/..' . '/cssmin/cssmin/cssmin-v3.0.1.php',
         'lessc' => __DIR__ . '/..' . '/oyejorge/less.php/lessc.inc.php',
+        'lessc_formatter_classic' => __DIR__ . '/..' . '/marcusschwarz/lesserphp/lessc.inc.php',
+        'lessc_formatter_compressed' => __DIR__ . '/..' . '/marcusschwarz/lesserphp/lessc.inc.php',
+        'lessc_formatter_lessjs' => __DIR__ . '/..' . '/marcusschwarz/lesserphp/lessc.inc.php',
+        'lessc_parser' => __DIR__ . '/..' . '/marcusschwarz/lesserphp/lessc.inc.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

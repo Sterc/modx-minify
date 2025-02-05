@@ -1,0 +1,42 @@
+{
+    "name": "intervention/httpauth",
+    "description": "HTTP authentication (Basic & Digest) including ServiceProviders for easy Laravel integration",
+    "homepage": "https://github.com/Intervention/httpauth",
+    "keywords": ["authentication", "http", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oliver Vogel",
+            "email": "oliver@olivervogel.com",
+            "homepage": "https://olivervogel.com/"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "phpstan/phpstan": "^0.12.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Intervention\\HttpAuth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Intervention\\HttpAuth\\Test\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Intervention\\HttpAuth\\Laravel\\HttpAuthServiceProvider"
+            ],
+            "aliases": {
+                "HttpAuth": "Intervention\\HttpAuth\\Laravel\\Facades\\HttpAuth"
+            }
+        }
+    },
+    "minimum-stability": "stable"
+}
