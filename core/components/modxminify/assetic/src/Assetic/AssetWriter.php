@@ -79,6 +79,7 @@ class AssetWriter
         if (false === @file_put_contents($path, $contents)) {
             throw new \RuntimeException('Unable to write file '.$path);
         }
+        chmod($path, 0644);
     }
 
     /**
