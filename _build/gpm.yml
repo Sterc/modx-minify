@@ -1,0 +1,52 @@
+name: modxMinify
+lowCaseName: modxminify
+description: Minify your CSS, SCSS, LESS and JS files.
+author: Sterc
+namespace: modxminify
+version: 1.0.5-pl
+
+build:
+  setupOptions: "setup.options.php"
+  scriptsAfter: ["setupoptions.resolver.php", "stercextra.resolver.php"]
+
+systemSettings:
+  - key: user_name
+    type: textfield
+    area: general
+    value:
+  - key: user_email
+    type: textfield
+    area: general
+    value:
+  - key: cache_path
+    type: textfield
+    area: modxminify
+    value:
+  - key: cache_url
+    type: textfield
+    area: modxminify
+    value:
+
+snippets:
+  - name: modxMinify
+    description: Minify your CSS, SCSS, LESS and JS files.
+    file: modxminify.snippet.php
+    properties:
+      - name: group
+        description: The group ID or name to minify.
+        value:
+
+plugins:
+  - name: modxMinifyCacheClear
+    file: modxminifycacheclear.plugin.php
+    events: ['OnSiteRefresh']
+
+menus:
+  - text: modxminify.menu.modxminify
+    description: modxminify.menu.modxminify_desc
+    action: index
+    parent: components
+    permission: modxminify
+
+database:
+  tables: ['modxMinifyGroup', 'modxMinifyFile']

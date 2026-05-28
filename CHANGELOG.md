@@ -1,5 +1,16 @@
 Changelog for modxMinify.
 
+ModxMinify 1.0.5 (2026-05-28)
+=============================
+- Migrate to new GPM build format (gpm.yml)
+- Move CHANGELOG.md to repository root
+- Upgrade scssphp to scssphp/scssphp v2.1.0 (requires PHP >= 8.1)
+
+ModxMinify 1.0.4 (2026-05-28)
+=============================
+- Downgrade scssphp back to leafo/scssphp v0.x for broad PHP compatibility
+- Add gpm.yml for new GPM build format
+
 ModxMinify 1.0.3 (2025-02-05)
 =============================
 - Upgrade ScssPhp by composer
@@ -44,7 +55,6 @@ ModxMinify 0.1.5 (2016-01-15)
 - Updated Assetic library to latest version
 - Added support for .less files
 - Fix file extension check in minify class
-
 
 ModxMinify 0.1 (2015-12-18)
 =============================
