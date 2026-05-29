@@ -34,6 +34,18 @@ All settings use the `modxminify.` namespace and can be configured in the MODX m
 | `cache_path` | `modxminify.cache_path` | `{assets_path}cache`    | Path to the directory where minified files are stored. |
 | `cache_url`  | `modxminify.cache_url`  | `{assets_url}cache`     | URL to the cache directory for serving minified files. |
 
+## Dependencies
+
+Modx Minify uses [Assetic](https://github.com/kriswallsmith/assetic) as its asset pipeline, with the following libraries handling compilation and minification:
+
+| Library | Purpose |
+| ------- | ------- |
+| [scssphp/scssphp](https://github.com/scssphp/scssphp) | SCSS compilation |
+| [oyejorge/less.php](https://github.com/oyejorge/less.php) | LESS compilation |
+| [cssmin/cssmin](https://code.google.com/archive/p/cssmin/) | CSS minification |
+| [mrclay/minify](https://github.com/mrclay/minify) | JS minification (pinned to ~2.2, see Known Limitations) |
+| [patchwork/jsqueeze](https://github.com/nicolas-grekas/JSqueeze) | JS compression |
+
 ## Known limitations
 
 ### mrclay/minify is pinned to ~2.2
@@ -46,3 +58,7 @@ Do not upgrade `mrclay/minify` in `core/components/modxminify/assetic/composer.j
 This is a free extra and the code is publicly available for you to change. The extra is being actively maintained and you're free to put in pull requests which match our roadmap. Please create an issue if the pull request differs from the roadmap so we can make sure we're on the same page.
 
 Need help? [Approach our support desk for paid premium support.](mailto:service@sterc.com)
+
+## License
+
+GPL v2 — see [LICENSE.md](LICENSE.md).
