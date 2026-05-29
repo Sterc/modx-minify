@@ -10,6 +10,7 @@ Modx Minify is a MODX extra that lets you group and minify CSS, SCSS, LESS, and 
 
 ```html
 <link rel="stylesheet" type="text/css" href="[[!modxMinify?&group=`css`]]" />
+<script src="[[!modxMinify?&group=`js`]]"></script>
 ```
 
 The `[[!modxMinify]]` snippet generates one minified file from all files in the specified group. It automatically detects changes in your files and any modifications made in the CMP (adding, updating, removing, or reordering files).
