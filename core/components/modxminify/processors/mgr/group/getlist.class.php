@@ -11,6 +11,7 @@ class modxMinifyGroupGetListProcessor extends modObjectGetListProcessor
     public $languageTopics = array('modxminify:default');
     public $defaultSortField = 'id';
     public $defaultSortDirection = 'ASC';
+    public $defaultLimit = 0;
 
     public function prepareQueryBeforeCount(xPDOQuery $c)
     {

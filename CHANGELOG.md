@@ -5,6 +5,11 @@ ModxMinify 1.0.5 (2026-05-28)
 - Migrate to new GPM build format (gpm.yml)
 - Move CHANGELOG.md to repository root
 - Upgrade scssphp to scssphp/scssphp v2.1.0 (requires PHP >= 8.1)
+- Fix PHP warning: undefined variable $skip when no cached file exists yet
+- Fix group selector in CMP showing only 20 groups (removed default limit)
+- Fix CMP intro message showing menu description instead of full intro text
+- Add README note for MODX installations in a subdirectory (cache path config)
+- Fix fatal error on SCSS syntax errors; log file/line to MODX error log instead of crashing the site
 
 ModxMinify 1.0.4 (2026-05-28)
 =============================

@@ -36,6 +36,15 @@ All settings use the `modxminify.` namespace and can be configured in the MODX m
 | `cache_path` | `modxminify.cache_path` | `{assets_path}cache`     | Path to the directory where minified files are stored. |
 | `cache_url`  | `modxminify.cache_url`  | `{assets_url}cache`      | URL to the cache directory for serving minified files. |
 
+### MODX installed in a subdirectory
+
+If your MODX installation lives under a subdirectory (e.g. `mydomain.com/subdirectory/`), the default `{assets_url}` will include the subdirectory prefix, which can cause the cache folder to be created at the wrong path. Set the system settings manually:
+
+| Setting             | Example value                                    |
+| ------------------- | ------------------------------------------------ |
+| `modxminify.cache_path` | `/var/www/html/subdirectory/assets/components/modxminify/cache/` |
+| `modxminify.cache_url`  | `/subdirectory/assets/components/modxminify/cache/` |
+
 ## Dependencies
 
 ModxMinify uses [Assetic](https://github.com/kriswallsmith/assetic) as its asset pipeline, with the following libraries handling compilation and minification:

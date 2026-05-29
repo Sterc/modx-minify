@@ -9,6 +9,7 @@ use Assetic\Filter\CSSUriRewriteFilter;
 use Assetic\Filter\ScssphpFilter;
 use Assetic\Filter\LessphpFilter;
 use Assetic\Filter\JSMinFilter;
+use ScssPhp\ScssPhp\Exception\SassException;
 
 /**
  * The main modxMinify service class.
@@ -165,6 +166,7 @@ class modxMinify
 
                 // find the old minified files
                 // if necessary, remove old and generate new, based on file modification time of minified file
+                $skip = 0;
                 foreach (glob($this->options['cachePath'].'/'.$filePrefix.'-'.$group.'-*'.$fileSuffix) as $current) {
                     if (filemtime($current) > $lastEdited) {
                         // current file is up to date
@@ -184,7 +186,20 @@ class modxMinify
                 $am->set($group, $collection);
 
                 if ($updatedFiles > 0 && $skip == 0) {
-                    $writer->writeManagerAssets($am);
+                    try {
+                        $writer->writeManagerAssets($am);
+                    } catch (SassException $e) {
+                        $span = $e->getSpan();
+                        $file = str_replace('file://', '', $span->getSourceUrl());
+                        $line = $span->getStart()->getLine() + 1;
+                        $this->log('[modxMinify] SCSS error in "'.$file.'" on line '.$line.': '.$e->getOriginalMessage(), 'error');
+                        // Return empty string intentionally: broken CSS is worse than no CSS,
+                        // and the blank href makes the error immediately visible on the frontend.
+                        return '';
+                    } catch (\Exception $e) {
+                        $this->log('[modxMinify] Compilation error in group "'.$group.'": '.$e->getMessage(), 'error');
+                        return '';
+                    }
                 }
                 $output = $this->options['cacheUrl'].'/'.$minifyFilename;
             } else {
