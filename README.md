@@ -1,6 +1,8 @@
-# Modx Minify
+# ModxMinify
 
-Modx Minify is a MODX extra that lets you group and minify CSS, SCSS, LESS, and JS files. Create named groups of files, then use the `[[!modxMinify]]` snippet to output a single minified file per group.
+ModxMinify is a MODX extra for compiling SCSS and LESS files, grouping and minifying CSS and JS assets.
+
+Create named groups of files, then use the `modxMinify` snippet to output a single minified file per group.
 
 ## Usage
 
@@ -9,18 +11,18 @@ Modx Minify is a MODX extra that lets you group and minify CSS, SCSS, LESS, and 
 3. Place the snippet in your template's `<head>`:
 
 ```html
-<link rel="stylesheet" type="text/css" href="[[!modxMinify?&group=`css`]]" />
-<script src="[[!modxMinify?&group=`js`]]"></script>
+<link rel="stylesheet" type="text/css" href="[[!modxMinify? &group=`css`]]" />
+<script src="[[!modxMinify? &group=`js`]]"></script>
 ```
 
-The `[[!modxMinify]]` snippet generates one minified file from all files in the specified group. It automatically detects changes in your files and any modifications made in the CMP (adding, updating, removing, or reordering files).
+The `modxMinify` snippet generates one minified file from all files in the specified group. It automatically detects changes in your files and any modifications made in the CMP (adding, updating, removing, or reordering files).
 
 ## Combining groups
 
-You can combine multiple groups into one minified file by passing a comma-separated list of group names to `[[!modxMinify]]`:
+You can combine multiple groups into one minified file by passing a comma-separated list of group names to `modxMinify`:
 
 ```
-[[!modxMinify?&group=`vendor_css,theme_css`]]
+[[!modxMinify? &group=`vendor_css,theme_css`]]
 ```
 
 In the above example all files from the `vendor_css` and `theme_css` groups are combined into one minified CSS file.
@@ -29,22 +31,22 @@ In the above example all files from the `vendor_css` and `theme_css` groups are 
 
 All settings use the `modxminify.` namespace and can be configured in the MODX manager under System Settings.
 
-| Setting      | Key                    | Default                  | Description                                       |
-| ------------ | ---------------------- | ------------------------ | ------------------------------------------------- |
-| `cache_path` | `modxminify.cache_path` | `{assets_path}cache`    | Path to the directory where minified files are stored. |
-| `cache_url`  | `modxminify.cache_url`  | `{assets_url}cache`     | URL to the cache directory for serving minified files. |
+| Setting      | Key                     | Default                  | Description                                            |
+| ------------ | ----------------------- | ------------------------ | ------------------------------------------------------ |
+| `cache_path` | `modxminify.cache_path` | `{assets_path}cache`     | Path to the directory where minified files are stored. |
+| `cache_url`  | `modxminify.cache_url`  | `{assets_url}cache`      | URL to the cache directory for serving minified files. |
 
 ## Dependencies
 
-Modx Minify uses [Assetic](https://github.com/kriswallsmith/assetic) as its asset pipeline, with the following libraries handling compilation and minification:
+ModxMinify uses [Assetic](https://github.com/kriswallsmith/assetic) as its asset pipeline, with the following libraries handling compilation and minification:
 
-| Library | Purpose |
-| ------- | ------- |
-| [scssphp/scssphp](https://github.com/scssphp/scssphp) | SCSS compilation |
-| [oyejorge/less.php](https://github.com/oyejorge/less.php) | LESS compilation |
-| [cssmin/cssmin](https://code.google.com/archive/p/cssmin/) | CSS minification |
-| [mrclay/minify](https://github.com/mrclay/minify) | JS minification (pinned to ~2.2, see Known Limitations) |
-| [patchwork/jsqueeze](https://github.com/nicolas-grekas/JSqueeze) | JS compression |
+| Library                                                          | Purpose           |
+| ---------------------------------------------------------------- | ----------------- |
+| [scssphp/scssphp](https://github.com/scssphp/scssphp)            | SCSS compilation  |
+| [oyejorge/less.php](https://github.com/oyejorge/less.php)        | LESS compilation  |
+| [cssmin/cssmin](https://code.google.com/archive/p/cssmin/)       | CSS minification  |
+| [mrclay/minify](https://github.com/mrclay/minify)                | JS minification (pinned to ~2.2, see Known Limitations) |
+| [patchwork/jsqueeze](https://github.com/nicolas-grekas/JSqueeze) | JS compression    |
 
 ## Known limitations
 
