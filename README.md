@@ -18,6 +18,14 @@ You can also combine multiple groups into one minified file, by using a comma-se
 
 In the above example all the files from group 'css' and 'css2' get combined into one minified CSS file.
 
+## Known limitations
+
+### mrclay/minify is pinned to ~2.2
+
+The JS minification relies on `\JSMin::minify()` from `mrclay/minify`. This class (`min/lib/JSMin.php`) was removed in version 3.0.0 of that package, so upgrading to `~3.0` or `~4.0` will break JS minification with a "class not found" error.
+
+Do not upgrade `mrclay/minify` in `core/components/modxminify/assetic/composer.json` without replacing the `JSMinFilter` with an alternative. The upstream package authors themselves recommend against using it for new projects — it does not handle modern JavaScript syntax well.
+
 # Free Extra
 This is a free extra and the code is publicly available for you to change. The extra is being actively maintained and you're free to put in pull requests which match our roadmap. Please create an issue if the pull request differs from the roadmap so we can make sure we're on the same page.
 
