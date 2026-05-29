@@ -1,22 +1,28 @@
 # Modx Minify
 
-Modx Minify is a MODX CMP to group and minify your CSS, SCSS, LESS and JS files. You can create groups, and each group can contain multiple files of the same type. So for instance you create a group named 'css' where you can add all your css, scss and less files. After that you place the snippet call ``[[!modxMinify?&group=`css`]]`` inside a `<link>` tag in your head and a minified css file will be generated which will contain all your files grouped and minified!
+Modx Minify is a MODX extra that lets you group and minify CSS, SCSS, LESS, and JS files. Create named groups of files, then use the `[[!modxMinify]]` snippet to output a single minified file per group.
 
 ## Usage
-* Install the package via Package Management
-* Add groups and files via the cmp
-* Inside your <head> in your template, place the snippet call, for example: 
 
-``<link rel="stylesheet" type="text/css" href="[[!modxMinify?&group=`css`]]" />``
+1. Install the package via Package Management
+2. Add groups and files via the CMP
+3. Place the snippet in your template's `<head>`:
 
-The modxMinify snippet generates one minified file from all the files added to your specified group. The snippet automatically detects changes in your files, and also checks for changes made in the CMP (adding, updating, removing or reordering of files).
+```html
+<link rel="stylesheet" type="text/css" href="[[!modxMinify?&group=`css`]]" />
+```
+
+The `[[!modxMinify]]` snippet generates one minified file from all files in the specified group. It automatically detects changes in your files and any modifications made in the CMP (adding, updating, removing, or reordering files).
 
 ## Combining groups
-You can also combine multiple groups into one minified file, by using a comma-separated list of groups in your [[!modxMinify]] snippet call:
 
-``[[!modxMinify?&group=`css,css2`]]``
+You can combine multiple groups into one minified file by passing a comma-separated list of group names to `[[!modxMinify]]`:
 
-In the above example all the files from group 'css' and 'css2' get combined into one minified CSS file.
+```
+[[!modxMinify?&group=`vendor_css,theme_css`]]
+```
+
+In the above example all files from the `vendor_css` and `theme_css` groups are combined into one minified CSS file.
 
 ## System Settings
 
