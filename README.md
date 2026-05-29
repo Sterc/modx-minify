@@ -18,6 +18,15 @@ You can also combine multiple groups into one minified file, by using a comma-se
 
 In the above example all the files from group 'css' and 'css2' get combined into one minified CSS file.
 
+## System Settings
+
+All settings use the `modxminify.` namespace and can be configured in the MODX manager under System Settings.
+
+| Setting      | Key                    | Default                  | Description                                       |
+| ------------ | ---------------------- | ------------------------ | ------------------------------------------------- |
+| `cache_path` | `modxminify.cache_path` | `{assets_path}cache`    | Path to the directory where minified files are stored. |
+| `cache_url`  | `modxminify.cache_url`  | `{assets_url}cache`     | URL to the cache directory for serving minified files. |
+
 ## Known limitations
 
 ### mrclay/minify is pinned to ~2.2
