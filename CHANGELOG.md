@@ -1,5 +1,9 @@
 Changelog for modxMinify.
 
+ModxMinify 1.0.6 (2026-06-10)
+=============================
+- Add bootstrap.php to register xPDO package on install, fixing DB tables not being created
+
 ModxMinify 1.0.5 (2026-05-28)
 =============================
 - Migrate to new GPM build format (gpm.yml)

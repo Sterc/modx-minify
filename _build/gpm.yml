@@ -3,7 +3,7 @@ lowCaseName: modxminify
 description: Minify your CSS, SCSS, LESS and JS files.
 author: Sterc
 namespace: modxminify
-version: 1.0.5-pl
+version: 1.0.6-pl
 
 build:
   setupOptions: "setup.options.php"
